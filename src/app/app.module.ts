@@ -24,10 +24,15 @@ import { ContactPageComponent } from './contact-page/contact-page.component';
 import { SearchInNavBarComponent } from './navbar/search-in-nav-bar/search-in-nav-bar.component';
 import { PortDashboardPageComponent } from './port-dashboard-page/port-dashboard-page.component';
 import { DashboardItemComponent } from './port-dashboard-page/dashboard-item/dashboard-item.component';
-import { SingleDataComponent } from './port-dashboard-page/dashboard-item/single-data/single-data.component';
-import { TableComponent } from './port-dashboard-page/dashboard-item/table/table.component';
+import { SingleDataComponent } from './port-dashboard-page/dashboard-item/single-data-collection/single-data/single-data.component';
+import { TableComponent } from './port-dashboard-page/dashboard-item/pie-chart/table/table.component';
 import { GraphBarComponent } from './port-dashboard-page/dashboard-item/graph-bar/graph-bar.component';
 import { PieChartComponent } from './port-dashboard-page/dashboard-item/pie-chart/pie-chart.component';
+import { SingleDataCollectionComponent } from './port-dashboard-page/dashboard-item/single-data-collection/single-data-collection.component';
+import { CargotransportTableComponent } from './cargotransport-table/cargotransport-table.component';
+import { TransportOverviewComponent } from './transport-page/transport-overview/transport-overview.component';
+import { CargoTableComponent } from './transport-page/transport-overview/cargo-table/cargo-table.component';
+import { CargoPiechartComponent } from './transport-page/transport-overview/cargo-piechart/cargo-piechart.component';
 
 const routes: Routes = [
   { path: '', component: HomepageComponent },
@@ -71,7 +76,12 @@ const routes: Routes = [
     SingleDataComponent,
     TableComponent,
     GraphBarComponent,
-    PieChartComponent
+    PieChartComponent,
+    SingleDataCollectionComponent,
+    CargotransportTableComponent,
+    TransportOverviewComponent,
+    CargoTableComponent,
+    CargoPiechartComponent
   ],
   imports: [
     BrowserModule,

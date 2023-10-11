@@ -8,3 +8,7 @@
 .charts-placement{
   display: flex;
 }
+
+.fill-btn{
+  width: 100%;
+}

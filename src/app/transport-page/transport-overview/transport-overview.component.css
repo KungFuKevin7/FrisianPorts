@@ -1,0 +1,11 @@
+.overview, .pie-chart-view, .single-data{
+  border: solid 1px #0155A5;
+  border-radius: 5px;
+  margin: 10px;
+}
+
+.overview-header{
+  background-color: #0155A5;
+  color: #FFFFFF;
+  padding: 10px;
+}

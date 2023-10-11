@@ -1,12 +1,14 @@
-<h1 class="title">Goederenstromen Periodeoverzicht </h1>
+<div class="dashboard-box">
+  <h1 class="title">Goederenstromen Periodeoverzicht </h1>
+    <ngx-charts-bar-vertical-2d
+      [results]="displayData"
+      [xAxis]="true"
+      [yAxis]="true"
+      [showXAxisLabel]="true"
+      [showYAxisLabel]="true"
+      [xAxisLabel]="'Dag'"
+      [yAxisLabel]="'Gewicht in kilogram'"
+      [legend]="true">
+    </ngx-charts-bar-vertical-2d>
+</div>
 
-<ngx-charts-bar-vertical-2d
-[results]="displayData"
-[xAxis]="true"
-[yAxis]="true"
-[showXAxisLabel]="true"
-[showYAxisLabel]="true"
-[xAxisLabel]="'Dag'"
-[yAxisLabel]="'Gewicht in kilogram'"
-[legend]="true">
-</ngx-charts-bar-vertical-2d>

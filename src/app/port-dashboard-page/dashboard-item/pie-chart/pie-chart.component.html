@@ -1,6 +1,25 @@
+<div class="container">
+  <div class="charts-placement">
+    <div class="col-md-6">
+      <ngx-charts-pie-chart
+        [results]="testResult"
+        [labels]="true"
+      ></ngx-charts-pie-chart>
+    </div>
+    <div class="col-md-6">
+      <ngx-charts-pie-chart
+      [results]="testResult"
+      [labels]="true">
+      </ngx-charts-pie-chart>
+    </div>
+  </div>
 
-<ngx-charts-pie-chart
-[results]="testResult"
-[labels]="true"
->
-</ngx-charts-pie-chart>
+  <div class="row">
+    <div class="col-sm-6">
+      <app-table [Title]="'Import'"></app-table>
+    </div>
+    <div class="col-sm-6">
+      <app-table [Title]="'Export'"></app-table>
+    </div>
+  </div>
+</div>

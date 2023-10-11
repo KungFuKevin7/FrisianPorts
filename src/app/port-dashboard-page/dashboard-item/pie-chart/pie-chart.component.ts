@@ -8,10 +8,6 @@ import {LegendPosition} from "@swimlane/ngx-charts";
 })
 export class PieChartComponent {
 
-
-
-  legendPosition : LegendPosition = LegendPosition.Below;
-
   testResult = [
     {
       "name": "Plants",

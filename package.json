@@ -22,6 +22,7 @@
     "@ng-bootstrap/ng-bootstrap": "^14.2.0",
     "@popperjs/core": "^2.11.6",
     "@swimlane/ngx-charts": "^20.4.1",
+    "angular-chart.js": "^1.1.1",
     "bootstrap": "^5.2.3",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
