@@ -1,0 +1,36 @@
+.image-header{
+  position: relative;
+  text-align: center;
+}
+
+.text-in-image{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #FFFFFF;
+  font-size: 50px;
+  font-weight: 500;
+}
+
+.user-menu{
+  border: #0155A5 solid 1px;
+  border-radius: 5px;
+}
+
+.user-menu-header{
+  color: #FFFFFF;
+  background-color: #0155A5;
+  padding: 20px;
+}
+
+.user-menu-body{
+  padding: 20px;
+}
+
+.user-menu-btn{
+  margin-top: 20px;
+  background-color: #0155A5;
+  color: #FFFFFF;
+
+}

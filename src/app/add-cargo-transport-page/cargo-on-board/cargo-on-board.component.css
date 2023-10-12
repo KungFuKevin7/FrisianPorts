@@ -1,0 +1,17 @@
+.add-cargo-btn{
+  display: block;
+  border: solid #000000 1px;
+  color: black;
+  border-radius: 10px;
+  text-decoration: none;
+  font-size: 30px;
+  padding: 10px;
+}
+
+.add-cargo-btn :hover{
+  cursor: pointer;
+}
+
+.weight-sum{
+  text-align: right;
+}

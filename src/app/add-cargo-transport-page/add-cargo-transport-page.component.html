@@ -1,1 +1,68 @@
-<p>add-cargo-transport-page works!</p>
+<div class="container">
+
+  <h1 class="text-center">Goederenstroom toevoegen</h1>
+
+  <form>
+    <div class="add-item-form">
+      <div class="form-header">
+        <h1>Startpunt - Eindbestemming</h1>
+      </div>
+
+      <div class="small-blank"></div>
+
+      <div class="route-section">
+        <div class="function-description">
+          <h1>Goederenstroom route</h1>
+          <p>Vul hieronder het vertrekpunt, de bestemming, de vertrekdatum en de frequentie van deze goederenstroom in.</p>
+        </div>
+
+        <div class="row">
+          <div class="form-group col-sm-5 mx-auto">
+            <label for="depart-input">Vertrekpunt</label>
+            <input id="depart-input" class="input-field form-control form-control-lg" type="text">
+          </div>
+          <div class="form-group col-sm-5 mx-auto">
+            <label for="arrival-input">Bestemming</label>
+            <input id="arrival-input" class="input-field form-control form-control-lg" type="text">
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="form-group col-sm-5 mx-auto">
+            <label for="start-date">Startdatum</label>
+            <input id="start-date" class="input-field form-control form-control-lg" type="date">
+            <a>Instellen op vandaag</a>
+          </div>
+          <div class="form-group col-sm-5 mx-auto">
+            <label for="frequency">Frequentie (Hoe vaak)</label>
+            <input id="frequency" class="input-field form-control form-control-lg" type="text">
+          </div>
+        </div>
+
+      </div>
+
+      <div class="blank">
+        <hr>
+      </div>
+
+      <div class="cargo-on-board">
+        <div class="function-description">
+          <h1>Vracht aan boord</h1>
+          <p>Voer hieronder de goederen en het gewicht van ieder goed in, die aanboord zijn voor deze goederenstroom.</p>
+        </div>
+        <app-cargo-on-board></app-cargo-on-board>
+
+      </div>
+      <div class="mx-auto col-sm-10">
+        <a class="text-center add-cargo-btn">
+          <h1>
+            Goederenstroom toevoegen
+          </h1>
+        </a>
+      </div>
+      <div class="blank"></div>
+    </div>
+  </form>
+</div>
+
+<div class="blank"></div>

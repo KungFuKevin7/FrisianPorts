@@ -4,8 +4,17 @@
   margin: 10px;
 }
 
+.single-data{
+  padding: 25px;
+}
+
 .overview-header{
   background-color: #0155A5;
   color: #FFFFFF;
   padding: 10px;
+  margin-bottom: 20px;
+}
+
+.pie-chart-title{
+  margin: 10px;
 }

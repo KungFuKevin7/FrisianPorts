@@ -1,19 +1,26 @@
 <div class="container">
-  <div class="text-center">
-    <h1>Inloggen</h1>
-      <div class="col-sm-5">
-        <input class="form-control form-control-lg" placeholder="Emailadres" type="email">
+    <h1 class="text-center">Inloggen</h1>
+
+    <div class="blank"></div>
+
+      <div class="mx-auto col-sm-5">  <!--mx-auto is used for centering-->
+        <label for="email">Emailadres</label>
+        <input id="email" class="input-field form-control form-control-lg" placeholder="Emailadres" type="email">
       </div>
 
       <div class="blank"></div>
 
-      <div class="col-sm-5">
-        <input class="form-control form-control-lg" placeholder="Wachtwoord" type="password">
+      <div class="mx-auto col-sm-5"> <!--mx-auto is used for centering-->
+        <label for="password-field">Wachtwoord</label>
+        <input id="password-field" class="form-control form-control-lg" placeholder="Wachtwoord" type="password">
+        <a class="links">Wachtwoord Vergeten?</a>
       </div>
-    <a class="links">Wachtwoord Vergeten?</a>
     <br>
-    <button class="btn btn-primary">Inloggen</button>
-    <p>Nog geen account?</p>
-    <a class="links">Klik hier om te registreren</a>
-  </div>
+
+    <div class="text-center">
+      <button class="btn btn-primary">Inloggen</button>
+
+      <p>Nog geen account?</p>
+      <a class="links" routerLink="/register">Klik hier om te registreren</a>
+    </div>
 </div>

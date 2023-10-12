@@ -33,6 +33,10 @@ import { CargotransportTableComponent } from './cargotransport-table/cargotransp
 import { TransportOverviewComponent } from './transport-page/transport-overview/transport-overview.component';
 import { CargoTableComponent } from './transport-page/transport-overview/cargo-table/cargo-table.component';
 import { CargoPiechartComponent } from './transport-page/transport-overview/cargo-piechart/cargo-piechart.component';
+import { CargoOnBoardComponent } from './add-cargo-transport-page/cargo-on-board/cargo-on-board.component';
+import { SearchResultListComponent } from './search-page/search-result-list/search-result-list.component';
+import { SearchResultComponent } from './search-page/search-result-list/search-result/search-result.component';
+import { CargoTransportTableComponent } from './cargo-transport-page/cargo-transport-table/cargo-transport-table.component';
 
 const routes: Routes = [
   { path: '', component: HomepageComponent },
@@ -81,7 +85,11 @@ const routes: Routes = [
     CargotransportTableComponent,
     TransportOverviewComponent,
     CargoTableComponent,
-    CargoPiechartComponent
+    CargoPiechartComponent,
+    CargoOnBoardComponent,
+    SearchResultListComponent,
+    SearchResultComponent,
+    CargoTransportTableComponent
   ],
   imports: [
     BrowserModule,
