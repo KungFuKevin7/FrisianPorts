@@ -1,8 +1,24 @@
 <div class="result-card">
   <div class="result-header">
-    <h3>Vertrek en Bestemming</h3>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-1">
+          <img src="assets/icons/main-ship.png" width="65" height="35">
+        </div>
+        <div class="col-sm">
+          <h3>Vertrek en Bestemming</h3>
+        </div>
+        <div class="col-sm">
+          <a class="button-to-fold" (click)="foldSearchResult()">
+            <img *ngIf="isFolded" src="assets/icons/chevron-up.png" width="75" height="40">
+            <img *ngIf="!isFolded" src="assets/icons/chevron-down.png" width="75" height="40">
+          </a>
+        </div>
+      </div>
+    </div>
   </div>
-  <div class="result-body">
+
+  <div *ngIf="!isFolded" class="result-body">
     <p class="info-text">Goederenstroom</p>
     <h3 class="Value">00300</h3>
     <hr>

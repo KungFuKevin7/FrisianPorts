@@ -1,0 +1,26 @@
+<table class="table table-striped table-hover">
+  <thead>
+  <tr>
+    <th scope="col">Vertrekpunt</th>
+    <th scope="col">Bestemming</th>
+    <th scope="col">Frequentie</th>
+    <th scope="col">Gewicht</th>
+    <th scope="col">Wijzigen</th>
+    <th scope="col">Verwijderen</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr class="table-row" routerLink="/transport">
+    <td>Harlingen</td>
+    <td>Leeuwarden</td>
+    <td>Elke Dag</td>
+    <td>10 ton</td>
+    <td routerLink="/add-cargo-transport">
+      <img src="assets/icons/pencil.png" width="60" height="60">
+    </td>
+    <td (click)="removeItem()">
+      <img src="assets/icons/trash.png" width="50" height="60">
+    </td>
+  </tr>
+  </tbody>
+</table>

@@ -13,4 +13,9 @@ export class CargoOnBoardComponent {
   {
     console.log("works");
   }
+
+  public removeGood()
+  {
+    alert("removed");
+  }
 }

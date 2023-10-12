@@ -19,10 +19,11 @@
   padding: 10px;
 }
 
-.fill-btn :hover{
+.fill-btn :hover, .button-to-fold:hover{
   cursor: pointer;
 }
 
-.text-right{
-  text-align: right;
+.button-to-fold{
+  float: right;
 }
+

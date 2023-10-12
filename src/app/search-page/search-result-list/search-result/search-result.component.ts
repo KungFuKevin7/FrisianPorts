@@ -6,8 +6,16 @@ import { Component } from '@angular/core';
   styleUrls: ['./search-result.component.css']
 })
 export class SearchResultComponent {
-  public test()
+  public isFolded : boolean = true;
+
+  public foldSearchResult()
   {
-    alert("Hello!");
+    if (this.isFolded)
+    {
+      this.isFolded = false;
+    }
+    else{
+      this.isFolded =true;
+    }
   }
 }

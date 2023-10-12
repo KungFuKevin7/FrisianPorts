@@ -8,7 +8,7 @@
   padding: 10px;
 }
 
-.add-cargo-btn :hover{
+.add-cargo-btn :hover, .remove-btn:hover{
   cursor: pointer;
 }
 

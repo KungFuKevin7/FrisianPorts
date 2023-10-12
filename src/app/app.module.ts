@@ -12,7 +12,6 @@ import { NotfoundpageComponent } from './notfoundpage/notfoundpage.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { SearchPageComponent } from './search-page/search-page.component';
 import { TransportPageComponent } from './transport-page/transport-page.component';
-import { CargoTransportPageComponent } from './cargo-transport-page/cargo-transport-page.component';
 import { CargoTransportOfPortPageComponent } from './cargo-transport-of-port-page/cargo-transport-of-port-page.component';
 import { MyAccountPageComponent } from './my-account-page/my-account-page.component';
 import { LoginPageComponent } from './login-page/login-page.component';
@@ -36,7 +35,11 @@ import { CargoPiechartComponent } from './transport-page/transport-overview/carg
 import { CargoOnBoardComponent } from './add-cargo-transport-page/cargo-on-board/cargo-on-board.component';
 import { SearchResultListComponent } from './search-page/search-result-list/search-result-list.component';
 import { SearchResultComponent } from './search-page/search-result-list/search-result/search-result.component';
-import { CargoTransportTableComponent } from './cargo-transport-page/cargo-transport-table/cargo-transport-table.component';
+import { SearchPageInputComponent } from './search-page/search-page-input/search-page-input.component';
+import { AddedItemsTableComponent } from './my-added-items-page/added-items-table/added-items-table.component';
+import { FilterPeriodComponent } from './my-added-items-page/filter-period/filter-period.component';
+import { MapComponent } from './mappage/map/map.component';
+import { PortsOnMapComponent } from './mappage/ports-on-map/ports-on-map.component';
 
 const routes: Routes = [
   { path: '', component: HomepageComponent },
@@ -44,7 +47,7 @@ const routes: Routes = [
   { path: 'search', component : SearchPageComponent},
   { path: 'add-cargo-transport', component : AddCargoTransportPageComponent},
   { path: 'cargo-transport-of-port', component : CargoTransportOfPortPageComponent},
-  { path: 'cargo-transport', component : CargoTransportPageComponent},
+  { path: 'cargo-transport', component : SearchPageComponent},
   { path: 'contact', component : ContactPageComponent},
   { path: 'login', component : LoginPageComponent},
   { path: 'my-account', component : MyAccountPageComponent},
@@ -65,7 +68,6 @@ const routes: Routes = [
     NavbarComponent,
     SearchPageComponent,
     TransportPageComponent,
-    CargoTransportPageComponent,
     CargoTransportOfPortPageComponent,
     MyAccountPageComponent,
     LoginPageComponent,
@@ -89,7 +91,11 @@ const routes: Routes = [
     CargoOnBoardComponent,
     SearchResultListComponent,
     SearchResultComponent,
-    CargoTransportTableComponent
+    SearchPageInputComponent,
+    AddedItemsTableComponent,
+    FilterPeriodComponent,
+    MapComponent,
+    PortsOnMapComponent
   ],
   imports: [
     BrowserModule,

@@ -2,6 +2,7 @@
   <div class="row">
     <div class="form-group col-sm-2">
       <label for="goods-type">Goederensoort</label>
+      <img class="icon" src="assets/icons/container.png" width="40" height="30">
       <select id="goods-type" class="form-select form-select-lg">
         <option>Bulkgoed</option>
         <option>Container</option>
@@ -9,11 +10,13 @@
       </select>
     </div>
     <div class="form-group col-sm-6">
-      <label for="goods-description">Goederen </label> <img class="icon" src="assets/icons/cargo.png" width="20" height="20">
+      <label for="goods-description">Goederen </label>
+      <img class="icon" src="assets/icons/cargo2.png" width="30" height="30">
       <input id="goods-description" class="input-field form-control form-control-lg" type="text">
     </div>
     <div class="form-group col-sm-3">
-      <label for="goods-weight">Gewicht (in tonnen)</label> <img class="icon" src="assets/icons/weight.png" width="20" height="20">
+      <label for="goods-weight">Gewicht (in tonnen)</label>
+      <img class="icon" src="assets/icons/weight.png" width="30" height="30">
       <input id="goods-weight" class="input-field form-control form-control-lg" type="text">
     </div>
   </div>
@@ -38,7 +41,9 @@
         <input class="input-field form-control form-control-lg" type="text">
       </div>
       <div class="form-group col-sm-1">
-        <a class="btn btn-danger">Delete</a>
+        <a class="remove-btn" (click)="removeGood()">
+          <img src="assets/icons/trash.png" width="30" height="40">
+        </a>
       </div>
   </div>
 </div>
