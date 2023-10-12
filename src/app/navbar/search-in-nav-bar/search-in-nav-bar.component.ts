@@ -7,4 +7,16 @@ import { Component } from '@angular/core';
 })
 export class SearchInNavBarComponent {
 
+  public searchQuery : string = "";
+
+  public handleSearchQuery()
+  {
+    if(this.searchQuery.length < 3)
+    {
+      alert("do nothing!");
+    }
+    else{
+      alert("OK, searching for: " +  this.searchQuery);
+    }
+  }
 }

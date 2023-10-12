@@ -1,1 +1,12 @@
-<input class="form-control" type="text" placeholder="Zoeken">
+<div class="nav-search input-group">
+  <input [(ngModel)]="searchQuery"  class="form-control" type="text" placeholder="Zoeken">
+  <div class="input-group-append nav-search-btn">
+    <a (click)="handleSearchQuery()">
+      <img src="assets/icons/search.png" width="40" height="35">
+    </a>
+  </div>
+</div>
+
+<div *ngIf="searchQuery.length >= 3" class="search-result-overlay">
+  <app-nav-search-result-list></app-nav-search-result-list>
+</div>

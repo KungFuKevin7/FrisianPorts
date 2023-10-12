@@ -40,6 +40,8 @@ import { AddedItemsTableComponent } from './my-added-items-page/added-items-tabl
 import { FilterPeriodComponent } from './my-added-items-page/filter-period/filter-period.component';
 import { MapComponent } from './mappage/map/map.component';
 import { PortsOnMapComponent } from './mappage/ports-on-map/ports-on-map.component';
+import {FormsModule} from "@angular/forms";
+import { NavSearchResultListComponent } from './navbar/search-in-nav-bar/nav-search-result-list/nav-search-result-list.component';
 
 const routes: Routes = [
   { path: '', component: HomepageComponent },
@@ -95,17 +97,19 @@ const routes: Routes = [
     AddedItemsTableComponent,
     FilterPeriodComponent,
     MapComponent,
-    PortsOnMapComponent
+    PortsOnMapComponent,
+    NavSearchResultListComponent
   ],
-  imports: [
-    BrowserModule,
-    NgbModule,
-    RouterLink,
-    RouterOutlet,
-    BrowserAnimationsModule,  //ngx-charts dependency
-    NgxChartsModule,          //ngx-charts library
-    RouterModule.forRoot(routes)
-  ],
+    imports: [
+        BrowserModule,
+        NgbModule,
+        RouterLink,
+        RouterOutlet,
+        BrowserAnimationsModule,  //ngx-charts dependency
+        NgxChartsModule,          //ngx-charts library
+        RouterModule.forRoot(routes),
+        FormsModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })
