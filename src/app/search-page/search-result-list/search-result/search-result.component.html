@@ -1,20 +1,16 @@
 <div class="result-card">
   <div class="result-header">
     <div class="container">
-      <div class="row">
-        <div class="col-sm-1">
-          <img src="assets/icons/main-ship.png" width="65" height="35">
-        </div>
-        <div class="col-sm">
-          <h3>Vertrek en Bestemming</h3>
-        </div>
-        <div class="col-sm">
-          <a class="button-to-fold" (click)="foldSearchResult()">
-            <img *ngIf="isFolded" src="assets/icons/chevron-up.png" width="75" height="40">
-            <img *ngIf="!isFolded" src="assets/icons/chevron-down.png" width="75" height="40">
-          </a>
-        </div>
-      </div>
+      <img class="float-start" src="assets/icons/main-ship.png" width="65" height="35">
+
+      <h5 class="float-start">Vertrek - Bestemming</h5>
+
+      <a class="button-to-fold float-end" (click)="foldSearchResult()">
+        <img *ngIf="isFolded" src="assets/icons/chevron-up.png" width="50" height="25">
+        <img *ngIf="!isFolded"  src="assets/icons/chevron-down.png" width="50" height="25">
+      </a>
+
+      <h3 class="extra-padding">.</h3>
     </div>
   </div>
 
@@ -28,9 +24,10 @@
     <p class="info-text">Totaal gewicht aan boord</p>
     <h3 class="Value">120700 kg</h3>
     <hr>
-      <div routerLink="/transport" class="fill-btn">
-        <a>Meer goederenstroom info</a>
-      </div>
+    <div routerLink="/transport" class="fill-btn">
+      <img class="img-fluid space-right" src="assets/icons/cargo2.png">
+      <a>Meer goederenstroom info</a>
+    </div>
   </div>
 </div>
 

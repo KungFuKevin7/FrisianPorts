@@ -1,9 +1,17 @@
 <div class="nav-search input-group">
+
   <input [(ngModel)]="searchQuery"  class="form-control" type="text" placeholder="Zoeken">
-  <div class="input-group-append nav-search-btn">
-    <a (click)="handleSearchQuery()">
-      <img src="assets/icons/search.png" width="40" height="35">
-    </a>
+    <div class="input-group-append">
+      <div>
+
+      </div>
+    </div>
+  <div class="input-group-append">
+    <div class=" nav-search-btn">
+      <a (click)="emptyField()">
+        <div class="btn btn-close closing-btn"></div>
+      </a>
+    </div>
   </div>
 </div>
 

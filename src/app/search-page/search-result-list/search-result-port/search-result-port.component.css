@@ -14,17 +14,20 @@
 }
 
 .fill-btn{
-  text-align: center;
   font-size: 20px;
-  padding: 10px;
+  color: black;
+  text-decoration: none;
+  transition: scale ease-in-out 100ms;
 }
 
-.fill-btn :hover, .button-to-fold:hover{
+.fill-btn :hover{
   cursor: pointer;
+  scale:103%;
+  transition: scale ease-in-out 100ms;
 }
 
-.space-right{
-  margin-right: 10px;
+.button-to-fold:hover{
+  cursor: pointer;
 }
 
 .extra-padding{

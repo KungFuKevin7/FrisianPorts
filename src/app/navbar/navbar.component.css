@@ -21,6 +21,7 @@
   font-size: 120%;
 }
 
-hr {
+.seperator {
+  border: solid 1px rgba(152,152,152,0.25);
   margin-top: 10px;
 }

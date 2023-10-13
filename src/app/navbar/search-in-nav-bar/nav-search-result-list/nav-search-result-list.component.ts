@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, ElementRef, HostListener} from '@angular/core';
 
 @Component({
   selector: 'app-nav-search-result-list',
@@ -6,5 +6,21 @@ import { Component } from '@angular/core';
   styleUrls: ['./nav-search-result-list.component.css']
 })
 export class NavSearchResultListComponent {
+
+  /*
+  constructor(private eRef: ElementRef) {
+
+  }
+
+  @HostListener('document:click', ['$event'])
+  clickout(event : any) {
+    if(this.eRef.nativeElement.contains(event.target)) {
+
+    } else {
+
+      alert("OUTSIDE");
+    }
+  }*/
+
 
 }

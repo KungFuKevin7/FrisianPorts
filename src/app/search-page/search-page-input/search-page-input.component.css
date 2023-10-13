@@ -2,3 +2,10 @@
   margin: 50px 0px;
 }
 
+.nav-search-btn{
+  background-color: #0155A5;
+  border: solid #0155A5;
+  border-width: 3px 10px;
+  border-radius: 5px;
+}
+

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 
 @Component({
   selector: 'app-search-in-nav-bar',
@@ -19,4 +19,9 @@ export class SearchInNavBarComponent {
       alert("OK, searching for: " +  this.searchQuery);
     }
   }
+
+  public emptyField(){
+    this.searchQuery = "";
+  }
+
 }
