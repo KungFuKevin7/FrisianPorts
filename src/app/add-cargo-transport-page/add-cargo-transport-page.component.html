@@ -32,8 +32,8 @@
         <div class="row">
           <div class="form-group col-sm-5 mx-auto">
             <label for="start-date">Startdatum</label>
-            <input id="start-date" class="input-field form-control form-control-lg" type="date">
-            <a>Instellen op vandaag</a>
+            <input [(ngModel)]="date" id="start-date" class="input-field form-control form-control-lg" type="date">
+            <!--<a class="set-today-btn" (click)="setDateToday()">Instellen op vandaag</a>-->
           </div>
           <div class="form-group col-sm-5 mx-auto">
             <label for="frequency">Frequentie (Hoe vaak)</label>

@@ -1,0 +1,7 @@
+<label for="period-dropdown">Periode</label>
+<select #periodFilter (change)="alertPeriod(periodFilter.value.toString())" id="period-dropdown" class="form-select form-select-lg">
+  <option>Laatste maand</option>
+  <option>Laatste jaar</option>
+  <option>Alles</option>
+</select>
+

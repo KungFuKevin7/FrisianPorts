@@ -6,5 +6,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./add-cargo-transport-page.component.css']
 })
 export class AddCargoTransportPageComponent {
+  date : any;
 
+  public setDateToday(){
+    this.date = new Date(2002,12,4);
+  }
+
+  public print(){
+    alert(this.date);
+  }
 }

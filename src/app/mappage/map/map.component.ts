@@ -8,6 +8,8 @@ import * as L from 'leaflet';
 })
 export class MapComponent implements OnInit {
 
+  private portLocations: string[] = [];
+
   private map: any;
   private mapUrl: string = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
   constructor() { }
@@ -20,7 +22,6 @@ export class MapComponent implements OnInit {
     this.map = L.map('map').setView([53.1651, 5.7808], 9);
 
     L.tileLayer(this.mapUrl).addTo(this.map);
-
     this.addMarker();
     // Add markers for Frisian ports
   }
@@ -28,6 +29,12 @@ export class MapComponent implements OnInit {
   private addMarker(): void {
     let marker = new L.Marker([53.18779821656037, 5.762890144888037]);
     marker.addTo(this.map).bindPopup("MCS Terminal - Leeuwarden").on('click',function(e) {
+      alert("Naar Haven op locatie: " + e.latlng);
+      window.location.href = 'http://localhost:4200/port-dashboard';
+    });
+
+    let marker2 = new L.Marker([53.17626252952328, 5.412013295580496]);
+    marker2.addTo(this.map).bindPopup("Port of Harlingen - Harlingen").on('click',function(e) {
       alert("Naar Haven op locatie: " + e.latlng);
       window.location.href = 'http://localhost:4200/port-dashboard';
     });

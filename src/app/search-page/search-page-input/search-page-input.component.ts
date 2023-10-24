@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, Input} from '@angular/core';
 
 @Component({
   selector: 'app-search-page-input',
@@ -7,4 +7,12 @@ import { Component } from '@angular/core';
 })
 export class SearchPageInputComponent {
 
+  @Input() searchQuery : string = "";
+
+  public handleSearchQuery()
+  {
+    if (this.searchQuery.length > 3) {
+      console.log(this.searchQuery);
+    }
+  }
 }

@@ -1,8 +1,8 @@
 <div class="container">
   <h1 class="text-center">Goederenstromen</h1>
-  <p class="text-center">2 zoekresultaten voor ""</p>
+  <p class="text-center">{{searchResultsCount}} zoekresultaten voor ""</p>
 
   <app-search-page-input></app-search-page-input>
 
-  <app-search-result-list></app-search-result-list>
+  <app-search-result-list (searchResultsCount)="notify($event)"></app-search-result-list>
 </div>

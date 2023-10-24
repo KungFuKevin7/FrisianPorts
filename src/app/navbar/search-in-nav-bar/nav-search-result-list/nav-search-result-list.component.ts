@@ -1,4 +1,4 @@
-import {Component, ElementRef, HostListener} from '@angular/core';
+import {Component} from '@angular/core';
 
 @Component({
   selector: 'app-nav-search-result-list',
@@ -7,20 +7,6 @@ import {Component, ElementRef, HostListener} from '@angular/core';
 })
 export class NavSearchResultListComponent {
 
-  /*
-  constructor(private eRef: ElementRef) {
-
-  }
-
-  @HostListener('document:click', ['$event'])
-  clickout(event : any) {
-    if(this.eRef.nativeElement.contains(event.target)) {
-
-    } else {
-
-      alert("OUTSIDE");
-    }
-  }*/
-
+  MyItems : number[] = [1,99,22]
 
 }

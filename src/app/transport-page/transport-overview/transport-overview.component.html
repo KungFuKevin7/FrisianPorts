@@ -15,11 +15,14 @@
     </div>
   </div>
 
+  <br>
+
   <div class="row">
     <div class="col-md-6">
       <div class="pie-chart-view">
-        <h3 class="pie-chart-title">Goederenverdeling</h3>
+        <h3 class="pie-chart-title">Totale Goederenverdeling</h3>
         <app-cargo-piechart></app-cargo-piechart>
+        <app-cargo-table></app-cargo-table>
       </div>
     </div>
     <div class="col-md-6">
@@ -37,12 +40,17 @@
           </div>
         </div>
       </div>
-
-      <div class="blank">
-
+      <div class="col-md-12">
+        <div class="single-data">
+          <p class="text-center">Aantal scheepsbewegingen</p>
+          <h1 class="text-center">1100</h1>
+        </div>
       </div>
 
+      <div class="blank"></div>
+
       <div class="table-summary">
+        <h1 class="text-center table-title">Goederen aan boord</h1>
         <app-cargo-table></app-cargo-table>
       </div>
     </div>

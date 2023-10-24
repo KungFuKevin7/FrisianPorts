@@ -5,24 +5,27 @@
       <img class="icon" src="assets/icons/container.png" width="40" height="30">
       <select id="goods-type" class="form-select form-select-lg">
         <option>Bulkgoed</option>
+        <option>Bouwmaterialen</option>
         <option>Container</option>
         <option>Stukgoed</option>
+        <option>Vloeibare lading</option>
+        <option>Overig</option>
       </select>
     </div>
     <div class="form-group col-sm-6">
-      <label for="goods-description">Goederen </label>
+      <label for="goods-description">Beschrijving van goederen</label>
       <img class="icon" src="assets/icons/cargo2.png" width="30" height="30">
-      <input id="goods-description" class="input-field form-control form-control-lg" type="text">
+      <textarea id="goods-description" class="input-field form-control form-control-lg" rows="3" type="text"></textarea>
     </div>
     <div class="form-group col-sm-3">
       <label for="goods-weight">Gewicht (in tonnen)</label>
       <img class="icon" src="assets/icons/weight.png" width="30" height="30">
-      <input id="goods-weight" class="input-field form-control form-control-lg" type="text">
+      <input id="goods-weight" class="input-field form-control form-control-lg" type="number">
     </div>
   </div>
 </div>
 
-<div class="new-cargo mx-auto col-sm-11">
+<div *ngFor="let cargo of cargoArray" class="new-cargo mx-auto col-sm-11">
 
   <div class="small-blank"></div>
 
@@ -30,18 +33,21 @@
       <div class="form-group col-sm-2">
         <select class="form-select form-select-lg">
           <option>Bulkgoed</option>
+          <option>Bouwmaterialen</option>
           <option>Container</option>
           <option>Stukgoed</option>
+          <option>Vloeibare lading</option>
+          <option>Overig</option>
         </select>
       </div>
       <div class="form-group col-sm-6">
-        <input class="input-field form-control form-control-lg" type="text">
+        <textarea class="input-field form-control form-control-lg" rows="3" type="text"></textarea>
       </div>
       <div class="form-group col-sm-3">
-        <input class="input-field form-control form-control-lg" type="text">
+        <input class="input-field form-control form-control-lg" type="number">
       </div>
       <div class="form-group col-sm-1">
-        <a class="remove-btn" (click)="removeGood()">
+        <a class="remove-btn" (click)="removeCargo()">
           <img src="assets/icons/trash.png" width="30" height="40">
         </a>
       </div>
@@ -53,7 +59,7 @@
   <div class="small-blank"></div>
 
   <a class="text-center add-cargo-btn">
-    <div (click)="test()">
+    <div (click)="addCargo()">
       Goederen toevoegen
     </div>
   </a>

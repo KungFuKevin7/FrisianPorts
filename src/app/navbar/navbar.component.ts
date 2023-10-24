@@ -6,6 +6,15 @@ import {Component} from '@angular/core';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent {
+  hamburgerMenu : boolean = false;
 
-
+  public closeAndOpenNav()
+  {
+    if (this.hamburgerMenu){
+      this.hamburgerMenu = false;
+    }
+    else{
+      this.hamburgerMenu = true;
+    }
+  }
 }

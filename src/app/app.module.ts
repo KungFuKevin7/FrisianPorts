@@ -43,6 +43,7 @@ import { PortsOnMapComponent } from './mappage/ports-on-map/ports-on-map.compone
 import {FormsModule} from "@angular/forms";
 import { NavSearchResultListComponent } from './navbar/search-in-nav-bar/nav-search-result-list/nav-search-result-list.component';
 import { SearchResultPortComponent } from './search-page/search-result-list/search-result-port/search-result-port.component';
+import { DashboardFilterComponent } from './port-dashboard-page/dashboard-filter/dashboard-filter.component';
 
 const routes: Routes = [
   { path: '', component: HomepageComponent },
@@ -100,7 +101,8 @@ const routes: Routes = [
     MapComponent,
     PortsOnMapComponent,
     NavSearchResultListComponent,
-    SearchResultPortComponent
+    SearchResultPortComponent,
+    DashboardFilterComponent
   ],
     imports: [
         BrowserModule,

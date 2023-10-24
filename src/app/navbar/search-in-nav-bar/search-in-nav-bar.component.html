@@ -1,11 +1,7 @@
 <div class="nav-search input-group">
 
-  <input [(ngModel)]="searchQuery"  class="form-control" type="text" placeholder="Zoeken">
-    <div class="input-group-append">
-      <div>
+  <input [(ngModel)]="searchQuery" (ngModelChange)="handleSearchQuery()" class="form-control" type="text" placeholder="Zoeken">
 
-      </div>
-    </div>
   <div class="input-group-append">
     <div class=" nav-search-btn">
       <a (click)="emptyField()">
@@ -15,6 +11,10 @@
   </div>
 </div>
 
-<div *ngIf="searchQuery.length >= 3" class="search-result-overlay">
-  <app-nav-search-result-list></app-nav-search-result-list>
-</div>
+  <div *ngIf="searchQuery.length >= 3">
+    <div class="invisible-box" (click)="emptyField()">
+    </div>
+    <div class="search-result-overlay">
+      <app-nav-search-result-list></app-nav-search-result-list>
+    </div>
+  </div>

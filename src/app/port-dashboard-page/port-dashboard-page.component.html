@@ -1,33 +1,39 @@
 <div class="container">
 
-  <h1 class="text-center display-4">Naam van haven - Locatie</h1>
+  <div class="small-blank"></div>
+
+  <h1 class="text-center">Naam van haven - Locatie</h1>
+
+  <div class="small-blank"></div>
+
   <div class="row">
 
     <!--Charts and tables-->
-    <div class="col-sm-6">
+    <div class="col-lg-6">
       <div class="dashboard-box">
         <app-pie-chart></app-pie-chart>
       </div>
     </div>
 
     <!--Single Data Section-->
-    <div class="col-md-6">
+    <div class="col-lg-6">
+      <app-dashboard-filter></app-dashboard-filter>
       <app-single-data-collection></app-single-data-collection>
     </div>
     <div class="blank"></div>
 
 <!--Bar graph-->
     <div class="row">
-      <div class="col-md-9">
+      <div class="col-sm-9">
         <app-graph-bar></app-graph-bar>
       </div>
 
-      <div class="col-md-3">
+      <div class="col-sm">
           <app-single-data
-            [Title]="'Datapunt 5'"
+            [Title]="'Gemiddelde import per jaar'"
             [Value]="4899"></app-single-data>
           <app-single-data
-          [Title]="'Datapunt 6'"
+          [Title]="'Gemiddelde export per jaar'"
           [Value]="2002"></app-single-data>
       </div>
     </div>

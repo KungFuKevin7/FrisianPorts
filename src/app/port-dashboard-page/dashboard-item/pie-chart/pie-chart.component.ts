@@ -1,5 +1,4 @@
 import {Component, Input} from '@angular/core';
-import {LegendPosition} from "@swimlane/ngx-charts";
 
 @Component({
   selector: 'app-pie-chart',

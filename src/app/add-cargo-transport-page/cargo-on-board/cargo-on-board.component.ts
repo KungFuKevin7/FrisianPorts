@@ -7,15 +7,18 @@ import {Component, Input} from '@angular/core';
 })
 export class CargoOnBoardComponent {
 
-  amountOfFields : number = 5;
+  cargoArray : number[] = [];
 
-  public test()
+
+  public addCargo()
   {
-    console.log("works");
+    this.cargoArray.push(this.cargoArray.length);
   }
 
-  public removeGood()
+  public removeCargo()
   {
-    alert("removed");
+    this.cargoArray.pop();
   }
+
+
 }

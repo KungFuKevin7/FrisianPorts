@@ -18,3 +18,12 @@
 .closing-btn{
   font-size: 20px;
 }
+
+/*REFERENCE TO OLD PROJECT: disgusting solution. fix?*/
+.invisible-box{
+  margin-left: -125vh;
+  margin-right: 125vh;
+  height: 95vh;
+  width: 200vh;
+  position: fixed;
+}
