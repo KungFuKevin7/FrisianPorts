@@ -1,43 +1,60 @@
 import {Component, OnInit} from '@angular/core';
 import * as L from 'leaflet';
+import {PortService} from "../../services/port.service";
+import {Port} from "../../models/Port";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-map',
   templateUrl: './map.component.html',
-  styleUrls: ['./map.component.css']
+  styleUrls: ['./map.component.css'],
+  providers: [ PortService ]
 })
 export class MapComponent implements OnInit {
 
-  private portLocations: string[] = [];
+  portLocations! : Port[];
 
   private map: any;
   private mapUrl: string = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
-  constructor() { }
+
+  constructor(private portService : PortService)
+  {
+
+  }
 
   ngOnInit(): void {
-    this.initMap();
+    this.getLocationsOnMap();     //First get Locations
+    this.initMap();               //After receiving Locations, then initialize map.
   }
 
   private initMap(): void {
     this.map = L.map('map').setView([53.1651, 5.7808], 9);
-
     L.tileLayer(this.mapUrl).addTo(this.map);
-    this.addMarker();
-    // Add markers for Frisian ports
   }
 
-  private addMarker(): void {
-    let marker = new L.Marker([53.18779821656037, 5.762890144888037]);
-    marker.addTo(this.map).bindPopup("MCS Terminal - Leeuwarden").on('click',function(e) {
-      alert("Naar Haven op locatie: " + e.latlng);
-      window.location.href = 'http://localhost:4200/port-dashboard';
+  public addMarker(port : Port): void {
+    let marker = new L.Marker([Number(port.latitude), Number(port.longitude)]);
+    marker.addTo(this.map).bindPopup(`${port.port_Name} - ${port.port_Location}`)
+      .on('click',function(e) {
+        window.location.href = `http://localhost:4200/port-dashboard?id=${port.port_Id}`;
     });
+  }
 
-    let marker2 = new L.Marker([53.17626252952328, 5.412013295580496]);
-    marker2.addTo(this.map).bindPopup("Port of Harlingen - Harlingen").on('click',function(e) {
-      alert("Naar Haven op locatie: " + e.latlng);
-      window.location.href = 'http://localhost:4200/port-dashboard';
+  public addPortsFromList(ports : Port[])
+  {
+    ports.forEach(port =>
+    {
+      this.addMarker(port)
     });
+  }
+
+  public getLocationsOnMap()
+  {
+    this.portService.getPorts()
+      .subscribe(result => {
+        this.portLocations = result
+        this.addPortsFromList(this.portLocations);
+      });
   }
 
 }

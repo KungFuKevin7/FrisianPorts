@@ -1,7 +1,93 @@
-
+.background{
+  position: fixed;
+  z-index: 1;
+  /*background-color: rgba(1,85,165,90);*/
+}
 
 .center-img{
   display: block;
   margin-right: auto;
   margin-left: auto;
 }
+
+.front-image{
+  position: relative;
+  z-index: 2;
+}
+
+.front-header h1{
+  position: relative;
+  color: #FFFFFF;
+  font-size: 75px;
+  z-index: 2;
+}
+
+.front-body {
+  position: relative;
+  margin: 50px 0px;
+  color: #FFFFFF;
+  z-index: 2;
+}
+
+.btn-to-start {
+  position: relative;
+  padding: 10px;
+  border: #48A9A6 2px solid;
+  border-radius: 10px;
+  background-color: #48A9A6;
+  color: #FFFFFF;
+  text-decoration: none;
+  font-size: 20px;
+  z-index: 2;
+  box-shadow: rgba(0,0,0,50) 1px 1px;
+  transition: 200ms ease-in-out all;
+}
+
+.fly-in-right, .fly-in-right h1{
+  animation: element-slide-in-right 1s ease-in-out;
+}
+
+.fly-in-left{
+  animation: element-slide-in-left 1.25s ease-in-out;
+}
+
+.btn-to-start:hover{
+  background-color: #FFFFFF;
+  border: #48A9A6 2px solid;
+  color: #0155A5;
+  font-size: 25px;
+  cursor: pointer;
+}
+
+.tutorial{
+  position: relative;
+  z-index: 3;
+  background-color: #FFFFFF;
+}
+
+.tutorial-title{
+  margin: 40px 0px;
+}
+
+.front-wall{
+  padding: 10px 0px;
+}
+
+@keyframes element-slide-in-right {
+  0% {
+    right: -2000px;
+  }
+  100% {
+    right: 0px;
+  }
+}
+
+@keyframes element-slide-in-left {
+  0% {
+    left: -2000px;
+  }
+  100% {
+    left: 0px;
+  }
+}
+

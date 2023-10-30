@@ -4,6 +4,7 @@ import {Component, Input} from '@angular/core';
   selector: 'app-search-page',
   templateUrl: './search-page.component.html',
   styleUrls: ['./search-page.component.css']
+  //providers: [ Service ]
 })
 export class SearchPageComponent {
   @Input() searchResultsCount : number = 0;
@@ -11,6 +12,6 @@ export class SearchPageComponent {
   public notify(count : number) : void
   {
     this.searchResultsCount =count;
-    alert("Number updated to:" + count);
+    console.log("Number updated to:" + count);
   }
 }
