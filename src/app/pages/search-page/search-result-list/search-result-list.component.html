@@ -1,0 +1,8 @@
+<div  *ngIf="MyItems.length > 0">
+  <app-search-result></app-search-result>
+  <app-search-result></app-search-result>
+</div>
+<div *ngIf="MyItems.length < 1">
+  <img class="img-fluid img-center" src="../../../../assets/images/NoSearchResults.png" height="500" width="500">
+  <h3 class="text-center">Geen zoekresultaten gevonden</h3>
+</div>

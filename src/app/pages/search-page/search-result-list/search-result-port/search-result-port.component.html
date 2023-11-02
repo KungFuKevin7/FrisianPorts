@@ -1,0 +1,46 @@
+<div class="result-card">
+  <div class="result-header">
+    <div class="container">
+<!--
+      <img class="float-start" src="assets/icons/anchor.png" width="40" height="40">
+-->
+
+      <h5 class="float-start">Havennaam - Locatie</h5>
+
+      <a class="float-end button-to-fold" (click)="foldSearchResult()">
+        <img *ngIf="isFolded" src="../../../../../assets/icons/chevron-up.png" width="50" height="25">
+        <img *ngIf="!isFolded" src="../../../../../assets/icons/chevron-down.png" width="50" height="25">
+      </a>
+
+      <h3 class="extra-padding">.</h3>
+    </div>
+  </div>
+
+  <div *ngIf="!isFolded" class="result-body">
+      <a class="fill-btn" routerLink="/port-dashboard">
+        <div class="row">
+          <div class="col-2">
+            <img src="../../../../../assets/icons/anchor2.png" width="40" height="45">
+          </div>
+          <div class="col-9">
+            <p>Naar pagina van de haven</p>
+          </div>
+        </div>
+      </a>
+
+    <hr>
+
+      <a class="fill-btn"  routerLink="/cargo-transport-of-port">
+        <div class="row">
+          <div class="col-2">
+            <img src="../../../../../assets/icons/main-ship-dark.png" width="55" height="35">
+          </div>
+          <div class="col-9">
+            <p>Goederenstromen van haven</p>
+          </div>
+        </div>
+      </a>
+  </div>
+</div>
+
+<div class="small-blank"></div>
