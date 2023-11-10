@@ -9,7 +9,7 @@ import {HttpClient, HttpParams} from "@angular/common/http";
   providedIn: 'root'
 })
 
-export class CargoTransportService implements  IServiceTemplate<CargoTransport>{
+export class CargoTransportService implements IServiceTemplate<CargoTransport>{
 
   constructor(private http : HttpClient)
   { }
@@ -40,5 +40,23 @@ export class CargoTransportService implements  IServiceTemplate<CargoTransport>{
   update(updatedObject: CargoTransport): Observable<number> {
     return this.http.put<number>
     (this.apiUri, updatedObject);
+  }
+
+  getImport(portId: number): Observable<CargoTransport[]> {
+    const parameter = {
+      params : new HttpParams().set("portId", portId)
+    };
+
+    return this.http.get<CargoTransport[]>(`${this.apiUri}/get-import`,
+      parameter);
+  }
+
+  getExport(portId: number): Observable<CargoTransport[]> {
+    const parameter = {
+      params : new HttpParams().set("portId", portId)
+    };
+
+    return this.http.get<CargoTransport[]>(`${this.apiUri}/get-export`,
+      parameter);
   }
 }

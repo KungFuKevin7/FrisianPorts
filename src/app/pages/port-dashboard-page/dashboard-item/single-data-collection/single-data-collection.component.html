@@ -2,12 +2,12 @@
   <div class="col-md-6">
     <app-single-data
       [Title]="'Aankomst schepen aantal'"
-      [Value]="2900"></app-single-data>
+      [Value]="importAmount"></app-single-data>
   </div>
   <div class="col-md-6">
     <app-single-data
       [Title]="'Totaal Gewicht Import'"
-      [Value]="2152"></app-single-data>
+      [Value]="importWeight"></app-single-data>
   </div>
 </div>
 
@@ -15,12 +15,12 @@
   <div class="col-md-6">
       <app-single-data
         [Title]="'Vertrek Schepen aantal'"
-        [Value]="5584"></app-single-data>
+        [Value]="exportAmount"></app-single-data>
   </div>
   <div class="col-md-6">
     <app-single-data
       [Title]="'Totaal Gewicht Export'"
-      [Value]="189"></app-single-data>
+      [Value]="exportWeight"></app-single-data>
   </div>
 </div>
 
@@ -28,11 +28,11 @@
   <div class="col-md-6">
     <app-single-data
       [Title]="'Totaal Scheepsbewegingen'"
-      [Value]="5584"></app-single-data>
+      [Value]="exportAmount + importAmount"></app-single-data>
   </div>
   <div class="col-md-6">
     <app-single-data
       [Title]="'Totale Overslag'"
-      [Value]="189"></app-single-data>
+      [Value]="importWeight + exportWeight"></app-single-data>
   </div>
 </div>

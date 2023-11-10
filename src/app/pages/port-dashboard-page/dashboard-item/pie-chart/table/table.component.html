@@ -7,13 +7,9 @@
   </tr>
   </thead>
   <tbody>
-  <tr>
-    <th scope="row">Planten</th>
-    <td>14221kg</td>
-  </tr>
-  <tr>
-    <th scope="row">Chemicaliën</th>
-    <td>13264kg</td>
-  </tr>
+    <tr *ngFor="let transport of transported">
+      <th scope="row">{{transport.cargo_Type_Name}}</th>
+      <td>{{transport.transported_Weight}}</td>
+    </tr>
   </tbody>
 </table>

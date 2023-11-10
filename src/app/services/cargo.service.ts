@@ -35,4 +35,16 @@ export class CargoService implements IServiceTemplate<Cargo>{
   update(updatedObject: Cargo): Observable<number> {
     return this.http.put<number>(this.apiUri,updatedObject);
   }
+
+  getImportCargo(portId : number) : Observable<Cargo[]>{
+    let parameter = { params : new HttpParams().set("portId", portId)}
+
+    return this.http.get<Cargo[]>(`${this.apiUri}/get-import`, parameter);
+  }
+
+  getExportCargo(portId : number) : Observable<Cargo[]>{
+    let parameter = { params : new HttpParams().set("portId", portId)}
+
+    return this.http.get<Cargo[]>(`${this.apiUri}/get-export`, parameter);
+  }
 }

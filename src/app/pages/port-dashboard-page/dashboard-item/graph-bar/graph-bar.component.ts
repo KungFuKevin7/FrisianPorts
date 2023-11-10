@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./graph-bar.component.css']
 })
 export class GraphBarComponent {
-  displayData =[{"name": "2",
+  displayData =[{"name": "2022",
     "series": [
       {
         "name": "Import",
@@ -18,7 +18,7 @@ export class GraphBarComponent {
       }
     ]
   },{
-    "name": "4",
+    "name": "2023",
     "series": [
       {
         "name": "Import",

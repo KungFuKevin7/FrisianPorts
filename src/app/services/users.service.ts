@@ -8,6 +8,7 @@ import {Observable} from "rxjs";
 @Injectable({
   providedIn: 'root'
 })
+
 export class UsersService implements IServiceTemplate<Users>{
 
   constructor(private http : HttpClient)
@@ -33,7 +34,7 @@ export class UsersService implements IServiceTemplate<Users>{
   }
 
   update(updatedObject: Users): Observable<number> {
-    return this.http.put<number>(this.apiUri,updatedObject);
+    return this.http.put<number>(this.apiUri, updatedObject);
   }
 
 
