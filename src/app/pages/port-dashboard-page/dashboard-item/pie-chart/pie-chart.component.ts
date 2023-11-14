@@ -15,47 +15,38 @@ export class PieChartComponent implements OnInit{
   constructor(private dashboardService : PortDashboardService) {
   }
 
+  @Input() portId! : number;
   Import : any;
   Export : any;
 
   ngOnInit(): void {
-    this.Import = this.getImport();
+    this.getImport();
     this.getExport();
   }
 
   public getImport()
   {
-    this.dashboardService.getImportDistribution()
-      .pipe(
-        map((data: any[]) =>{
-            return data.map(item => ({
-              name: item.Cargo_Type_Name,
-              value : item.Transported_Weight
+    this.dashboardService.getImportDistribution(this.portId).subscribe(
+        response => {
+          this.Import = response.map(item => (
+            {
+              name: item.cargo_Type_Name,
+              value: item.transported_Weight
             })
-          )
+          );
         })
-      );
-
   }
 
-  public getExport()
-  {
-    this.dashboardService.getExportDistribution()
-      .subscribe(response => {
-         this.Export = response;
-      }
-      );
+  public getExport() {
+    this.dashboardService.getExportDistribution(this.portId).subscribe(
+      response => {
+        this.Export = response.map(item => (
+          {
+            name: item.cargo_Type_Name,
+            value: item.transported_Weight
+          })
+        );
+      })
   }
-
-  testResult = [
-    {
-      "name": "Plants",
-      "value": 91
-    },
-    {
-      "name": "Chemicals",
-      "value": 40
-    }]
-
 
 }

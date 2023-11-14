@@ -1,26 +1,34 @@
 <div class="row">
   <div class="col-md-6">
     <app-single-data
-      [Title]="'Aankomst schepen aantal'"
-      [Value]="importAmount"></app-single-data>
+      [Title]="'Aankomst schepen'"
+      [Value]="importAmount"
+      [DataColour]="'#00FF00'"
+      [IconPath]="'assets/icons/dashboardIcons/ImportShipIcon.png'"></app-single-data>
   </div>
   <div class="col-md-6">
     <app-single-data
-      [Title]="'Totaal Gewicht Import'"
-      [Value]="importWeight"></app-single-data>
+      [Title]="'Gewicht Import'"
+      [Value]="importWeight"
+      [DataColour]="'#00FF00'"
+      [IconPath]="'assets/icons/dashboardIcons/CargoImportIcon.png'"></app-single-data>
   </div>
 </div>
 
 <div class="row">
   <div class="col-md-6">
       <app-single-data
-        [Title]="'Vertrek Schepen aantal'"
-        [Value]="exportAmount"></app-single-data>
+        [Title]="'Vertrek Schepen'"
+        [Value]="exportAmount"
+        [DataColour]="'#D64933'"
+        [IconPath]="'assets/icons/dashboardIcons/ExportShipIcon.png'"></app-single-data>
   </div>
   <div class="col-md-6">
     <app-single-data
-      [Title]="'Totaal Gewicht Export'"
-      [Value]="exportWeight"></app-single-data>
+      [Title]="'Gewicht Export'"
+      [Value]="exportWeight"
+      [DataColour]="'#D64933'"
+      [IconPath]="'assets/icons/dashboardIcons/CargoExportIcon.png'"></app-single-data>
   </div>
 </div>
 
@@ -28,11 +36,13 @@
   <div class="col-md-6">
     <app-single-data
       [Title]="'Totaal Scheepsbewegingen'"
-      [Value]="exportAmount + importAmount"></app-single-data>
+      [Value]="exportAmount + importAmount"
+      [DataColour]="'#0155A5'"></app-single-data>
   </div>
   <div class="col-md-6">
     <app-single-data
       [Title]="'Totale Overslag'"
-      [Value]="importWeight + exportWeight"></app-single-data>
+      [Value]="importWeight + exportWeight"
+      [DataColour]="'#0155A5'"></app-single-data>
   </div>
 </div>

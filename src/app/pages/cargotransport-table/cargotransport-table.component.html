@@ -14,11 +14,14 @@
   </tr>
   </thead>
   <tbody>
-    <tr class="table-row" routerLink="/transport">
-      <td>Harlingen</td>
-      <td>Leeuwarden</td>
-      <td>Elke Dag</td>
-      <td>10 ton</td>
+    <tr *ngFor="let transport of goodsFlow" class="table-row"
+        [routerLink]="['/transport']"
+        [queryParams]="{id : transport.cargo_Transport_Id}">
+
+      <td>{{transport.departure_Location}}</td>
+      <td>{{transport.arrival_Location}}</td>
+      <td>{{transport.frequency}}</td>
+      <td>{{transport.total_Weight}} Ton</td>
     </tr>
   </tbody>
 </table>

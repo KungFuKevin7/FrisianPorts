@@ -45,6 +45,7 @@ import {FormsModule} from "@angular/forms";
 import { NavSearchResultListComponent } from './pages/navbar/search-in-nav-bar/nav-search-result-list/nav-search-result-list.component';
 import { SearchResultPortComponent } from './pages/search-page/search-result-list/search-result-port/search-result-port.component';
 import { DashboardFilterComponent } from './pages/port-dashboard-page/dashboard-filter/dashboard-filter.component';
+import { SmallSingleDataCollectionComponent } from './pages/port-dashboard-page/dashboard-item/graph-bar/small-single-data-collection/small-single-data-collection.component';
 
 const routes: Routes = [
   { path: '', component: HomepageComponent },
@@ -103,7 +104,8 @@ const routes: Routes = [
     PortsOnMapComponent,
     NavSearchResultListComponent,
     SearchResultPortComponent,
-    DashboardFilterComponent
+    DashboardFilterComponent,
+    SmallSingleDataCollectionComponent
   ],
     imports: [
         BrowserModule,

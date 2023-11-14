@@ -6,10 +6,16 @@
     <th scope="col">Gewicht</th>
   </tr>
   </thead>
+
   <tbody>
-    <tr *ngFor="let transport of transported">
-      <th scope="row">{{transport.cargo_Type_Name}}</th>
-      <td>{{transport.transported_Weight}}</td>
+    <tr *ngFor="let transport of DataDisplay">
+      <th scope="row">{{transport.name}}</th>
+      <td>{{transport.value}}</td>
+    </tr>
+    <tr>
+      <th class="">Totale tonnage:</th>
+      <td>{{total}}</td>
     </tr>
   </tbody>
+
 </table>

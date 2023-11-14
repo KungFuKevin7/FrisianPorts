@@ -11,14 +11,19 @@
     <!--Charts and tables-->
     <div class="col-lg-6">
       <div class="dashboard-box">
-        <app-pie-chart></app-pie-chart>
+        <app-pie-chart
+          [portId]="portId">
+        </app-pie-chart>
       </div>
     </div>
 
     <!--Single Data Section-->
     <div class="col-lg-6">
       <app-dashboard-filter></app-dashboard-filter>
-      <app-single-data-collection></app-single-data-collection>
+      <app-single-data-collection
+        [portId]="portId">
+
+      </app-single-data-collection>
     </div>
     <div class="blank"></div>
 
@@ -29,12 +34,9 @@
       </div>
 
       <div class="col-sm">
-          <app-single-data
-            [Title]="'Gemiddelde import per jaar'"
-            [Value]="4899"></app-single-data>
-          <app-single-data
-          [Title]="'Gemiddelde export per jaar'"
-          [Value]="2002"></app-single-data>
+        <app-small-single-data-collection
+        [portId]="portId">
+        </app-small-single-data-collection>
       </div>
     </div>
 
@@ -47,7 +49,8 @@
     <!--Cargotransport table-->
     <div class="row">
       <div class="col-md-6">
-        <app-cargotransport-table>
+        <app-cargotransport-table
+        [portId]="portId">
         </app-cargotransport-table>
 
         <div class="blank"></div>

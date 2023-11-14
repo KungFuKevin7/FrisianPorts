@@ -1,21 +1,23 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Inject, OnInit} from '@angular/core';
 import {PortService} from "../../services/port.service";
 import {Port} from "../../models/Port";
 import {ActivatedRoute} from "@angular/router";
-import {CargoTransportService} from "../../services/cargo-transport.service";
+import {PortDashboardService} from "../../services/port-dashboard.service";
+import {DashboardItemComponent} from "./dashboard-item/dashboard-item.component";
 
 @Component({
   selector: 'app-port-dashboard-page',
   templateUrl: './port-dashboard-page.component.html',
   styleUrls: ['./port-dashboard-page.component.css'],
-  providers: [PortService, CargoTransportService]
+  providers: [PortService]
 })
 export class PortDashboardPageComponent implements OnInit{
 
   selectedPort! : Port;
-  portId : number = 1;
+  portId! : number;
 
   constructor(private portService : PortService,
+              private dashboardService : PortDashboardService,
               private activeRoute : ActivatedRoute)
   {
 
@@ -28,6 +30,7 @@ export class PortDashboardPageComponent implements OnInit{
         this.portId = params['id']; //get query parameter for page display
       }
     );
+
     this.getPortInfo(this.portId);
   }
 
@@ -40,6 +43,7 @@ export class PortDashboardPageComponent implements OnInit{
         }
       }
     );
+
   }
 
 }

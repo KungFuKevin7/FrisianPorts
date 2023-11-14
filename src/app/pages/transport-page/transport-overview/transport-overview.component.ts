@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, Input} from '@angular/core';
 
 @Component({
   selector: 'app-transport-overview',
@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./transport-overview.component.css']
 })
 export class TransportOverviewComponent {
-
+  @Input() cargoTransportId : number = 0;
 }

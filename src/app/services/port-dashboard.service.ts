@@ -1,81 +1,114 @@
-import { Injectable } from '@angular/core';
-import {Observable} from "rxjs";
+import {Injectable} from '@angular/core';
+import {Observable, Subject} from "rxjs";
 import {HttpClient, HttpParams} from "@angular/common/http";
 import {CargoTransport} from "../models/CargoTransport";
 import {Constants} from "../.constants/constants";
-import {Cargo} from "../models/Cargo";
 import {TransportedCargoDTO} from "../models/DTO/TransportedCargoDTO";
+import {YearlyTransportDTO} from "../models/DTO/YearlyTransportDTO";
+import {GoodsFlowDto} from "../models/DTO/GoodsFlowDto";
 
 @Injectable({
   providedIn: 'root'
 })
-export class PortDashboardService {
-
-  constructor(private http : HttpClient) { }
+export class PortDashboardService{
 
   private readonly apiUri : string = `${Constants.apiUrl}`;
 
-  private parameters = {
-    params : new HttpParams()
-      .set("portId", 2)
-      .set("period", "all")
-  };
-
-  public getImportShips(): Observable<CargoTransport[]>
-  {
-    return this.http.get<CargoTransport[]>(`${this.apiUri}/cargo-transport/get-import`,
-      this.parameters);
-  }
-
-  public getExportShips(): Observable<CargoTransport[]>
-  {
-    return this.http.get<CargoTransport[]>(`${this.apiUri}/cargo-transport/get-export`,
-      this.parameters);
-  }
-
-  public getImportWeight(): Observable<number>
-  {
-    return this.http.get<number>(`${this.apiUri}/dashboard/get-import-weight`,
-      this.parameters);
-  }
-
-  public getExportWeight(): Observable<number>
-  {
-    return this.http.get<number>(`${this.apiUri}/dashboard/get-export-weight`,
-      this.parameters);
-  }
-
-  public getAverageImport()
-  {
-    return this.http.get<number>(`${this.apiUri}/dashboard/get-average-import-weight`,
-      this.parameters);
-  }
-
-  public getAverageExport()
-  {
-    return this.http.get<number>(`${this.apiUri}/dashboard/get-average-export-weight`,
-      this.parameters);
-  }
-/*
-  public getTotalImportPerYear()
+  constructor(private http : HttpClient)
   {
 
   }
 
-  public getTotalExportPerYear()
+  public getImportShips(portId : number): Observable<CargoTransport[]>
   {
+    return this.http.get<CargoTransport[]>(`${this.apiUri}/dashboard/import-ships`,
+      {
+        params : new HttpParams()
+          .set("portId", portId)
+      });
+  }
 
-  }*/
+  public getExportShips(portId : number): Observable<CargoTransport[]>
+  {
+    return this.http.get<CargoTransport[]>(`${this.apiUri}/dashboard/export-ships`,
+      {
+        params : new HttpParams()
+          .set("portId", portId)
+      });
+  }
 
-  public getImportDistribution()
+  public getImportWeight(portId : number): Observable<number>
+  {
+    return this.http.get<number>(`${this.apiUri}/dashboard/total-import-tonnage`,
+      {
+        params : new HttpParams()
+          .set("portId", portId)
+      });
+  }
+
+  public getExportWeight(portId : number): Observable<number>
+  {
+    return this.http.get<number>(`${this.apiUri}/dashboard/total-export-tonnage`,
+      {
+        params : new HttpParams()
+          .set("portId", portId)
+      });
+  }
+
+  public getAverageImport(portId : number)
+  {
+    return this.http.get<number>(`${this.apiUri}/dashboard/average-import-tonnage`,
+      {
+        params : new HttpParams()
+          .set("portId", portId)
+      });
+  }
+
+  public getAverageExport(portId : number)
+  {
+    return this.http.get<number>(`${this.apiUri}/dashboard/average-export-tonnage`,
+      {
+      params : new HttpParams()
+        .set("portId", portId)
+    });
+  }
+
+  public getYearlyImport(portId : number)
+  {
+    return this.http.get<YearlyTransportDTO[]>(`${this.apiUri}/dashboard/yearly-import`,
+      {
+        params : new HttpParams()
+          .set("portId", portId)
+      });
+  }
+
+  public getYearlyExport(portId : number)
+  {
+    return this.http.get<YearlyTransportDTO[]>(`${this.apiUri}/dashboard/yearly-export`,
+      {
+        params : new HttpParams()
+          .set("portId", portId)
+      });
+  }
+
+  public getImportDistribution(portId : number)
   {
     return this.http.get<TransportedCargoDTO[]>
-    (`${this.apiUri}/dashboard/get-import-distribution`, this.parameters);
+    (`${this.apiUri}/dashboard/import-distribution`,
+      {params : new HttpParams().set("portId", portId)});
   }
 
-  public getExportDistribution()
+  public getExportDistribution(portId : number)
   {
     return this.http.get<TransportedCargoDTO[]>
-    (`${this.apiUri}/dashboard/get-export-distribution`, this.parameters);
+    (`${this.apiUri}/dashboard/export-distribution`,
+      {params : new HttpParams().set("portId", portId)});
+  }
+
+  public getGoodsFlows(portId : number)
+  {
+    return this.http.get<GoodsFlowDto[]>
+    (`${this.apiUri}/dashboard/flow-of-goods`,
+      {params : new HttpParams().set("portId", portId)});
   }
 }

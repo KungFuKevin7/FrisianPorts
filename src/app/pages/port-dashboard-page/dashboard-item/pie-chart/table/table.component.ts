@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
 import {PortDashboardService} from "../../../../../services/port-dashboard.service";
 import {TransportedCargoDTO} from "../../../../../models/DTO/TransportedCargoDTO";
 
@@ -9,27 +9,27 @@ import {TransportedCargoDTO} from "../../../../../models/DTO/TransportedCargoDTO
   providers: [PortDashboardService]
 })
 
-export class TableComponent implements OnInit{
-  @Input() Title : string = "";
+export class TableComponent implements OnChanges {
+  @Input() Title: string = "";
+  @Input() DataDisplay: any = [];
+  public total : number = 0;
 
-  transported : any;
-
-  constructor(private dashboardService : PortDashboardService) {
+  constructor() {
   }
 
-  ngOnInit() {
-    this.getImportTransport();
+  ngOnChanges(changes: SimpleChanges): void {
+    this.total = this.getTotal(this.DataDisplay);
   }
 
-  public getImportTransport()
+  public getTotal(collection : any)
   {
-    this.dashboardService.getImportDistribution().subscribe(
-      response => {
-        this.transported = response;
-        console.log(response);
-      }
-    )
-  }
+    let sum : number = 0;
+    for(let i = 0; i < collection.length; i++)
+    {
+      sum += collection[i].value;
+    }
 
+    return sum;
+  }
 
 }

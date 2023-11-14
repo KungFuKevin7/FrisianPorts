@@ -1,14 +1,15 @@
 <div class="dashboard-box">
   <h1 class="title">Goederenstromen Periodeoverzicht </h1>
     <ngx-charts-bar-vertical-2d
-      [results]="displayData"
+      [results]="Import"
       [xAxis]="true"
       [yAxis]="true"
       [showXAxisLabel]="true"
       [showYAxisLabel]="true"
       [xAxisLabel]="'Jaar'"
-      [yAxisLabel]="'Gewicht in kilogram'"
+      [yAxisLabel]="'Gewicht in ton'"
       [legend]="true">
     </ngx-charts-bar-vertical-2d>
+
 </div>
 

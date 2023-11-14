@@ -1,4 +1,15 @@
-<div class="dashboard-box">
-  <p class="text-center">{{Title}}</p>
+<div class="dashboard-box" >
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-3 dashboard-icon" *ngIf="IconPath">
+        <img class="img-fluid" height="50" width="50" src="{{IconPath}}">
+      </div>
+      <div class="col-sm data-title">
+        <p class="data-title text-center">{{Title}}</p>
+      </div>
+    </div>
+  </div>
   <p class="data-big text-center">{{Value}}</p>
+  <div class="colour-in-dashboard" [style.background-color]="DataColour">
+  </div>
 </div>

@@ -13,7 +13,7 @@ import {PortDashboardService} from "../../../../services/port-dashboard.service"
 })
 export class SingleDataCollectionComponent {
 
-  portId : number = 2;
+  @Input() portId! : number;
   importAmount : number = 0;
   exportAmount : number = 0;
   importWeight : number = 0;
@@ -30,16 +30,14 @@ export class SingleDataCollectionComponent {
 
   //gets import and export amount of ships
   public getShipments() : any{
-    this.portDashboardService.getImportShips().subscribe(
+    this.portDashboardService.getImportShips(this.portId).subscribe(
       response => {
-        //console.log("Import :" + response);
         this.importAmount = response.length;
       }
     );
 
-    this.portDashboardService.getExportShips().subscribe(
+    this.portDashboardService.getExportShips(this.portId).subscribe(
       response => {
-        //console.log("Export: " + response);
         this.exportAmount = response.length;
       }
     );
@@ -48,13 +46,13 @@ export class SingleDataCollectionComponent {
   //gets total weight of import and export
   public getWeights()
   {
-    this.portDashboardService.getImportWeight().subscribe(
+    this.portDashboardService.getImportWeight(this.portId).subscribe(
       response => {
         this.importWeight = response;
       }
     );
 
-    this.portDashboardService.getExportWeight().subscribe(
+    this.portDashboardService.getExportWeight(this.portId).subscribe(
     response => {
       this.exportWeight = response;
     }
