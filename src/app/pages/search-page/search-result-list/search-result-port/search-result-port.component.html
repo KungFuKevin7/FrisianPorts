@@ -5,11 +5,11 @@
       <img class="float-start" src="assets/icons/anchor.png" width="40" height="40">
 -->
 
-      <h5 class="float-start">Havennaam - Locatie</h5>
+      <h5 class="float-start">{{port.port_Name}} - {{port.port_Location}}</h5>
 
       <a class="float-end button-to-fold" (click)="foldSearchResult()">
-        <img *ngIf="isFolded" src="../../../../../assets/icons/chevron-up.png" width="50" height="25">
-        <img *ngIf="!isFolded" src="../../../../../assets/icons/chevron-down.png" width="50" height="25">
+        <img *ngIf="isFolded" src="../assets/icons/chevron-up.png" width="50" height="25">
+        <img *ngIf="!isFolded" src="../assets/icons/chevron-down.png" width="50" height="25">
       </a>
 
       <h3 class="extra-padding">.</h3>
@@ -17,10 +17,11 @@
   </div>
 
   <div *ngIf="!isFolded" class="result-body">
-      <a class="fill-btn" routerLink="/port-dashboard">
+      <a class="fill-btn" [routerLink]="['/port-dashboard']"
+      [queryParams]="{'id': port.port_Id}">
         <div class="row">
           <div class="col-2">
-            <img src="../../../../../assets/icons/anchor2.png" width="40" height="45">
+            <img src="../assets/icons/anchor2.png" width="40" height="45">
           </div>
           <div class="col-9">
             <p>Naar pagina van de haven</p>
@@ -33,7 +34,7 @@
       <a class="fill-btn"  routerLink="/cargo-transport-of-port">
         <div class="row">
           <div class="col-2">
-            <img src="../../../../../assets/icons/main-ship-dark.png" width="55" height="35">
+            <img src="../assets/icons/main-ship-dark.png" width="55" height="35">
           </div>
           <div class="col-9">
             <p>Goederenstromen van haven</p>

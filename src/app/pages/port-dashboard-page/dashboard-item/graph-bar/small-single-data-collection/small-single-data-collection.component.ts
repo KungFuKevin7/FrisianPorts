@@ -1,11 +1,11 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {PortDashboardService} from "../../../../../services/port-dashboard.service";
+import {AverageService} from "../../../../../services/dashboard-services/average.service";
 
 @Component({
   selector: 'app-small-single-data-collection',
   templateUrl: './small-single-data-collection.component.html',
   styleUrls: ['./small-single-data-collection.component.css'],
-  providers: [PortDashboardService]
+  providers: [AverageService]
 })
 export class SmallSingleDataCollectionComponent implements OnInit{
 
@@ -13,7 +13,7 @@ export class SmallSingleDataCollectionComponent implements OnInit{
   avgImport : number = 0;
   avgExport : number = 0;
 
-  constructor(private dashboardService : PortDashboardService) {
+  constructor(private avgService : AverageService) {
   }
 
   ngOnInit(): void {
@@ -23,7 +23,7 @@ export class SmallSingleDataCollectionComponent implements OnInit{
 
   public getAvgImport()
   {
-    this.dashboardService.getAverageImport(this.portId).subscribe(
+    this.avgService.getAverageImport(this.portId).subscribe(
       response => {
         this.avgImport = response;
       }
@@ -32,7 +32,7 @@ export class SmallSingleDataCollectionComponent implements OnInit{
 
   public getAvgExport()
   {
-    this.dashboardService.getAverageExport(this.portId).subscribe(
+    this.avgService.getAverageExport(this.portId).subscribe(
       response => {
         this.avgExport =  response;
       }

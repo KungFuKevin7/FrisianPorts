@@ -1,14 +1,14 @@
 import {Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
-import {PortDashboardService} from "../../../../services/port-dashboard.service";
 import {concat, map} from "rxjs";
 import {json} from "d3";
 import {YearlyTransportDTO} from "../../../../models/DTO/YearlyTransportDTO";
+import {PeriodService} from "../../../../services/dashboard-services/period.service";
 
 @Component({
   selector: 'app-graph-bar',
   templateUrl: './graph-bar.component.html',
   styleUrls: ['./graph-bar.component.css'],
-  providers: [PortDashboardService]
+  providers: [PeriodService]
 })
 export class GraphBarComponent implements OnInit {
 
@@ -16,50 +16,35 @@ export class GraphBarComponent implements OnInit {
   @Input() portId! : number;
   Import: any;
   Export: any;
+  YearlyData : any;
 
-  constructor(private dashboardService: PortDashboardService) {
+  constructor(private periodService : PeriodService) {
   }
 
   ngOnInit(): void {
-    this.getYearlyImport();
-    this.getYearlyExport();
+    this.getYearlyData();
   }
 
-  public getYearlyImport()
+  public getYearlyData()
   {
-    this.dashboardService.getYearlyImport(this.portId).subscribe(
-      (response : YearlyTransportDTO[]) =>
-      {
-        this.Import = response.map(item => ({
-          name: item.year.toString(),
-          series: [
-            {
-              "name": item.transported.cargo_Type_Name,
-              "value": item.transported.transported_Weight
-            }
-          ]
-        }))
-
+    this.periodService.getYearlyReport(this.portId).subscribe(
+      (response : YearlyTransportDTO[]) => {
+        this.YearlyData = response.map(item => ({
+            name: item.year.toString(),
+            series : [
+              {
+                "name": item.transported[0].cargo_Type_Name,
+                "value": item.transported[0].transported_Weight
+              },
+              {
+                "name": item.transported[1].cargo_Type_Name,
+                "value": item.transported[1].transported_Weight
+              }
+            ]
+        }));
       }
-    );
-  }
+    )
 
-  public getYearlyExport()
-  {
-    this.dashboardService.getYearlyExport(this.portId).subscribe(
-      (response : YearlyTransportDTO[]) =>
-        {
-          this.Export = response.map(item => ({
-          name: item.year.toString(),
-          series: [
-            {
-            "name": item.transported.cargo_Type_Name,
-            "value": item.transported.transported_Weight
-            }
-          ]
-        }))
-        }
-    );
   }
 /*
   displayData =[{"name": "2022",

@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import {IServiceTemplate} from "./IServiceTemplate";
 import {Cargo} from "../models/Cargo";
 import {Observable} from "rxjs";
 import {HttpClient, HttpParams} from "@angular/common/http";
@@ -8,7 +7,7 @@ import {Constants} from "../.constants/constants";
 @Injectable({
   providedIn: 'root'
 })
-export class CargoService implements IServiceTemplate<Cargo>{
+export class CargoService {
 
   constructor(private http : HttpClient) { }
 
@@ -36,15 +35,21 @@ export class CargoService implements IServiceTemplate<Cargo>{
     return this.http.put<number>(this.apiUri,updatedObject);
   }
 
-  getImportCargo(portId : number) : Observable<Cargo[]>{
-    let parameter = { params : new HttpParams().set("portId", portId)}
-
-    return this.http.get<Cargo[]>(`${this.apiUri}/get-import`, parameter);
+  public getImportWeight(portId : number): Observable<number>
+  {
+    return this.http.get<number>(`${this.apiUri}/dashboard/total-import-tonnage`,
+      {
+        params : new HttpParams()
+          .set("portId", portId)
+      });
   }
 
-  getExportCargo(portId : number) : Observable<Cargo[]>{
-    let parameter = { params : new HttpParams().set("portId", portId)}
-
-    return this.http.get<Cargo[]>(`${this.apiUri}/get-export`, parameter);
+  public getExportWeight(portId : number): Observable<number>
+  {
+    return this.http.get<number>(`${this.apiUri}/dashboard/total-export-tonnage`,
+      {
+        params : new HttpParams()
+          .set("portId", portId)
+      });
   }
 }

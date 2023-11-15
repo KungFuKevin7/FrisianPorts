@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import {Component, Input} from '@angular/core';
+import {GoodsFlowDto} from "../../../../models/DTO/GoodsFlowDto";
 
 @Component({
   selector: 'app-search-result',
@@ -6,6 +7,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./search-result.component.css']
 })
 export class SearchResultComponent {
+
+  @Input() result! : GoodsFlowDto;
+
   public isFolded : boolean = true;
 
   public foldSearchResult()

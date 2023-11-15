@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import {Component, Input} from '@angular/core';
+import {Port} from "../../../../models/Port";
 
 @Component({
   selector: 'app-search-result-port',
@@ -6,6 +7,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./search-result-port.component.css']
 })
 export class SearchResultPortComponent {
+
+  @Input() port! : Port;
+
   public isFolded : boolean = true;
 
   public foldSearchResult()

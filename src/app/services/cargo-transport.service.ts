@@ -9,7 +9,7 @@ import {HttpClient, HttpParams} from "@angular/common/http";
   providedIn: 'root'
 })
 
-export class CargoTransportService implements IServiceTemplate<CargoTransport>{
+export class CargoTransportService{
 
   constructor(private http : HttpClient)
   { }

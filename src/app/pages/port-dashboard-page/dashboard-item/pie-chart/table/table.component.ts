@@ -1,12 +1,9 @@
-import {Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
-import {PortDashboardService} from "../../../../../services/port-dashboard.service";
-import {TransportedCargoDTO} from "../../../../../models/DTO/TransportedCargoDTO";
-
+import {Component, Input, OnChanges, SimpleChanges} from '@angular/core';
 @Component({
   selector: 'app-table',
   templateUrl: './table.component.html',
   styleUrls: ['./table.component.css'],
-  providers: [PortDashboardService]
+  providers: []
 })
 
 export class TableComponent implements OnChanges {

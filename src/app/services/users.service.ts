@@ -9,7 +9,7 @@ import {Observable} from "rxjs";
   providedIn: 'root'
 })
 
-export class UsersService implements IServiceTemplate<Users>{
+export class UsersService {
 
   constructor(private http : HttpClient)
   { }

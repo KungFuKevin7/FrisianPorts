@@ -1,31 +1,53 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges} from '@angular/core';
 import {PortService} from "../../../services/port.service";
+import {SearchService} from "../../../services/search.service";
+import {Port} from "../../../models/Port";
+import {GoodsFlowDto} from "../../../models/DTO/GoodsFlowDto";
 
 @Component({
   selector: 'app-search-result-list',
   templateUrl: './search-result-list.component.html',
   styleUrls: ['./search-result-list.component.css'],
-  providers: [ PortService ]
+  providers: [ PortService, SearchService ]
 })
-export class SearchResultListComponent implements OnInit{
+export class SearchResultListComponent implements OnChanges {
   @Output() searchResultsCount = new EventEmitter<number>();
 
-  MyItems : number[] = [1,99,22]
+  @Input() queryRecieved: string = "";
 
-  constructor(private portService : PortService) {
+  portResults: Port[] = [];
+
+  flowOfGoodsResults : GoodsFlowDto[] = [];
+
+  constructor(private portService: PortService,
+              private searchService: SearchService) {
   }
 
-  ngOnInit() {
-    this.getResults();
-    this.searchResultsCount.emit(42);  //Debug action
+  ngOnChanges(changes: SimpleChanges) {
+    if (this.queryRecieved.length >= 3) {
+      this.getData();
+    }
   }
 
-  getResults() {
-    this.portService.get()
-      .subscribe( results => this.printResults(results));
+  public getData()
+  {
+      this.searchService.SearchPorts(this.queryRecieved)   //Get results from API Call
+        .subscribe(response => {
+          this.portResults = response;
+          this.shareResultCount(this.portResults.length);
+        });
+
+      this.searchService.SearchFlowOfGoods(this.queryRecieved)   //Get results from API Call
+        .subscribe(response => {
+          this.flowOfGoodsResults = response;
+          this.shareResultCount(this.flowOfGoodsResults.length);
+        });
+
   }
 
-  printResults(result : any){
-    console.log(result)
+  public shareResultCount(nr : number)
+  {
+    this.searchResultsCount.emit(nr);
   }
+
 }

@@ -1,15 +1,14 @@
 import {Component, Input, OnInit, Output} from '@angular/core';
 import {CargoTransportService} from "../../../../services/cargo-transport.service";
-import {CargoService} from "../../../../services/cargo.service";
-import {Cargo} from "../../../../models/Cargo";
-import {PortDashboardService} from "../../../../services/port-dashboard.service";
+
+import {TotalService} from "../../../../services/dashboard-services/total.service";
 
 
 @Component({
   selector: 'app-single-data-collection',
   templateUrl: './single-data-collection.component.html',
   styleUrls: ['./single-data-collection.component.css'],
-  providers: [CargoTransportService,PortDashboardService]
+  providers: [CargoTransportService, TotalService]
 })
 export class SingleDataCollectionComponent {
 
@@ -19,7 +18,7 @@ export class SingleDataCollectionComponent {
   importWeight : number = 0;
   exportWeight : number = 0;
 
-  constructor(private portDashboardService : PortDashboardService) {
+  constructor(private totalService : TotalService) {
 
   }
 
@@ -30,15 +29,15 @@ export class SingleDataCollectionComponent {
 
   //gets import and export amount of ships
   public getShipments() : any{
-    this.portDashboardService.getImportShips(this.portId).subscribe(
+    this.totalService.getImport(this.portId).subscribe(
       response => {
-        this.importAmount = response.length;
+        this.importAmount = response;
       }
     );
 
-    this.portDashboardService.getExportShips(this.portId).subscribe(
+    this.totalService.getExport(this.portId).subscribe(
       response => {
-        this.exportAmount = response.length;
+        this.exportAmount = response;
       }
     );
   }
@@ -46,13 +45,13 @@ export class SingleDataCollectionComponent {
   //gets total weight of import and export
   public getWeights()
   {
-    this.portDashboardService.getImportWeight(this.portId).subscribe(
+    this.totalService.getImportTonnage(this.portId).subscribe(
       response => {
         this.importWeight = response;
       }
     );
 
-    this.portDashboardService.getExportWeight(this.portId).subscribe(
+    this.totalService.getExportTonnage(this.portId).subscribe(
     response => {
       this.exportWeight = response;
     }

@@ -1,12 +1,12 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {PortDashboardService} from "../../services/port-dashboard.service";
 import {GoodsFlowDto} from "../../models/DTO/GoodsFlowDto";
+import {GoodsflowService} from "../../services/dashboard-services/goodsflow.service";
 
 @Component({
   selector: 'app-cargotransport-table',
   templateUrl: './cargotransport-table.component.html',
   styleUrls: ['./cargotransport-table.component.css'],
-  providers: [PortDashboardService]
+  providers: [GoodsflowService]
 })
 export class CargotransportTableComponent implements OnInit{
   @Input() MaxResults : number = 4;
@@ -14,14 +14,14 @@ export class CargotransportTableComponent implements OnInit{
 
   public goodsFlow : GoodsFlowDto[]= [];
 
-  constructor(private dashboardService : PortDashboardService) { }
+  constructor(private goodsflowService : GoodsflowService) { }
 
   ngOnInit() {
     this.getGoodsFlow();
   }
 
   public getGoodsFlow(){
-    this.dashboardService.getGoodsFlows(this.portId)
+    this.goodsflowService.getGoodsFlows(this.portId)
       .subscribe( response => {
         this.goodsFlow = response;
       })

@@ -8,7 +8,7 @@ import {Constants} from "../.constants/constants";
 @Injectable({
   providedIn: 'root'
 })
-export class CargoTypeService implements IServiceTemplate<CargoType> {
+export class CargoTypeService {
 
   constructor(private http : HttpClient) { }
 

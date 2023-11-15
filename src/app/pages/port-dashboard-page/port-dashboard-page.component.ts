@@ -2,7 +2,6 @@ import {Component, Inject, OnInit} from '@angular/core';
 import {PortService} from "../../services/port.service";
 import {Port} from "../../models/Port";
 import {ActivatedRoute} from "@angular/router";
-import {PortDashboardService} from "../../services/port-dashboard.service";
 import {DashboardItemComponent} from "./dashboard-item/dashboard-item.component";
 
 @Component({
@@ -17,7 +16,6 @@ export class PortDashboardPageComponent implements OnInit{
   portId! : number;
 
   constructor(private portService : PortService,
-              private dashboardService : PortDashboardService,
               private activeRoute : ActivatedRoute)
   {
 

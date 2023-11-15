@@ -1,18 +1,16 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {PortDashboardService} from "../../../../services/port-dashboard.service";
-import {TransportedCargoDTO} from "../../../../models/DTO/TransportedCargoDTO";
-import {map} from "rxjs";
+import {CargoDistributionService} from "../../../../services/dashboard-services/cargo-distribution.service";
 
 @Component({
   selector: 'app-pie-chart',
   templateUrl: './pie-chart.component.html',
   styleUrls: ['./pie-chart.component.css'],
-  providers: [PortDashboardService]
+  providers: [CargoDistributionService]
 })
 
 export class PieChartComponent implements OnInit{
 
-  constructor(private dashboardService : PortDashboardService) {
+  constructor(private cargoDistributionService : CargoDistributionService) {
   }
 
   @Input() portId! : number;
@@ -26,7 +24,8 @@ export class PieChartComponent implements OnInit{
 
   public getImport()
   {
-    this.dashboardService.getImportDistribution(this.portId).subscribe(
+    this.cargoDistributionService.getImportDistributionPort(this.portId)
+      .subscribe(
         response => {
           this.Import = response.map(item => (
             {
@@ -38,7 +37,8 @@ export class PieChartComponent implements OnInit{
   }
 
   public getExport() {
-    this.dashboardService.getExportDistribution(this.portId).subscribe(
+    this.cargoDistributionService.getExportDistributionPort(this.portId)
+      .subscribe(
       response => {
         this.Export = response.map(item => (
           {

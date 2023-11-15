@@ -8,7 +8,7 @@ import {Constants} from "../.constants/constants";
 @Injectable({
   providedIn: 'root'
 })
-export class RouteService implements IServiceTemplate<Route>{
+export class RouteService{
 
   constructor(private http : HttpClient) { }
 

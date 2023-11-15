@@ -1,8 +1,21 @@
-<div  *ngIf="MyItems.length > 0">
-  <app-search-result></app-search-result>
-  <app-search-result></app-search-result>
+<div  *ngIf="portResults.length > 0">
+  Havens
+  <app-search-result-port
+    *ngFor="let result of portResults"
+    [port]="result">
+  </app-search-result-port>
+
+  <!--TODO: SEPERATOR-->
+  Goederenstromen
+
+  <app-search-result
+    *ngFor="let result of flowOfGoodsResults"
+    [result]="result">
+
+  </app-search-result>
 </div>
-<div *ngIf="MyItems.length < 1">
-  <img class="img-fluid img-center" src="../../../../assets/images/NoSearchResults.png" height="500" width="500">
+
+<div *ngIf="portResults.length < 1">
+  <img class="img-fluid img-center" src="../assets/images/NoSearchResults.png" height="500" width="500">
   <h3 class="text-center">Geen zoekresultaten gevonden</h3>
 </div>
