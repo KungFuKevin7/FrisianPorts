@@ -1,21 +1,24 @@
-<table class="cargo-table table table-striped table-hover">
-  <thead>
-  <tr>
-    <th scope="col">Goederensoort</th>
-    <th scope="col">Goederen beschrijving</th>
-    <th scope="col">Gewicht (in tonnen)</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr>
-    <th scope="row">Planten</th>
-    <td>Rode Rozen, Bloembollen</td>
-    <td>14221</td>
-  </tr>
-  <tr>
-    <th scope="row">Chemicaliën</th>
-    <td>Radioactieve Isotopen: Uranium-235, Plutonium, Tritium</td>
-    <td>13264</td>
-  </tr>
-  </tbody>
-</table>
+<div class="cargo-table">
+  <table class=" table table-striped table-hover">
+    <thead>
+    <tr>
+      <th scope="col">Goederensoort</th>
+      <th scope="col">Goederen beschrijving</th>
+      <th scope="col">Gewicht (in tonnen)</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let cargo of cargoToDisplay">
+      <th scope="row">{{cargo.cargo_Type_Name}}</th>
+      <td>{{cargo.cargo_Description}}</td>
+      <td>{{cargo.transported_Weight}}</td>
+    </tr>
+
+    <tr>
+      <th>Totaal:</th>
+      <td></td>
+      <th>{{totalWeight}}</th>
+    </tr>
+    </tbody>
+  </table>
+</div>

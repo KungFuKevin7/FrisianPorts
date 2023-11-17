@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {CargoDistributionService} from "../../../../services/dashboard-services/cargo-distribution.service";
+import {Constants} from "../../../../.constants/constants";
 
 @Component({
   selector: 'app-pie-chart',
@@ -16,6 +17,8 @@ export class PieChartComponent implements OnInit{
   @Input() portId! : number;
   Import : any;
   Export : any;
+
+  colorScheme = Constants.colourScheme;
 
   ngOnInit(): void {
     this.getImport();

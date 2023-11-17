@@ -1,20 +1,12 @@
-<div class="nav-search input-group">
 
-  <input [(ngModel)]="searchQuery" (ngModelChange)="handleSearchQuery()" class="form-control" type="text" placeholder="Zoeken">
-
-  <div class="input-group-append">
-    <div class=" nav-search-btn">
-      <a (click)="emptyField()">
-        <div class="btn btn-close closing-btn"></div>
-      </a>
-    </div>
-  </div>
-</div>
+<app-nav-bar-input (queryToShare)="handleSearchQuery($event)"></app-nav-bar-input>
 
   <div *ngIf="searchQuery.length >= 3">
     <div class="invisible-box" (click)="emptyField()">
     </div>
     <div class="search-result-overlay">
-      <app-nav-search-result-list></app-nav-search-result-list>
+      <app-nav-search-result-list
+        [ReceivedSearchQuery]="searchQuery">
+      </app-nav-search-result-list>
     </div>
   </div>

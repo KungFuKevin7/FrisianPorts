@@ -1,6 +1,27 @@
 <ngx-charts-pie-chart
-  [results]="testResult"
+  [results]="piechartData"
   [labels]="true"
   [legend]="true"
 
 ></ngx-charts-pie-chart>
+
+<br>
+
+<div class="pie-chart-overview-table">
+  <table class="table table-striped table-hover">
+    <thead>
+    <tr>
+      <th scope="col">Goederen</th>
+      <th scope="col">Gewicht</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <tr *ngFor="let cargo of piechartData">
+      <th scope="row">{{cargo.name}}</th>
+      <td>{{cargo.value}}</td>
+    </tr>
+    </tbody>
+
+  </table>
+</div>

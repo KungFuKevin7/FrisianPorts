@@ -1,10 +1,9 @@
 import { Injectable } from '@angular/core';
-import {Observable, of} from "rxjs";
+import {catchError, NotFoundError, Observable, of, throwError} from "rxjs";
 import {Port} from "../models/Port";
-import {HttpClient, HttpParams} from "@angular/common/http";
+import {HttpClient, HttpErrorResponse, HttpParams} from "@angular/common/http";
 import {Constants} from "../.constants/constants";
-import {IServiceTemplate} from "./IServiceTemplate";
-import {TransportedCargoDTO} from "../models/DTO/TransportedCargoDTO";
+import {ErrorHandlerService} from "./error-handler.service";
 
 @Injectable({
   providedIn: 'root'
@@ -12,19 +11,41 @@ import {TransportedCargoDTO} from "../models/DTO/TransportedCargoDTO";
 
 export class PortService{
 
-  constructor(private http : HttpClient)
+  constructor(private http : HttpClient, private errorService : ErrorHandlerService)
   { }
 
   public readonly apiUri : string = `${Constants.apiUrl}/port`;
 
   get() : Observable<Port[]>
   {
-    return this.http.get<Port[]>(this.apiUri);
+    return this.http.get<Port[]>(this.apiUri).pipe(
+      catchError( err => {
+          let error = this.errorService.handleError(err);
+          return error;
+        }
+      )
+    );
   }
 
   getById(Id : number) : Observable<Port>
   {
-    return this.http.get<Port>(`${this.apiUri}/${Id}`);
+    return this.http.get<Port>(`${this.apiUri}/${Id}`).pipe(
+      catchError( err => {
+        let error = this.errorService.handleError(err);
+        return error;
+      })
+    );
+  }
+
+  getByLocation(location : string) : Observable<Port>
+  {
+    return this.http.get<Port>(`${this.apiUri}/location`,
+      {params: new HttpParams().set("city", location)}).pipe(
+        catchError(err => {
+          let error = this.errorService.handleError(err);
+          return error;
+        })
+    );
   }
 
 }

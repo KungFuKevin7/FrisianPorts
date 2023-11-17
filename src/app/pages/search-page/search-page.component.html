@@ -1,9 +1,15 @@
 <div class="container">
   <br>
   <h1 class="text-center">Goederenstromen</h1>
-  <p class="text-center">{{searchResultsCount}} zoekresultaten voor "{{queryRecievedFromInput}}"</p>
+  <p class="text-center">{{searchResultsCount}} zoekresultaten voor "{{queryReceivedFromInput}}"</p>
 
-  <app-search-page-input (queryToSend)="handleSearchQuery($event)"></app-search-page-input>
+  <app-search-page-input
+    (queryToSend)="handleSearchQuery($event)">
+  </app-search-page-input>
 
-  <app-search-result-list [queryRecieved]="queryRecievedFromInput" (searchResultsCount)="notify($event)"></app-search-result-list>
+  <app-search-result-list
+    [queryReceived]="queryReceivedFromInput"
+    (searchResultsCount)="notify($event)">
+
+  </app-search-result-list>
 </div>

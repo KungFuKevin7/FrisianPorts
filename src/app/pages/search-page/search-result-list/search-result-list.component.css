@@ -1,0 +1,18 @@
+.search-chapter{
+  background-color: #0155A5;
+  color: #FFFFFF;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.show-inline h1{
+  display: inline-block;
+}
+
+.blue-line{
+  background-color: #0155A5;
+}
+
+.list-items{
+  margin-left: 20px;
+}

@@ -9,7 +9,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HomepageComponent } from './pages/homepage/homepage.component';
 import { MappageComponent } from './pages/mappage/mappage.component';
 import {RouterLink, RouterModule, RouterOutlet, Routes} from "@angular/router";
-import { NotfoundpageComponent } from './pages/notfoundpage/notfoundpage.component';
+import { NotfoundpageComponent } from './pages/error-pages/notfoundpage/notfoundpage.component';
 import { NavbarComponent } from './pages/navbar/navbar.component';
 import { SearchPageComponent } from './pages/search-page/search-page.component';
 import { TransportPageComponent } from './pages/transport-page/transport-page.component';
@@ -46,6 +46,8 @@ import { NavSearchResultListComponent } from './pages/navbar/search-in-nav-bar/n
 import { SearchResultPortComponent } from './pages/search-page/search-result-list/search-result-port/search-result-port.component';
 import { DashboardFilterComponent } from './pages/port-dashboard-page/dashboard-filter/dashboard-filter.component';
 import { SmallSingleDataCollectionComponent } from './pages/port-dashboard-page/dashboard-item/graph-bar/small-single-data-collection/small-single-data-collection.component';
+import { NavBarInputComponent } from './pages/navbar/search-in-nav-bar/nav-bar-input/nav-bar-input.component';
+import { InternalServerErrorPageComponent } from './pages/error-pages/internal-server-error-page/internal-server-error-page.component';
 
 const routes: Routes = [
   { path: '', component: HomepageComponent },
@@ -61,7 +63,9 @@ const routes: Routes = [
   { path: 'my-added-items', component : MyAddedItemsPageComponent},
   { path: 'port-dashboard', component: PortDashboardPageComponent},
   { path: 'transport', component : TransportPageComponent},
+  { path: 'server-error', component : InternalServerErrorPageComponent },
   { path: '**', component : NotfoundpageComponent}
+
 
 ];
 
@@ -105,7 +109,9 @@ const routes: Routes = [
     NavSearchResultListComponent,
     SearchResultPortComponent,
     DashboardFilterComponent,
-    SmallSingleDataCollectionComponent
+    SmallSingleDataCollectionComponent,
+    NavBarInputComponent,
+    InternalServerErrorPageComponent
   ],
     imports: [
         BrowserModule,

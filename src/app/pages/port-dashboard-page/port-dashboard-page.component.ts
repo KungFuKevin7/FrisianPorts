@@ -1,8 +1,8 @@
-import {Component, Inject, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {PortService} from "../../services/port.service";
 import {Port} from "../../models/Port";
 import {ActivatedRoute} from "@angular/router";
-import {DashboardItemComponent} from "./dashboard-item/dashboard-item.component";
+import {ErrorHandlerService} from "../../services/error-handler.service";
 
 @Component({
   selector: 'app-port-dashboard-page',
@@ -16,7 +16,8 @@ export class PortDashboardPageComponent implements OnInit{
   portId! : number;
 
   constructor(private portService : PortService,
-              private activeRoute : ActivatedRoute)
+              private activeRoute : ActivatedRoute,
+              private errorService: ErrorHandlerService)
   {
 
   }
@@ -25,7 +26,9 @@ export class PortDashboardPageComponent implements OnInit{
   {
     this.activeRoute.queryParams.subscribe(
       params => {
-        this.portId = params['id']; //get query parameter for page display
+        if (params['id'] != null) {
+          this.portId = params['id']; //get query parameter for page display
+        }
       }
     );
 

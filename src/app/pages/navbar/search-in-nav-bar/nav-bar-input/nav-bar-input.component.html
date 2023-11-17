@@ -1,0 +1,17 @@
+<div class="nav-search input-group">
+
+  <input [(ngModel)]="searchQuery"
+         (ngModelChange)="handleSearchQuery()"
+         (keydown.enter)="handleSearchQuery()"
+         class="form-control"
+         type="text"
+         placeholder="Zoeken">
+
+  <div class="input-group-append">
+    <div class=" nav-search-btn">
+      <a (click)="emptyField()">
+        <div class="btn btn-close closing-btn"></div>
+      </a>
+    </div>
+  </div>
+</div>

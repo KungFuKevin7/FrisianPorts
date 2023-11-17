@@ -33,11 +33,34 @@ export class MapComponent implements OnInit {
   }
 
   public addMarker(port : Port): void {
-    let marker = new L.Marker([Number(port.latitude), Number(port.longitude)]);
-    marker.addTo(this.map).bindPopup(`${port.port_Name} - ${port.port_Location}`)
-      .on('click',function(e) {
-        window.location.href = `http://localhost:4200/port-dashboard?id=${port.port_Id}`;
+
+    const customMarker = L.icon({
+      iconUrl: '../assets/icons/marker.png',
+      shadowUrl: '../assets/icons/marker-shadow.png',
+      iconSize: [50, 75],
+      shadowSize: [50,75],
+      shadowAnchor: [10,67],
+      iconAnchor: [25, 75],
+      popupAnchor: [0,-60]
     });
+
+    let marker = L.marker(
+      [Number(port.latitude), Number(port.longitude)],
+      { icon: customMarker }
+    );
+
+    marker.on('click',function(e)
+    {
+      window.location.href = `http://localhost:4200/port-dashboard?id=${port.port_Id}`;
+    })
+      .on('mouseover', function (){
+      marker.bindPopup(`${port.port_Name} - ${port.port_Location}`).openPopup();
+    })
+      .on('mouseout',function (){
+      marker.closePopup();
+    })
+
+    marker.addTo(this.map);
   }
 
   public addPortsFromList(ports : Port[])

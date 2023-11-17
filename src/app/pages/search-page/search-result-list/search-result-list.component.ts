@@ -13,7 +13,7 @@ import {GoodsFlowDto} from "../../../models/DTO/GoodsFlowDto";
 export class SearchResultListComponent implements OnChanges {
   @Output() searchResultsCount = new EventEmitter<number>();
 
-  @Input() queryRecieved: string = "";
+  @Input() queryReceived: string = "";
 
   portResults: Port[] = [];
 
@@ -24,20 +24,20 @@ export class SearchResultListComponent implements OnChanges {
   }
 
   ngOnChanges(changes: SimpleChanges) {
-    if (this.queryRecieved.length >= 3) {
+    if (this.queryReceived.length >= 3) {
       this.getData();
     }
   }
 
   public getData()
   {
-      this.searchService.SearchPorts(this.queryRecieved)   //Get results from API Call
+      this.searchService.SearchPorts(this.queryReceived)   //Get results from API Call
         .subscribe(response => {
           this.portResults = response;
           this.shareResultCount(this.portResults.length);
         });
 
-      this.searchService.SearchFlowOfGoods(this.queryRecieved)   //Get results from API Call
+      this.searchService.SearchFlowOfGoods(this.queryReceived)   //Get results from API Call
         .subscribe(response => {
           this.flowOfGoodsResults = response;
           this.shareResultCount(this.flowOfGoodsResults.length);

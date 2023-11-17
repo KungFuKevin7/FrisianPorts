@@ -1,20 +1,39 @@
-import { Component } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {LegendPosition} from "@swimlane/ngx-charts";
+import {CargoDistributionService} from "../../../../services/dashboard-services/cargo-distribution.service";
+import {TransportedCargoDTO} from "../../../../models/DTO/TransportedCargoDTO";
 
 @Component({
   selector: 'app-cargo-piechart',
   templateUrl: './cargo-piechart.component.html',
-  styleUrls: ['./cargo-piechart.component.css']
+  styleUrls: ['./cargo-piechart.component.css'],
+  providers: [CargoDistributionService]
 })
-export class CargoPiechartComponent {
+export class CargoPiechartComponent implements OnInit{
+
+  @Input() CargoTransportId : number = 0;
+
+  piechartData : any;
+
+  constructor(private cargoDistributionService : CargoDistributionService) {
+  }
+
+  ngOnInit()
+  {
+    this.cargoDistributionService.getTotalDistribution(this.CargoTransportId)
+      .subscribe(
+        response => {
+          this.piechartData = response.map(cargoSlice =>
+            ({
+              name: cargoSlice.cargo_Type_Name,
+              value: cargoSlice.transported_Weight
+          })
+          );
+
+          console.log(response);
+        }
+        )
+  }
+
   pos = LegendPosition.Below;
-  testResult = [
-    {
-      "name": "Plants",
-      "value": 9122
-    },
-    {
-      "name": "Chemicals",
-      "value": 12415
-    }]
 }

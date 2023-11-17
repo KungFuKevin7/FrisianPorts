@@ -47,7 +47,6 @@
     </div>
 
 
-
     <!--Cargotransport table-->
     <div class="row">
       <div class="col-md-6">
@@ -57,7 +56,9 @@
 
         <div class="blank"></div>
 
-        <a routerLink="/cargo-transport-of-port" class="btn btn-primary fill-btn">
+        <a [routerLink]="['/cargo-transport-of-port']"
+           [queryParams]="{id : portId}"
+           class="btn btn-primary fill-btn">
           Alle gekoppelde goederenstromen
         </a>
       </div>

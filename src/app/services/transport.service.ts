@@ -36,4 +36,11 @@ export class TransportService {
   update(updatedObject: Transport): Observable<number> {
     return this.http.put<number>(this.apiUri, updatedObject);
   }
+
+  getCountInCargoTransport(cargoTransportId: number): Observable<number>{
+    const getParameter = { params : new HttpParams().set("Id", cargoTransportId)}
+
+    return this.http.get<number>(`${this.apiUri}/cargo-transport-count`,
+      getParameter)
+  }
 }

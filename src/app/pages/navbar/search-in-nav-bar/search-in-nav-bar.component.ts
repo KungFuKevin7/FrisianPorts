@@ -13,10 +13,10 @@ export class SearchInNavBarComponent{
   constructor() {
   }
 
-  public handleSearchQuery()
+  public handleSearchQuery(val : string)
   {
-    if (this.searchQuery.length > 3) {
-      console.log(this.searchQuery);
+    if (val.length > 3) {
+      this.searchQuery = val;
     }
   }
 

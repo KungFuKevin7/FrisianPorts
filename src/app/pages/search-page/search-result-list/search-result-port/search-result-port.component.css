@@ -1,28 +1,28 @@
 .result-card{
-  border: 1px #0155A5 solid;
+  border: 1px #80AAD2 solid;
   border-radius: 5px;
 }
 
 .result-header{
-  background-color: #0155A5;
+  background-color: #80AAD2;
   color:#FFFFFF;
   padding: 10px;
 }
 
 .result-body{
-  margin: 10px;
+  margin: 10px 10px 10px 20px;
 }
 
 .fill-btn{
   font-size: 20px;
   color: black;
   text-decoration: none;
-  transition: scale ease-in-out 100ms;
 }
 
-.fill-btn :hover{
+.fill-btn :hover :not(p, img){
   cursor: pointer;
-  scale:103%;
+  background-image: linear-gradient(#FFFFFF, #e1e1e1, #e1e1e1, #FFFFFF);
+  scale: 101%;
   transition: scale ease-in-out 100ms;
 }
 

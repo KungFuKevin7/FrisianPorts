@@ -1,21 +1,42 @@
-<div  *ngIf="portResults.length > 0">
-  Havens
-  <app-search-result-port
-    *ngFor="let result of portResults"
-    [port]="result">
-  </app-search-result-port>
+<div class="search-chapter">
+  <div class="show-inline">
+      <h1>
+        <img src="../assets/icons/anchor.png" width="50" height="45">
+        Havens ({{portResults.length}})
+      </h1>
+  </div>
+</div>
+<div *ngIf="portResults.length > 0">
 
-  <!--TODO: SEPERATOR-->
-  Goederenstromen
-
-  <app-search-result
-    *ngFor="let result of flowOfGoodsResults"
-    [result]="result">
-
-  </app-search-result>
+  <div class="list-items">
+    <app-search-result-port
+      *ngFor="let result of portResults"
+      [port]="result">
+    </app-search-result-port>
+  </div>
 </div>
 
-<div *ngIf="portResults.length < 1">
+<br>
+
+<div class="search-chapter">
+  <div class="show-inline">
+    <h1>
+      <img src="../assets/icons/ship.png" width="50" height="45">
+      Goederenstromen ({{flowOfGoodsResults.length}})
+    </h1>
+  </div>
+</div>
+<div *ngIf="flowOfGoodsResults.length > 0">
+  <div class="list-items">
+    <app-search-result
+      *ngFor="let result of flowOfGoodsResults"
+      [result]="result">
+
+    </app-search-result>
+  </div>
+</div>
+
+<div *ngIf="portResults.length < 1 && queryReceived">
   <img class="img-fluid img-center" src="../assets/images/NoSearchResults.png" height="500" width="500">
   <h3 class="text-center">Geen zoekresultaten gevonden</h3>
 </div>

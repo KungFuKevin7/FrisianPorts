@@ -1,15 +1,11 @@
 <div class="result-card">
   <div class="result-header">
     <div class="container">
-<!--
-      <img class="float-start" src="assets/icons/main-ship.png" width="65" height="35">
--->
-
       <h5 class="float-start">{{result.departure_Location}} - {{result.arrival_Location}}</h5>
 
       <a class="button-to-fold float-end" (click)="foldSearchResult()">
-        <img *ngIf="isFolded" src="../../../../../assets/icons/chevron-up.png" width="50" height="25">
-        <img *ngIf="!isFolded" src="../../../../../assets/icons/chevron-down.png" width="50" height="25">
+        <img *ngIf="isFolded" src="../assets/icons/chevron-up.png" width="50" height="25">
+        <img *ngIf="!isFolded" src="../assets/icons/chevron-down.png" width="50" height="25">
       </a>
 
       <h3 class="extra-padding">.</h3>
@@ -26,8 +22,10 @@
     <p class="info-text">Totaal gewicht vervoerd</p>
     <h3 class="Value">{{result.total_Weight}} ton</h3>
     <hr>
-    <div routerLink="/transport" class="fill-btn">
-      <img class="img-fluid space-right" src="../../../../../assets/icons/cargo2.png">
+    <div [routerLink]="['/transport']"
+         [queryParams]="{id: result.cargo_Transport_Id}"
+         class="fill-btn">
+      <img class="img-fluid space-right" src="../assets/icons/cargo2.png">
       <a>Meer goederenstroom info</a>
     </div>
   </div>

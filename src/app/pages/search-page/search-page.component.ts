@@ -11,14 +11,18 @@ import {SearchService} from "../../services/search.service";
 export class SearchPageComponent implements OnInit{
   @Input() searchResultsCount : number = 0;
 
-  @Input() queryRecievedFromInput : string = "";
+  @Input() queryReceivedFromInput : string = "";
 
-  constructor(private searchService : SearchService) {
+  constructor(private activeRoute :ActivatedRoute) {
 
   }
 
-
   ngOnInit(): void {
+    this.activeRoute.queryParams.subscribe(
+      response => {
+        this.queryReceivedFromInput = response['query'];
+      }
+    );
   }
 
   public notify(count : number) : void
@@ -29,7 +33,7 @@ export class SearchPageComponent implements OnInit{
 
   public handleSearchQuery(searchQuery : any)
   {
-    this.queryRecievedFromInput = searchQuery;
+    this.queryReceivedFromInput = searchQuery;
   }
 
 

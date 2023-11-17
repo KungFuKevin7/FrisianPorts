@@ -6,25 +6,14 @@ import {ActivatedRoute} from "@angular/router";
   templateUrl: './search-page-input.component.html',
   styleUrls: ['./search-page-input.component.css']
 })
-export class SearchPageInputComponent implements OnInit{
+export class SearchPageInputComponent{
 
   @Output() queryToSend = new EventEmitter<any>();
 
   queryInput : string = "";
 
-  constructor(private currentRoute: ActivatedRoute) {
+  constructor() {
 
-  }
-
-  ngOnInit(): void {
-
-  }
-
-  public handleSearchQuery()
-  {
-    if (this.queryInput.length > 3) {
-      console.log(this.queryInput);
-    }
   }
 
   public searchData()
@@ -33,4 +22,5 @@ export class SearchPageInputComponent implements OnInit{
       this.queryToSend.emit(this.queryInput);
     }
   }
+
 }

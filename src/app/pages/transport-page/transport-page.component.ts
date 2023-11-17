@@ -17,7 +17,7 @@ export class TransportPageComponent implements OnInit{
   ngOnInit(): void {
     this.activeRoute.queryParams.subscribe(
       params => {
-        this.cargoTransportId = params['id']; //get query parameter for page display
+        this.cargoTransportId = params['id'];
       }
     );
   }

@@ -1,14 +1,18 @@
 <div class="container">
-  <h1 class="text-center">Naam + Locatie van haven</h1>
+  <br>
+  <h1 class="text-center">{{port.port_Name}} - {{port.port_Location}}</h1>
     <div class="row">
-      <div class="col-sm-3">
+<!--      <div class="col-sm-3">
         <label for="sort-by-btn">Sorteren</label>
         <select id="sort-by-btn" class="form-select form-select-lg">
           <option>Aankomsten</option>
           <option>Vertrekken</option>
         </select>
-      </div>
-      <h1 class="list-amount">Aantal: 1</h1>
+      </div>-->
+      <h1 class="list-amount">Aantal: {{numberOfResults}}</h1>
     </div>
-  <app-cargotransport-table></app-cargotransport-table>
+  <app-cargotransport-table
+    [portId]="portId"
+    (totalResults)="showResultCount($event)"
+  ></app-cargotransport-table>
 </div>

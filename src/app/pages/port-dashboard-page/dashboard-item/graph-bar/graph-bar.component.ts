@@ -3,6 +3,7 @@ import {concat, map} from "rxjs";
 import {json} from "d3";
 import {YearlyTransportDTO} from "../../../../models/DTO/YearlyTransportDTO";
 import {PeriodService} from "../../../../services/dashboard-services/period.service";
+import {Constants} from "../../../../.constants/constants";
 
 @Component({
   selector: 'app-graph-bar',
@@ -12,11 +13,12 @@ import {PeriodService} from "../../../../services/dashboard-services/period.serv
 })
 export class GraphBarComponent implements OnInit {
 
-
   @Input() portId! : number;
   Import: any;
   Export: any;
   YearlyData : any;
+
+  colourScheme = Constants.secondColourScheme;
 
   constructor(private periodService : PeriodService) {
   }

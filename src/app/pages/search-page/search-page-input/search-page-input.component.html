@@ -1,13 +1,18 @@
 <div class="search-input input-group">
 
-  <input [(ngModel)]="queryInput" (ngModelChange)="handleSearchQuery()" class="form-control" type="text" placeholder="Zoeken">
+  <input [(ngModel)]="queryInput"
+         (keydown.enter)="searchData()"
+         class="form-control"
+         type="text"
+         placeholder="Zoeken">
 
     <div class="input-group-append nav-search-btn"
          [routerLink]="['./']"
+         [queryParams]="{query: queryInput}"
          (click)="searchData()">
 
       <a>
-        <img src="../../../../assets/icons/search.png" width="40" height="35">
+        <img src="../assets/icons/search.png" width="40" height="35">
       </a>
   </div>
 </div>

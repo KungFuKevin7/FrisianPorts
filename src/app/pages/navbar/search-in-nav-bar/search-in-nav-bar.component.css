@@ -1,25 +1,8 @@
-.nav-search{
-  margin-right: 40px;
-  padding-right: 40px;
-  background-color: #FFFFFF;
-}
-
-.nav-search-btn{
-  border: solid rgba(0,0,0,0.25) 5px;
-  border-width: 4px 6px;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
 .search-result-overlay{
   position: fixed;
 }
 
-.closing-btn{
-  font-size: 20px;
-}
-
-/*REFERENCE TO OLD PROJECT: disgusting solution. fix?*/
+/*disgusting solution. fix?*/
 .invisible-box{
   margin-left: -125vh;
   margin-right: 125vh;

@@ -1,10 +1,36 @@
-import {Component, Input} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import {GoodsflowService} from "../../../services/dashboard-services/goodsflow.service";
+import {GoodsFlowDto} from "../../../models/DTO/GoodsFlowDto";
+import {TransportService} from "../../../services/transport.service";
+import {CargoTransportService} from "../../../services/cargo-transport.service";
+import {ErrorHandlerService} from "../../../services/error-handler.service";
 
 @Component({
   selector: 'app-transport-overview',
   templateUrl: './transport-overview.component.html',
-  styleUrls: ['./transport-overview.component.css']
+  styleUrls: ['./transport-overview.component.css'],
+  providers: [GoodsflowService, TransportService]
 })
-export class TransportOverviewComponent {
-  @Input() cargoTransportId : number = 0;
+export class TransportOverviewComponent implements OnInit {
+  @Input() cargoTransportId: number = 0;
+
+  goodsFlow!: GoodsFlowDto;
+  shipAmount!: number;
+
+  constructor(private goodsFlowService: GoodsflowService,
+              private transportService: TransportService) {
+  }
+
+  ngOnInit(): void {
+    this.goodsFlowService.getGoodsFlowById(this.cargoTransportId)
+      .subscribe(response => {
+        this.goodsFlow = response;
+      });
+
+    this.transportService.getCountInCargoTransport(this.cargoTransportId)
+      .subscribe(response => {
+        this.shipAmount = response;
+      });
+  }
+
 }

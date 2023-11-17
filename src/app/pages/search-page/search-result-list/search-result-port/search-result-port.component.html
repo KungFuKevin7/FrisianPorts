@@ -1,12 +1,9 @@
 <div class="result-card">
   <div class="result-header">
     <div class="container">
-<!--
-      <img class="float-start" src="assets/icons/anchor.png" width="40" height="40">
--->
+
 
       <h5 class="float-start">{{port.port_Name}} - {{port.port_Location}}</h5>
-
       <a class="float-end button-to-fold" (click)="foldSearchResult()">
         <img *ngIf="isFolded" src="../assets/icons/chevron-up.png" width="50" height="25">
         <img *ngIf="!isFolded" src="../assets/icons/chevron-down.png" width="50" height="25">

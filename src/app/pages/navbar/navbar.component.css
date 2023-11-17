@@ -49,3 +49,9 @@
   scale: 110%;
   transition: scale 200ms ease-in-out;
 }
+
+.active-page {
+  background-image: linear-gradient(#fafbfc 0px, #0155A5 200px);
+  font-weight: bold;
+  padding: 20px;
+}

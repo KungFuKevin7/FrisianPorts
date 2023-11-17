@@ -6,12 +6,18 @@
   <div class="row">
     <div class="col-6">
       <p class="text-center">Vertrek</p>
-      <h1 class="start-location text-center">Locatie 1</h1>
+      <a class="clickable-port-location"
+         [routerLink]="['/port-dashboard']">
+        <h1 class="start-location text-center">{{goodsFlow.departure_Location}}</h1>
+      </a>
     </div>
 
     <div class="col-6">
       <p class="text-center">Bestemming</p>
-      <h1 class="end-destination text-center">Locatie 2</h1>
+      <a class="clickable-port-location"
+         [routerLink]="['/port-dashboard']">
+        <h1 class="end-destination text-center">{{goodsFlow.arrival_Location}}</h1>
+      </a>
     </div>
   </div>
 
@@ -21,37 +27,36 @@
     <div class="col-md-6">
       <div class="pie-chart-view">
         <h3 class="pie-chart-title">Totale Goederenverdeling</h3>
-        <app-cargo-piechart></app-cargo-piechart>
-        <app-cargo-table></app-cargo-table>
+        <app-cargo-piechart [CargoTransportId]="cargoTransportId" ></app-cargo-piechart>
       </div>
     </div>
     <div class="col-md-6">
       <div class="row">
         <div class="col-md-6">
           <div class="single-data">
-            <p class="text-center">Totaal gewicht aan boord</p>
-            <h1 class="text-center">135ton</h1>
+            <p class="text-center">Tonnage getransporteerd</p>
+            <h1 class="text-center">{{goodsFlow.total_Weight}}</h1>
           </div>
         </div>
         <div class="col-md-6">
           <div class="single-data">
             <p class="text-center">Frequentie</p>
-            <h1 class="text-center">Elke Dag</h1>
+            <h1 class="text-center">{{goodsFlow.frequency}}</h1>
           </div>
         </div>
       </div>
       <div class="col-md-12">
         <div class="single-data">
           <p class="text-center">Aantal scheepsbewegingen</p>
-          <h1 class="text-center">1100</h1>
+          <h1 class="text-center">{{shipAmount}}</h1>
         </div>
       </div>
 
       <div class="blank"></div>
 
       <div class="table-summary">
-        <h1 class="text-center table-title">Goederen aan boord</h1>
-        <app-cargo-table></app-cargo-table>
+        <h1 class="text-center table-title">Goederen getransporteerd</h1>
+        <app-cargo-table [CargoTransportId]="cargoTransportId"></app-cargo-table>
       </div>
     </div>
   </div>

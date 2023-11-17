@@ -25,4 +25,18 @@ export class CargoDistributionService {
     (`${this.apiUri}/export`,
       {params : new HttpParams().set("portId", portId)});
   }
+
+  public getDistributionByCargoTransport(Id : number){
+    return this.http.get<TransportedCargoDTO[]>(
+      `${this.apiUri}/cargo-transport`,
+      {params : new HttpParams().set("Id",Id)}
+    );
+  }
+
+  public getTotalDistribution(Id : number){
+    return this.http.get<TransportedCargoDTO[]>(
+      `${this.apiUri}/total-cargo-distribution`,
+      {params : new HttpParams().set("cargoTransportId",Id)}
+    );
+  }
 }
