@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
 import {CargoDistributionService} from "../../../../services/dashboard-services/cargo-distribution.service";
 import {Constants} from "../../../../.constants/constants";
 
@@ -9,11 +9,12 @@ import {Constants} from "../../../../.constants/constants";
   providers: [CargoDistributionService]
 })
 
-export class PieChartComponent implements OnInit{
+export class PieChartComponent implements OnInit, OnChanges{
 
   constructor(private cargoDistributionService : CargoDistributionService) {
   }
 
+  @Input() selectedYear : number = 0;
   @Input() portId! : number;
   Import : any;
   Export : any;
@@ -25,9 +26,14 @@ export class PieChartComponent implements OnInit{
     this.getExport();
   }
 
+  ngOnChanges(changes:SimpleChanges): void {
+    this.getImport();
+    this.getExport();
+  }
+
   public getImport()
   {
-    this.cargoDistributionService.getImportDistributionPort(this.portId)
+    this.cargoDistributionService.getImportDistributionPort(this.portId, this.selectedYear)
       .subscribe(
         response => {
           this.Import = response.map(item => (
@@ -40,7 +46,7 @@ export class PieChartComponent implements OnInit{
   }
 
   public getExport() {
-    this.cargoDistributionService.getExportDistributionPort(this.portId)
+    this.cargoDistributionService.getExportDistributionPort(this.portId, this.selectedYear)
       .subscribe(
       response => {
         this.Export = response.map(item => (

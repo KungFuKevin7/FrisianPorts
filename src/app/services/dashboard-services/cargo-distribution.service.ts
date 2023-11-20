@@ -12,18 +12,24 @@ export class CargoDistributionService {
 
   private readonly apiUri = `${Constants.apiUrl}/cargo-distribution`
 
-  public getImportDistributionPort(portId : number)
+  public getImportDistributionPort(portId : number, selectedYear : number)
   {
     return this.http.get<TransportedCargoDTO[]>
     (`${this.apiUri}/import`,
-      {params : new HttpParams().set("portId", portId)});
+      {params : new HttpParams()
+          .set("portId", portId)
+          .set("period", selectedYear)
+      });
   }
 
-  public getExportDistributionPort(portId : number)
+  public getExportDistributionPort(portId : number, selectedYear : number)
   {
     return this.http.get<TransportedCargoDTO[]>
     (`${this.apiUri}/export`,
-      {params : new HttpParams().set("portId", portId)});
+      {params : new HttpParams()
+          .set("portId", portId)
+          .set("period", selectedYear)
+      });
   }
 
   public getDistributionByCargoTransport(Id : number){

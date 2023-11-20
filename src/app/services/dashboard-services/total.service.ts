@@ -13,38 +13,42 @@ export class TotalService {
   private readonly apiUri = `${Constants.apiUrl}/total`
 
 
-  public getImport(portId : number): Observable<number>
+  public getImport(portId : number, selectedYear : number): Observable<number>
   {
     return this.http.get<number>(`${this.apiUri}/import`,
       {
         params : new HttpParams()
           .set("portId", portId)
+          .set("period", selectedYear)
       });
   }
 
-  public getExport(portId : number): Observable<number>
+  public getExport(portId : number, selectedYear : number): Observable<number>
   {
     return this.http.get<number>(`${this.apiUri}/export`,
       {
         params : new HttpParams()
           .set("portId", portId)
+          .set("period", selectedYear)
       });
   }
-  public getImportTonnage(portId : number): Observable<number>
+  public getImportTonnage(portId : number, selectedYear : number): Observable<number>
   {
     return this.http.get<number>(`${this.apiUri}/import-tonnage`,
       {
         params : new HttpParams()
           .set("portId", portId)
+          .set("period", selectedYear)
       });
   }
 
-  public getExportTonnage(portId : number): Observable<number>
+  public getExportTonnage(portId : number, selectedYear : number) : Observable<number>
   {
     return this.http.get<number>(`${this.apiUri}/export-tonnage`,
       {
         params : new HttpParams()
           .set("portId", portId)
+          .set("period", selectedYear)
       });
   }
 }

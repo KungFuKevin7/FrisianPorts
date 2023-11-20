@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
 import {PortService} from "../../services/port.service";
 import {Port} from "../../models/Port";
 import {ActivatedRoute} from "@angular/router";
@@ -12,6 +12,7 @@ import {ErrorHandlerService} from "../../services/error-handler.service";
 })
 export class PortDashboardPageComponent implements OnInit{
 
+  @Input() selectedYear : number = 0;
   selectedPort! : Port;
   portId! : number;
 
@@ -44,7 +45,11 @@ export class PortDashboardPageComponent implements OnInit{
         }
       }
     );
+  }
 
+  public getYear(receivedYear : any)
+  {
+    this.selectedYear = receivedYear;
   }
 
 }

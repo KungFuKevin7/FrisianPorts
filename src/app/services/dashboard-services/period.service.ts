@@ -37,4 +37,11 @@ export class PeriodService {
           .set("portId", portId)
       })
   }
+
+  public getAvailibleYears(portId : number){
+    return this.http.get<number[]>(`${this.apiUri}/available-years`,
+      {
+        params : new HttpParams().set("portId", portId)
+      })
+  }
 }

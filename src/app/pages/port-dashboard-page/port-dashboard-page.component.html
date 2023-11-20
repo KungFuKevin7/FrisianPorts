@@ -12,16 +12,23 @@
     <div class="col-lg-6">
       <div class="dashboard-box">
         <app-pie-chart
-          [portId]="portId">
+          [portId]="portId"
+          [selectedYear]="selectedYear">
         </app-pie-chart>
       </div>
     </div>
 
     <!--Single Data Section-->
     <div class="col-lg-6">
-      <app-dashboard-filter></app-dashboard-filter>
-      <app-single-data-collection
+      <app-dashboard-filter
+        (YearEmitter)="getYear($event)"
         [portId]="portId">
+
+      </app-dashboard-filter>
+
+      <app-single-data-collection
+        [portId]="portId"
+        [selectedYear]="selectedYear">
 
       </app-single-data-collection>
     </div>
