@@ -1,44 +1,56 @@
 <div class="container nav-bar sticky-lg-top d-none d-lg-block d-xl-block">
   <div class="row">
-      <nav >
-        <a [routerLink]="['/']"
-           class="main-title display-4">Frisian Ports</a>
 
-        <a [routerLink]="['/']"
-           [routerLinkActive]="'active-page'"
-           [routerLinkActiveOptions]="{ exact: true }"
-           class="nav-item">
-          <img class="icon" src="../../../assets/icons/home.png" width="15" height="15">
-           Home
+      <nav>
+        <a [routerLink]="['/']" >
+          <img class="main-title"
+               width="250"
+               height="80"
+               src="assets/images/MainLogo.svg">
         </a>
 
-        <a [routerLink]="['/map']"
-           [routerLinkActive]="'active-page'"
-           class="nav-item">
-          <img class="icon" src="../../../assets/icons/map.png" width="15" height="15">
-          Havens
-        </a>
+        <div class="nav-items-collection">
+          <a [routerLink]="['/']"
+             [routerLinkActive]="'active-page'"
+             [routerLinkActiveOptions]="{ exact: true }"
+             class="nav-item">
+            <img class="icon" src="../../../assets/icons/home.png" width="15" height="15">
+             Home
+          </a>
 
-        <a [routerLink]="['/cargo-transport']"
-           [routerLinkActive]="'active-page'"
-           class="nav-item">
-          <img class="icon" src="../../../assets/icons/cargo.png" width="15" height="15">
-          Goederenstromen
-        </a>
+          <a [routerLink]="['/map']"
+             [routerLinkActive]="'active-page'"
+             class="nav-item">
+            <img class="icon" src="../../../assets/icons/map.png" width="15" height="15">
+            Kaart
+          </a>
 
-        <a [routerLink]="['/contact']"
-           [routerLinkActive]="'active-page'"
-           class="nav-item">
-          <img class="icon" src="../../../assets/icons/phone.png" width="15" height="15">
-          Contact
-        </a>
+          <a [routerLink]="['/cargo-transport']"
+             [routerLinkActive]="'active-page'"
+             class="nav-item">
+            <img class="icon" src="../../../assets/icons/cargo.png" width="15" height="15">
+            Goederenstromen
+          </a>
 
-        <div class="nav-right">
-          <div class="search-field">
-            <app-search-in-nav-bar></app-search-in-nav-bar>
-          </div>
-          <a [routerLink]="['/login']" class="login-btn btn btn-outline-primary">Inloggen</a>
+          <a [routerLink]="['/contact']"
+             [routerLinkActive]="'active-page'"
+             class="nav-item">
+            <img class="icon" src="../../../assets/icons/phone.png" width="15" height="15">
+            Contact
+          </a>
         </div>
+          <div class="nav-right items-on-right">
+            <div class="search-field">
+              <app-search-in-nav-bar></app-search-in-nav-bar>
+            </div>
+
+            <a [routerLink]="['/login']"
+               class="login-btn btn btn-outline-primary nav-right">
+              Inloggen
+            </a>
+
+          </div>
+
       </nav>
 
     <div class="seperator"></div>
@@ -50,8 +62,14 @@
 <div class="nav-bar sticky-top d-lg-none d-xl-none">
 
 
-    <div>
-      <a routerLink="/" class="main-title text-center display-4">Frisian Ports</a>
+    <div class="nav-small">
+      <!--<a routerLink="/" class="main-title text-center display-4">Frisian Ports</a>-->
+      <a [routerLink]="['/']" >
+        <img width="300"
+             height="80"
+             src="assets/images/MainLogo.svg">
+      </a>
+
       <a class="hamburger-menu float-end" (click)="closeAndOpenNav()">
         <img src="../../../assets/icons/hamburger.png" width="40" height="40">
       </a>
@@ -69,7 +87,7 @@
          [routerLinkActive]="'active-page'"
          class="nav-item">
         <img class="icon" src="../../../assets/icons/map.png" width="15" height="15">
-        Havens
+        Kaart
       </a>
       <a [routerLink]="['/cargo-transport']"
          [routerLinkActive]="'active-page'"
@@ -84,7 +102,10 @@
         Contact
       </a>
 
-      <a [routerLink]="['/login']" class="login-btn-sm btn btn-outline-primary">Inloggen</a>
+      <a [routerLink]="['/login']"
+         class="login-btn-sm btn btn-outline-primary">
+        Inloggen
+      </a>
 
       <div class="nav-right">
         <div class="search-field">
