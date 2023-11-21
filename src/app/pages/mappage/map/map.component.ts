@@ -2,7 +2,6 @@ import {Component, OnInit} from '@angular/core';
 import * as L from 'leaflet';
 import {PortService} from "../../../services/port.service";
 import {Port} from "../../../models/Port";
-import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-map',
@@ -49,12 +48,13 @@ export class MapComponent implements OnInit {
       { icon: customMarker }
     );
 
-    marker.on('click',function(e)
+    marker.on('click',function()
     {
       window.location.href = `http://localhost:4200/port-dashboard?id=${port.port_Id}`;
     })
       .on('mouseover', function (){
-      marker.bindPopup(`${port.port_Name} - ${port.port_Location}`).openPopup();
+      marker.bindPopup(`<h3>${port.port_Location}</h3>
+                                <p>Haven Code: ${port.port_Name}</p>`).openPopup();
     })
       .on('mouseout',function (){
       marker.closePopup();

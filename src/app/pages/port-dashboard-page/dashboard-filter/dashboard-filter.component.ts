@@ -22,7 +22,13 @@ export class DashboardFilterComponent implements OnInit {
   }
 
   public periodSelected(selectedValue : any){
-    this.YearEmitter.emit(Number(selectedValue));
+    if (selectedValue === 'Alles'){
+      this.YearEmitter.emit(0);
+    }
+    else{
+      this.YearEmitter.emit(Number(selectedValue));
+    }
+
     console.log("New Selected Year: " + Number(selectedValue));
   }
 

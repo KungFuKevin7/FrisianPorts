@@ -48,6 +48,7 @@ import { DashboardFilterComponent } from './pages/port-dashboard-page/dashboard-
 import { SmallSingleDataCollectionComponent } from './pages/port-dashboard-page/dashboard-item/graph-bar/small-single-data-collection/small-single-data-collection.component';
 import { NavBarInputComponent } from './pages/navbar/search-in-nav-bar/nav-bar-input/nav-bar-input.component';
 import { InternalServerErrorPageComponent } from './pages/error-pages/internal-server-error-page/internal-server-error-page.component';
+import { AddTransportComponent } from './pages/add-transport/add-transport.component';
 
 const routes: Routes = [
   { path: '', component: HomepageComponent },
@@ -64,6 +65,7 @@ const routes: Routes = [
   { path: 'port-dashboard', component: PortDashboardPageComponent},
   { path: 'transport', component : TransportPageComponent},
   { path: 'server-error', component : InternalServerErrorPageComponent },
+  { path: 'add-transport', component : AddTransportComponent},
   { path: '**', component : NotfoundpageComponent}
 
 
@@ -111,7 +113,8 @@ const routes: Routes = [
     DashboardFilterComponent,
     SmallSingleDataCollectionComponent,
     NavBarInputComponent,
-    InternalServerErrorPageComponent
+    InternalServerErrorPageComponent,
+    AddTransportComponent
   ],
     imports: [
         BrowserModule,
