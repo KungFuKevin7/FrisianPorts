@@ -35,7 +35,8 @@ export class ErrorHandlerService {
   }
 
   public handleBadRequest(){
-    console.log("400 Bad Request, Your fault not mine.");
+    this.router.navigate(['/not-found-page']);
+    console.log("400 Bad Request, Something is wrong with the sent request.");
   }
 
   public handleInternalServerError(){

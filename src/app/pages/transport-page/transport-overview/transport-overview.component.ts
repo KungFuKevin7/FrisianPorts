@@ -21,6 +21,7 @@ export class TransportOverviewComponent implements OnInit {
               private transportService: TransportService) {
   }
 
+  //OnInit: Get flow-of-goods along with amount of ships in flow-of-goods.
   ngOnInit(): void {
     this.goodsFlowService.getGoodsFlowById(this.cargoTransportId)
       .subscribe(response => {

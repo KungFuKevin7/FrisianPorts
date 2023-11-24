@@ -14,7 +14,7 @@ export class CargoTransportService{
   constructor(private http : HttpClient)
   { }
 
-  private readonly apiUri : string = `${Constants.apiUrl}/cargo-transport`;
+  private readonly apiUri : string = `${Constants.apiUrl}/cargo-transports`;
 
   add(objectToAdd: CargoTransport): Observable<CargoTransport> {
     return this.http.post<CargoTransport>(this.apiUri,
@@ -42,21 +42,4 @@ export class CargoTransportService{
     (this.apiUri, updatedObject);
   }
 
-  getImport(portId: number): Observable<CargoTransport[]> {
-    const parameter = {
-      params : new HttpParams().set("portId", portId)
-    };
-
-    return this.http.get<CargoTransport[]>(`${this.apiUri}/get-import`,
-      parameter);
-  }
-
-  getExport(portId: number): Observable<CargoTransport[]> {
-    const parameter = {
-      params : new HttpParams().set("portId", portId)
-    };
-
-    return this.http.get<CargoTransport[]>(`${this.apiUri}/get-export`,
-      parameter);
-  }
 }

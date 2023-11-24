@@ -14,10 +14,12 @@ export class TableComponent implements OnChanges {
   constructor() {
   }
 
+  //If the data to display changes, recompute the total tonnage
   ngOnChanges(changes: SimpleChanges): void {
     this.total = this.getTotal(this.DataDisplay);
   }
 
+  //Compute the total transported Tonnage
   public getTotal(collection : any)
   {
     let sum : number = 0;

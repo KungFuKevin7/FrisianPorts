@@ -1,5 +1,6 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
+import {Constants} from "../../../.constants/constants";
 
 @Component({
   selector: 'app-search-page-input',
@@ -16,9 +17,10 @@ export class SearchPageInputComponent{
 
   }
 
+  //Send the inputted query case the length of the query is large enough
   public searchData()
   {
-    if (this.queryInput.length > 3) {
+    if (this.queryInput.length > Constants.minimumQueryLength) {
       this.queryToSend.emit(this.queryInput);
     }
   }

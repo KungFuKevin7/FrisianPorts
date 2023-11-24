@@ -29,6 +29,7 @@ export class CargoTransportOfPortPageComponent implements OnInit{
     this.getRequestedPort()
   }
 
+  //Get Port by id from the URL
   public getRequestedPort()
   {
     this.portService.getById(this.portId)
@@ -37,6 +38,7 @@ export class CargoTransportOfPortPageComponent implements OnInit{
       })
   }
 
+  //Display the amount of results on the page
   public showResultCount(receivedCount : number){
     this.numberOfResults = receivedCount;
   }

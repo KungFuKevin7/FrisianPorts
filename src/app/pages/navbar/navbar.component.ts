@@ -8,6 +8,7 @@ import {Component} from '@angular/core';
 export class NavbarComponent {
   hamburgerMenu : boolean = false;
 
+  //Quite simple open and close navigation system
   public closeAndOpenNav()
   {
     if (this.hamburgerMenu){

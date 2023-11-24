@@ -26,11 +26,13 @@ export class PieChartComponent implements OnInit, OnChanges{
     this.getExport();
   }
 
+  //Call the same methods as OnInit, but now with added period filter
   ngOnChanges(changes:SimpleChanges): void {
     this.getImport();
     this.getExport();
   }
 
+  //Get distribution of cargo for the import
   public getImport()
   {
     this.cargoDistributionService.getImportDistributionPort(this.portId, this.selectedYear)
@@ -45,6 +47,7 @@ export class PieChartComponent implements OnInit, OnChanges{
         })
   }
 
+  //Get the distribution of cargo for the export
   public getExport() {
     this.cargoDistributionService.getExportDistributionPort(this.portId, this.selectedYear)
       .subscribe(

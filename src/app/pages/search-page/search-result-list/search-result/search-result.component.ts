@@ -12,6 +12,7 @@ export class SearchResultComponent {
 
   public isFolded : boolean = true;
 
+  //Unfold the result to display more data points, or hide them
   public foldSearchResult()
   {
     if (this.isFolded)

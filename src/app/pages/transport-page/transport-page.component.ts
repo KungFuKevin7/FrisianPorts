@@ -14,6 +14,7 @@ export class TransportPageComponent implements OnInit{
 
   }
 
+  //Get the id parameter from the current URL
   ngOnInit(): void {
     this.activeRoute.queryParams.subscribe(
       params => {

@@ -41,7 +41,7 @@ export class CargoDistributionService {
 
   public getTotalDistribution(Id : number){
     return this.http.get<TransportedCargoDTO[]>(
-      `${this.apiUri}/total-cargo-distribution`,
+      `${this.apiUri}/total`,
       {params : new HttpParams().set("cargoTransportId",Id)}
     );
   }

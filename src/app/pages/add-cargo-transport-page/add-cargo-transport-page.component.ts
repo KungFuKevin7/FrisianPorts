@@ -50,7 +50,6 @@ export class AddCargoTransportPageComponent implements OnInit {
   {
     console.log("Arrival set to: " +  portId)
     this.arrivalPortId = portId;
-    //this.addToDatabase()
   }
 
   public addToDatabase()
@@ -58,6 +57,7 @@ export class AddCargoTransportPageComponent implements OnInit {
     if (this.departurePortId == this.arrivalPortId){
       alert("Kan niet met dezelfde haven verbonden zijn!");
     }
+
     else {
       let routeToAdd = {
         Route_Id : 0,

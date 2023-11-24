@@ -1,4 +1,5 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
+import {Constants} from "../../../../.constants/constants";
 
 @Component({
   selector: 'app-nav-bar-input',
@@ -14,21 +15,17 @@ export class NavBarInputComponent{
   constructor() {
   }
 
+  //Check if search query is long enough
+  //If yes, transfer the query to the parent (search-in-nav-bar)
   public handleSearchQuery()
   {
-    if (this.searchQuery.length > 3) {
-      this.searchWithQuery(this.searchQuery);
+    if (this.searchQuery.length > Constants.minimumQueryLength) {
+      this.queryToShare.emit(this.searchQuery);
     }
   }
 
+  //Upon pressing the 'X'-button, empty the search query
   public emptyField(){
     this.searchQuery = "";
   }
-
-  public searchWithQuery(query : string)
-  {
-    this.queryToShare.emit(query);
-  }
-
-
 }

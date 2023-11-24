@@ -18,6 +18,7 @@ export class CargoTableComponent implements OnInit
   constructor(private cargoDistributionService :CargoDistributionService) {
   }
 
+  //OnInit: get the cargo distribution, cargo type and weights.
   ngOnInit(): void {
     this.cargoDistributionService.getDistributionByCargoTransport(this.CargoTransportId)
       .subscribe( response => {
@@ -25,11 +26,10 @@ export class CargoTableComponent implements OnInit
 
         this.totalWeight = this.getTotalWeight(this.cargoToDisplay);
       })
-
-
   }
 
-  getTotalWeight(weights : TransportedCargoDTO[]) {
+  //Compute all tonnage received from OnInit request.
+  public getTotalWeight(weights : TransportedCargoDTO[]) {
     let totalSum = 0;
 
     for (let i =0; i < weights.length; i++){

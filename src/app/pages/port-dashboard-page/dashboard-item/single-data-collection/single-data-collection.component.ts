@@ -25,16 +25,17 @@ export class SingleDataCollectionComponent {
 
   ngOnInit(): void {
     this.getShipments();
-    this.getWeights();
+    this.getTonnage();
   }
 
+  //Call the same methods as OnInit but this time with the period filter
   ngOnChanges(changes: SimpleChanges): void {
     this.getShipments();
-    this.getWeights();
+    this.getTonnage();
   }
 
 
-  //gets import and export amount of ships
+  //Gets amount of ships for import and export respectively
   public getShipments() : any{
     this.totalService.getImport(this.portId, this.selectedYear).subscribe(
       response => {
@@ -49,8 +50,8 @@ export class SingleDataCollectionComponent {
     );
   }
 
-  //gets total weight of import and export
-  public getWeights()
+  //Gets total tonnage for both import and export
+  public getTonnage()
   {
     this.totalService.getImportTonnage(this.portId, this.selectedYear).subscribe(
       response => {

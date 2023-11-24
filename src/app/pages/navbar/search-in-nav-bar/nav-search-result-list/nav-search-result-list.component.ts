@@ -23,6 +23,7 @@ export class NavSearchResultListComponent implements OnChanges{
     this.getSearchResults()
   }
 
+  //Request the ports and flow-of-goods based on the received search query
   public getSearchResults()
   {
     this.searchService.SearchPorts(this.ReceivedSearchQuery)

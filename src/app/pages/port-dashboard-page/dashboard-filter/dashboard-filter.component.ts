@@ -21,6 +21,7 @@ export class DashboardFilterComponent implements OnInit {
     this.getAvailableYears();
   }
 
+  //Fired once another value has been selected in the dropdown filter.
   public periodSelected(selectedValue : any){
     if (selectedValue === 'Alles'){
       this.YearEmitter.emit(0);
@@ -32,6 +33,7 @@ export class DashboardFilterComponent implements OnInit {
     console.log("New Selected Year: " + Number(selectedValue));
   }
 
+  //Request all years of the selected port, that contains any data
   public getAvailableYears(){
     this.periodService.getAvailibleYears(this.portId)
       .subscribe( years => {

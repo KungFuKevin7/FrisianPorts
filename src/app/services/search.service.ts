@@ -13,13 +13,13 @@ export class SearchService {
   private readonly apiUri = `${Constants.apiUrl}`
 
   public SearchPorts(searchQuery : string) : Observable<any>{
-    return this.http.get(`${this.apiUri}/port/search`,
+    return this.http.get(`${this.apiUri}/ports/name`,
       {params : new HttpParams().set("query",searchQuery)
       });
   }
 
   public SearchFlowOfGoods(searchQuery : string) : Observable<any>{
-    return this.http.get(`${this.apiUri}/flow-of-goods/search`,
+    return this.http.get(`${this.apiUri}/flow-of-goods/name`,
       {params : new HttpParams().set("query",searchQuery)
       });
   }

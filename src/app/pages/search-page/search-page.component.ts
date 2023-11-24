@@ -25,12 +25,14 @@ export class SearchPageComponent implements OnInit{
     );
   }
 
+  //Receive the amount of results and display the value
   public notify(count : number) : void
   {
-    this.searchResultsCount =count;
+    this.searchResultsCount = count;
     console.log("Number updated to:" + count);
   }
 
+  //Share search query with child
   public handleSearchQuery(searchQuery : any)
   {
     this.queryReceivedFromInput = searchQuery;

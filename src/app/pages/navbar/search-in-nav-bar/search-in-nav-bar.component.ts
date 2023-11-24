@@ -13,19 +13,16 @@ export class SearchInNavBarComponent{
   constructor() {
   }
 
+  //Receive the search query and transfer to the other child
+  //(nav-search-result-list)
   public handleSearchQuery(val : string)
   {
-    if (val.length > 3) {
       this.searchQuery = val;
-    }
   }
 
+  //In case the area outside the component (+ children) gets clicked:
+  //Empty field and close the list window
   public emptyField(){
     this.searchQuery = "";
   }
-
-
-
-
-
 }

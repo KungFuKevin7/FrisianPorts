@@ -36,6 +36,7 @@ export class PortDashboardPageComponent implements OnInit{
     this.getPortInfo(this.portId);
   }
 
+  //Gets called onInit, to get the selected port
   public getPortInfo(id : number)
   {
     this.portService.getById(id).subscribe(
@@ -47,6 +48,7 @@ export class PortDashboardPageComponent implements OnInit{
     );
   }
 
+  //Gets the year selected in the dashboard-filter component
   public getYear(receivedYear : any)
   {
     this.selectedYear = receivedYear;

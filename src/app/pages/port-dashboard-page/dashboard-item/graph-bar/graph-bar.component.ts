@@ -27,6 +27,8 @@ export class GraphBarComponent implements OnInit {
     this.getYearlyData();
   }
 
+  //Get necessary data and reformat the data,
+  //so the graph-library can visualize
   public getYearlyData()
   {
     this.periodService.getYearlyReport(this.portId).subscribe(

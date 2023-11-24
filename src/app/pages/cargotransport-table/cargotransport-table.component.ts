@@ -16,20 +16,22 @@ export class CargotransportTableComponent implements OnInit{
 
   public goodsFlow : GoodsFlowDto[]= [];
 
-  constructor(private goodsflowService : GoodsflowService) { }
+  constructor(private goodsFlowService : GoodsflowService) { }
 
   ngOnInit() {
     this.getGoodsFlow();
   }
 
+  //Get flow of goods to fill the table
   public getGoodsFlow(){
-    this.goodsflowService.getGoodsFlows(this.portId)
+    this.goodsFlowService.getGoodsFlows(this.portId)
       .subscribe( response => {
         this.goodsFlow = response;
         this.shareResultsAmount(this.goodsFlow.length);
       })
   }
 
+  //Share the amount of results with parent
   public shareResultsAmount(resultAmount : number)
   {
     this.totalResults.emit(resultAmount);

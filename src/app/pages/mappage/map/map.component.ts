@@ -26,11 +26,13 @@ export class MapComponent implements OnInit {
     this.initMap();               //After receiving Locations, then initialize map.
   }
 
+  //Initialize Leaflet map, set the standard view on Friesland
   private initMap(): void {
     this.map = L.map('map').setView([53.1651, 5.7808], 9);
     L.tileLayer(this.mapUrl).addTo(this.map);
   }
 
+  //Add a marker to the initialized map
   public addMarker(port : Port): void {
 
     const customMarker = L.icon({
@@ -63,14 +65,7 @@ export class MapComponent implements OnInit {
     marker.addTo(this.map);
   }
 
-  public addPortsFromList(ports : Port[])
-  {
-    ports.forEach(port =>
-    {
-      this.addMarker(port)
-    });
-  }
-
+  //Request all available ports to display on the map
   public getLocationsOnMap()
   {
     this.portService.get()
@@ -79,5 +74,16 @@ export class MapComponent implements OnInit {
         this.addPortsFromList(this.portLocations);
       });
   }
+
+  //Mark all the received ports on the map.
+  public addPortsFromList(ports : Port[])
+  {
+    ports.forEach(port =>
+    {
+      this.addMarker(port)
+    });
+  }
+
+
 
 }

@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
-import { HttpClientModule } from "@angular/common/http";
+import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 
 import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -40,7 +40,6 @@ import { SearchPageInputComponent } from './pages/search-page/search-page-input/
 import { AddedItemsTableComponent } from './pages/my-added-items-page/added-items-table/added-items-table.component';
 import { FilterPeriodComponent } from './pages/my-added-items-page/filter-period/filter-period.component';
 import { MapComponent } from './pages/mappage/map/map.component';
-import { PortsOnMapComponent } from './pages/mappage/ports-on-map/ports-on-map.component';
 import {FormsModule} from "@angular/forms";
 import { NavSearchResultListComponent } from './pages/navbar/search-in-nav-bar/nav-search-result-list/nav-search-result-list.component';
 import { SearchResultPortComponent } from './pages/search-page/search-result-list/search-result-port/search-result-port.component';
@@ -49,6 +48,8 @@ import { SmallSingleDataCollectionComponent } from './pages/port-dashboard-page/
 import { NavBarInputComponent } from './pages/navbar/search-in-nav-bar/nav-bar-input/nav-bar-input.component';
 import { InternalServerErrorPageComponent } from './pages/error-pages/internal-server-error-page/internal-server-error-page.component';
 import { AddTransportComponent } from './pages/add-transport/add-transport.component';
+import { LoadingAnimationComponent } from './pages/loading-animation/loading-animation.component';
+import {LoadingInterceptor} from "./pages/loading-animation/loading.interceptor";
 
 const routes: Routes = [
   { path: '', component: HomepageComponent },
@@ -67,8 +68,6 @@ const routes: Routes = [
   { path: 'server-error', component : InternalServerErrorPageComponent },
   { path: 'add-transport', component : AddTransportComponent},
   { path: '**', component : NotfoundpageComponent}
-
-
 ];
 
 @NgModule({
@@ -107,14 +106,14 @@ const routes: Routes = [
     AddedItemsTableComponent,
     FilterPeriodComponent,
     MapComponent,
-    PortsOnMapComponent,
     NavSearchResultListComponent,
     SearchResultPortComponent,
     DashboardFilterComponent,
     SmallSingleDataCollectionComponent,
     NavBarInputComponent,
     InternalServerErrorPageComponent,
-    AddTransportComponent
+    AddTransportComponent,
+    LoadingAnimationComponent
   ],
     imports: [
         BrowserModule,
@@ -127,7 +126,11 @@ const routes: Routes = [
         FormsModule,
         HttpClientModule
     ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS, useClass: LoadingInterceptor, multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -24,30 +24,31 @@ export class SearchResultListComponent implements OnChanges {
   }
 
   ngOnChanges(changes: SimpleChanges) {
-    if (this.queryReceived.length >= 3) {
-      this.getData();
-    }
+    this.getData();
   }
 
+  //Get ports and flow of goods with matching search query
   public getData()
   {
-      this.searchService.SearchPorts(this.queryReceived)   //Get results from API Call
+      this.searchService.SearchPorts(this.queryReceived)
         .subscribe(response => {
           this.portResults = response;
-          this.shareResultCount(this.portResults.length);
+          this.shareResultCount();
         });
 
-      this.searchService.SearchFlowOfGoods(this.queryReceived)   //Get results from API Call
+      this.searchService.SearchFlowOfGoods(this.queryReceived)
         .subscribe(response => {
           this.flowOfGoodsResults = response;
-          this.shareResultCount(this.flowOfGoodsResults.length);
+          this.shareResultCount();
         });
 
   }
 
-  public shareResultCount(nr : number)
+  //Share amount of results with parent for display purposes
+  public shareResultCount()
   {
-    this.searchResultsCount.emit(nr);
+    let resultCount = this.portResults.length + this.flowOfGoodsResults.length;
+    this.searchResultsCount.emit(resultCount);
   }
 
 }

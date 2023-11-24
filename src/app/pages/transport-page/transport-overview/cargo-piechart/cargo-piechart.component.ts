@@ -18,6 +18,7 @@ export class CargoPiechartComponent implements OnInit{
   constructor(private cargoDistributionService : CargoDistributionService) {
   }
 
+  //Get the total Distribution of cargo, and map into the correct json format
   ngOnInit()
   {
     this.cargoDistributionService.getTotalDistribution(this.CargoTransportId)
@@ -29,11 +30,8 @@ export class CargoPiechartComponent implements OnInit{
               value: cargoSlice.transported_Weight
           })
           );
-
-          console.log(response);
+          //console.log(response);
         }
         )
   }
-
-  pos = LegendPosition.Below;
 }

@@ -21,6 +21,7 @@ export class SmallSingleDataCollectionComponent implements OnInit{
     this.getAvgImport();
   }
 
+  //Get the average import of all years, from selected Port
   public getAvgImport()
   {
     this.avgService.getAverageImport(this.portId).subscribe(
@@ -30,6 +31,7 @@ export class SmallSingleDataCollectionComponent implements OnInit{
     )
   }
 
+  //Get the average export of all years, from selected Port
   public getAvgExport()
   {
     this.avgService.getAverageExport(this.portId).subscribe(

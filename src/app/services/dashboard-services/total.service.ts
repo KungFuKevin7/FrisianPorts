@@ -15,7 +15,7 @@ export class TotalService {
 
   public getImport(portId : number, selectedYear : number): Observable<number>
   {
-    return this.http.get<number>(`${this.apiUri}/import`,
+    return this.http.get<number>(`${this.apiUri}/import-ship-movement`,
       {
         params : new HttpParams()
           .set("portId", portId)
@@ -25,7 +25,7 @@ export class TotalService {
 
   public getExport(portId : number, selectedYear : number): Observable<number>
   {
-    return this.http.get<number>(`${this.apiUri}/export`,
+    return this.http.get<number>(`${this.apiUri}/export-ship-movement`,
       {
         params : new HttpParams()
           .set("portId", portId)
