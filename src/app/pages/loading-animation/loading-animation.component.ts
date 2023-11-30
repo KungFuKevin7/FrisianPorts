@@ -13,7 +13,7 @@ export class LoadingAnimationComponent{
   {}
 
   public getStatus(){
-    return this.loadService.getStatus();
+    return this.loadService.getLoadStatus();
   }
 
 }

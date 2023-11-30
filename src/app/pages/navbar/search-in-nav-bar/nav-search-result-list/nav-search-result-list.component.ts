@@ -2,6 +2,7 @@ import {Component, Input, OnChanges, SimpleChanges} from '@angular/core';
 import {Port} from "../../../../models/Port";
 import {SearchService} from "../../../../services/search.service";
 import {GoodsFlowDto} from "../../../../models/DTO/GoodsFlowDto";
+import {Constants} from "../../../../.constants/constants";
 
 @Component({
   selector: 'app-nav-search-result-list',
@@ -20,7 +21,10 @@ export class NavSearchResultListComponent implements OnChanges{
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    this.getSearchResults()
+
+    if (this.ReceivedSearchQuery.length > Constants.minimumQueryLength){
+      this.getSearchResults();
+    }
   }
 
   //Request the ports and flow-of-goods based on the received search query

@@ -1,0 +1,15 @@
+.filter-btn{
+  background-color: #0155A5;
+  color: #FFFFFF;
+  width: 80%;
+  font-size: 20px;
+  height: 50px;
+  border: solid #0155A5 1px;
+  border-radius: 10px;
+  box-shadow: #c5c5c5 4px 4px;
+}
+
+.filter-btn:active{
+  box-shadow: #c5c5c5 2px 2px;
+  margin-top: 2px;
+}

@@ -17,14 +17,16 @@ export class LoadingInterceptor implements HttpInterceptor {
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
     this.totalRequests++;
-    this.loadService.setStatus(true);
+    this.loadService.setLoadStatus(true);
+
     return next.handle(request).pipe(
       finalize(()=> {
         this.totalRequests--;
         if (this.totalRequests == 0){
-          this.loadService.setStatus(false);      //console.log("Done Loading");
+          this.loadService.setLoadStatus(false);      //console.log("Done Loading");
         }
       })
     );
+
   }
 }

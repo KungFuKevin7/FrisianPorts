@@ -50,6 +50,7 @@ import { InternalServerErrorPageComponent } from './pages/error-pages/internal-s
 import { AddTransportComponent } from './pages/add-transport/add-transport.component';
 import { LoadingAnimationComponent } from './pages/loading-animation/loading-animation.component';
 import {LoadingInterceptor} from "./pages/loading-animation/loading.interceptor";
+import { SearchFilterComponent } from './pages/search-page/search-filter/search-filter.component';
 
 const routes: Routes = [
   { path: '', component: HomepageComponent },
@@ -113,7 +114,8 @@ const routes: Routes = [
     NavBarInputComponent,
     InternalServerErrorPageComponent,
     AddTransportComponent,
-    LoadingAnimationComponent
+    LoadingAnimationComponent,
+    SearchFilterComponent
   ],
     imports: [
         BrowserModule,

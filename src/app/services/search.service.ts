@@ -18,6 +18,18 @@ export class SearchService {
       });
   }
 
+  public SearchPortsFiltered(searchQuery : string, provinceFilter : string[]) : Observable<any>{
+    let searchParams = new HttpParams();
+
+    provinceFilter.forEach( province => {
+      searchParams = searchParams.append('provinces', province);
+    });
+
+    console.log(provinceFilter);
+    return this.http.get(`${this.apiUri}/ports/name/filtered`,
+      {params : searchParams.set('query', searchQuery)});
+  }
+
   public SearchFlowOfGoods(searchQuery : string) : Observable<any>{
     return this.http.get(`${this.apiUri}/flow-of-goods/name`,
       {params : new HttpParams().set("query",searchQuery)

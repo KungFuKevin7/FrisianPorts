@@ -21,7 +21,8 @@
 
 .fill-btn :hover :not(p, img){
   cursor: pointer;
-  background-image: linear-gradient(#FFFFFF, #e1e1e1, #e1e1e1, #FFFFFF);
+  text-decoration: underline;
+  background-image: linear-gradient(#FFFFFF, rgba(1,85,165,0.5));
   scale: 101%;
   transition: scale ease-in-out 100ms;
 }

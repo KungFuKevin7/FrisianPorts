@@ -13,6 +13,8 @@ export class SearchPageComponent implements OnInit{
 
   @Input() queryReceivedFromInput : string = "";
 
+  @Input() provinceFilter : string[] = [];
+
   constructor(private activeRoute :ActivatedRoute) {
 
   }
@@ -26,7 +28,7 @@ export class SearchPageComponent implements OnInit{
   }
 
   //Receive the amount of results and display the value
-  public notify(count : number) : void
+  public resultsCount(count : number) : void
   {
     this.searchResultsCount = count;
     console.log("Number updated to:" + count);
@@ -38,5 +40,11 @@ export class SearchPageComponent implements OnInit{
     this.queryReceivedFromInput = searchQuery;
   }
 
+  public getFilters(filters : string[])
+  {
+    if (filters.length > 0){
+      this.provinceFilter = filters;
+    }
+  }
 
 }

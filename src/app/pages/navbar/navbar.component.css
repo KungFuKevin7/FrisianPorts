@@ -40,6 +40,31 @@
   background-color: #fafbfc;
 }
 
+.login-btn{
+  text-decoration: none;
+  border-radius: 10px;
+  padding: 10px 10px 10px 10px;
+  margin-left: 40px;
+  color: #FFFFFF;
+  border: solid 1px rgba(1, 85, 165, 0.9);
+  background-color: rgba(1, 85, 165, 0.9);
+  box-shadow: #c5c5c5 2px 2px;
+  transition: all 400ms;
+}
+
+.login-btn-active{
+  background-color: #012a52;
+  box-shadow: #c5c5c5 1px 1px;
+  font-size: 105%;
+  margin-top: 4px;
+}
+
+.login-btn:hover{
+  font-size: 105%;
+  color: #0155A5;
+  background-color: #FFFFFF;
+}
+
 .login-btn-sm{
   margin: 20px 0px 20px 10px;
   width: 100px;
@@ -56,7 +81,23 @@
 }
 
 .active-page {
-  background-image: linear-gradient(#fafbfc 0px, #0155A5 200px);
+  color: #1E3050;
   font-weight: bold;
+}
+
+.selected-background {
+  background-image: linear-gradient(#fafbfc 0px, #0155A5 200px);
   padding: 30px;
+  box-shadow: #c5c5c5 2px 2px;
+  border-radius: 3px;
+  animation: appear 500ms;
+}
+
+@keyframes appear  {
+  0% {
+    opacity: 0%;
+  }
+  100% {
+    opacity: 100%;
+  }
 }

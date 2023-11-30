@@ -6,10 +6,11 @@
   top: 0;
   bottom: 0;
   z-index: 9999;
+  animation: appear 1s;
+  /*appear animation, so with quick requests the loading screen would be invisible for the most part.*/
 }
 
 .loader-position{
-  margin: auto;
   left: 43%;
   top: 43%;
   position: absolute;
@@ -27,9 +28,8 @@
 }
 
 .loading-text{
+  padding-top: 200px;
   color: #0155A5;
-  text-align: center;
-  padding: 50px 500px 0px 0px;
 }
 
 .loader-img{
@@ -55,4 +55,13 @@
    100% {
      transform: scale(105%);
    }
+}
+
+@keyframes appear {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 100;
+  }
 }

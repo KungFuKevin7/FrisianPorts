@@ -10,13 +10,13 @@ export class LoadingService{
   constructor() { }
 
 
-  setStatus(isLoading : boolean)
+  setLoadStatus(isLoading : boolean)
   {
     this.appIsLoading = isLoading;
     //console.log("Loading = " + this.appIsLoading);
   }
 
-  getStatus()
+  getLoadStatus()
   {
     return this.appIsLoading;
   }

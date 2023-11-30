@@ -28,7 +28,8 @@
 
     <hr>
 
-      <a class="fill-btn"  routerLink="/cargo-transport-of-port">
+      <a class="fill-btn"  [routerLink]="['/cargo-transport-of-port']"
+         [queryParams]="{id : port.port_Id}">
         <div class="row">
           <div class="col-2">
             <img src="../assets/icons/main-ship-dark.png" width="55" height="35">
