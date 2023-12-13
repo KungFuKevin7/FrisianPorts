@@ -15,7 +15,7 @@ export class PortService{
               private errorService : ErrorHandlerService)
   { }
 
-  public readonly apiUri : string = `${Constants.apiUrl}/ports`;
+  public readonly apiUri : string = `${Constants.apiUrl}/port`;
 
   get() : Observable<Port[]>
   {

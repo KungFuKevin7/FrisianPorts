@@ -1,28 +1,19 @@
+
 <h1>Filters</h1>
 <br>
 
   <h2>Provincie:</h2>
     <hr>
     <p>Selecteer hier de provincie om nog specifieker te zoeken.</p>
-<!--      <div class="form-check">
-        <input #provinceFilter
-               class="form-check-input"
-               id="all-option"
-               type="checkbox"
-               name="provinceFilter"
-               value="Alle"
-               (change)="provinceSelected(provinceFilter.value)">
-        <label class="form-check-label" for="all-option">Alle</label>
-      </div>-->
 
       <div *ngFor="let province of Provinces" class="form-check">
         <input #provinceFilter
                class="form-check-input"
                type="checkbox"
                name="provinceFilter"
-               value="{{province.province_Name}}"
+               value="{{province.provinceName}}"
                (change)="provinceSelected(provinceFilter.value)">
-        <label class="form-check-label" >{{province.province_Name}}</label>
+        <label class="form-check-label" >{{province.provinceName}}</label>
       </div>
 
 <br>

@@ -1,6 +1,6 @@
 import {Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
-import {CargoDistributionService} from "../../../../services/dashboard-services/cargo-distribution.service";
-import {Constants} from "../../../../.constants/constants";
+import {CargoDistributionService} from "../../../../../services/dashboard-services/cargo-distribution.service";
+import {Constants} from "../../../../../.constants/constants";
 
 @Component({
   selector: 'app-pie-chart',

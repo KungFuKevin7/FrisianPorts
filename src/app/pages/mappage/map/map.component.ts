@@ -2,6 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import * as L from 'leaflet';
 import {PortService} from "../../../services/port.service";
 import {Port} from "../../../models/Port";
+import {Province} from "../../../models/Province";
+import {ProvinceService} from "../../../services/province.service";
 
 @Component({
   selector: 'app-map',
@@ -12,11 +14,13 @@ import {Port} from "../../../models/Port";
 export class MapComponent implements OnInit {
 
   portLocations! : Port[];
+  provinceLocations! : Province[];
 
   private map: any;
   private mapUrl: string = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
 
-  constructor(private portService : PortService)
+  constructor(private portService : PortService,
+              private provinceService : ProvinceService)
   {
 
   }
@@ -33,7 +37,7 @@ export class MapComponent implements OnInit {
   }
 
   //Add a marker to the initialized map
-  public addMarker(port : Port): void {
+  public addPortMarker(port : Port): void {
 
     const customMarker = L.icon({
       iconUrl: '../assets/icons/marker.png',
@@ -52,11 +56,11 @@ export class MapComponent implements OnInit {
 
     marker.on('click',function()
     {
-      window.location.href = `http://localhost:4200/port-dashboard?id=${port.port_Id}`;
+      window.location.href = `http://localhost:4200/port-dashboard?id=${port.portId}`;
     })
       .on('mouseover', function (){
-      marker.bindPopup(`<h3>${port.port_Location}</h3>
-                                <p>Haven Code: ${port.port_Name}</p>`).openPopup();
+      marker.bindPopup(`<h3>${port.portLocation}</h3>
+                                <p>Haven Code: ${port.portName}</p>`).openPopup();
     })
       .on('mouseout',function (){
       marker.closePopup();
@@ -65,7 +69,38 @@ export class MapComponent implements OnInit {
     marker.addTo(this.map);
   }
 
-  //Request all available ports to display on the map
+  public addProvinceMarker(province : Province) : void{
+    const customMarker = L.icon({
+      iconUrl: '../assets/icons/provinceMarker.png',
+      shadowUrl: '../assets/icons/marker-shadow.png',
+      iconSize: [50, 75],
+      shadowSize: [50,75],
+      shadowAnchor: [10,67],
+      iconAnchor: [25, 75],
+      popupAnchor: [0,-60]
+    });
+
+    let marker = L.marker(
+      [Number(province.latitude), Number(province.longitude)],
+      { icon: customMarker }
+    );
+
+    marker.on('click',function()
+    {
+      window.location.href = `http://localhost:4200/province-dashboard?id=${province.provinceId}`;
+    })
+      .on('mouseover', function (){
+        marker.bindPopup(`<h3>${province.provinceName}</h3>`)
+          .openPopup();
+      })
+      .on('mouseout',function (){
+        marker.closePopup();
+      })
+
+    marker.addTo(this.map);
+  }
+
+  //Request all available port and provinces to display on the map
   public getLocationsOnMap()
   {
     this.portService.get()
@@ -73,6 +108,13 @@ export class MapComponent implements OnInit {
         this.portLocations = result
         this.addPortsFromList(this.portLocations);
       });
+
+    //Get Provinces
+    this.provinceService.get()
+      .subscribe( result => {
+        this.provinceLocations = result;
+        this.addProvincesFromList(this.provinceLocations);
+      })
   }
 
   //Mark all the received ports on the map.
@@ -80,10 +122,17 @@ export class MapComponent implements OnInit {
   {
     ports.forEach(port =>
     {
-      this.addMarker(port)
+      this.addPortMarker(port)
     });
   }
 
+  public addProvincesFromList(provinces : Province[])
+  {
+    provinces.forEach(province =>
+    {
+      this.addProvinceMarker(province);
+    });
+  }
 
 
 }

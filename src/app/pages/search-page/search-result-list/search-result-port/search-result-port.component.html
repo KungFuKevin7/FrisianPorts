@@ -3,7 +3,7 @@
     <div class="container">
 
 
-      <h5 class="float-start">{{port.port_Name}} - {{port.port_Location}}</h5>
+      <h5 class="float-start">{{port.portName}} - {{port.portLocation}}</h5>
       <a class="float-end button-to-fold" (click)="foldSearchResult()">
         <img *ngIf="isFolded" src="../assets/icons/chevron-up.png" width="50" height="25">
         <img *ngIf="!isFolded" src="../assets/icons/chevron-down.png" width="50" height="25">
@@ -15,7 +15,7 @@
 
   <div *ngIf="!isFolded" class="result-body">
       <a class="fill-btn" [routerLink]="['/port-dashboard']"
-      [queryParams]="{'id': port.port_Id}">
+      [queryParams]="{'id': port.portId}">
         <div class="row">
           <div class="col-2">
             <img src="../assets/icons/anchor2.png" width="40" height="45">
@@ -29,7 +29,7 @@
     <hr>
 
       <a class="fill-btn"  [routerLink]="['/cargo-transport-of-port']"
-         [queryParams]="{id : port.port_Id}">
+         [queryParams]="{id : port.portId}">
         <div class="row">
           <div class="col-2">
             <img src="../assets/icons/main-ship-dark.png" width="55" height="35">

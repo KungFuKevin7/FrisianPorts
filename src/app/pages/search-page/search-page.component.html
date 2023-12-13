@@ -4,11 +4,11 @@
   <p class="text-center">{{searchResultsCount}} zoekresultaten voor "{{queryReceivedFromInput}}"</p>
 
   <div class="row">
-    <div class="col-sm-3">
-      <app-search-filter
-      (ProvinceFilterToEmitter)="getFilters($event)">
-      </app-search-filter>
-    </div>
+      <div class="col-sm-3">
+        <app-search-filter
+        (ProvinceFilterToEmitter)="getFilters($event)">
+        </app-search-filter>
+      </div>
     <div class="col-sm-9">
       <app-search-page-input
         (queryToSend)="handleSearchQuery($event)">

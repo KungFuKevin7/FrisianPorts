@@ -1,7 +1,7 @@
 import {Component, Input, OnInit, Output, SimpleChanges} from '@angular/core';
-import {CargoTransportService} from "../../../../services/cargo-transport.service";
+import {CargoTransportService} from "../../../../../services/cargo-transport.service";
 
-import {TotalService} from "../../../../services/dashboard-services/total.service";
+import {TotalService} from "../../../../../services/dashboard-services/total.service";
 
 
 @Component({

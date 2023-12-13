@@ -1,4 +1,6 @@
 export interface Province {
-  province_Id : number;
-  province_Name : string;
+  provinceId : number;
+  provinceName : string;
+  longitude : string;
+  latitude : string;
 }

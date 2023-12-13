@@ -1,8 +1,8 @@
 import {Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
-import {PortService} from "../../services/port.service";
-import {Port} from "../../models/Port";
+import {PortService} from "../../../services/port.service";
+import {Port} from "../../../models/Port";
 import {ActivatedRoute} from "@angular/router";
-import {ErrorHandlerService} from "../../services/error-handler.service";
+import {ErrorHandlerService} from "../../../services/error-handler.service";
 
 @Component({
   selector: 'app-port-dashboard-page',

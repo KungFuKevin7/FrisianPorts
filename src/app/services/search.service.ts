@@ -13,7 +13,7 @@ export class SearchService {
   private readonly apiUri = `${Constants.apiUrl}`
 
   public SearchPorts(searchQuery : string) : Observable<any>{
-    return this.http.get(`${this.apiUri}/ports/name`,
+    return this.http.get(`${this.apiUri}/port/name`,
       {params : new HttpParams().set("query",searchQuery)
       });
   }
@@ -26,7 +26,7 @@ export class SearchService {
     });
 
     console.log(provinceFilter);
-    return this.http.get(`${this.apiUri}/ports/name/filtered`,
+    return this.http.get(`${this.apiUri}/port/name/filtered`,
       {params : searchParams.set('query', searchQuery)});
   }
 

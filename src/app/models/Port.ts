@@ -1,7 +1,7 @@
 export interface Port {
-  port_Id : number;
-  port_Name : string;
-  port_Location : string;
+  portId : number;
+  portName : string;
+  portLocation : string;
   latitude : string;
   longitude : string;
 }

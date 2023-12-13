@@ -26,14 +26,17 @@ export class SearchResultListComponent implements OnChanges {
               private searchService: SearchService) {
   }
 
+  //When the Text Input or Filter changes value -> perform search request
   ngOnChanges(changes: SimpleChanges) {
     if (this.additionalFilter.length > 0 &&
       this.queryReceived.length > Constants.minimumQueryLength)
     {
+      //Fetch Data using filters
       this.getDataWithFilter();
     }
     else
     {
+      //Fetch Data without filters
       this.getDataNormal();
     }
   }

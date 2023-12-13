@@ -14,7 +14,7 @@ export class CargoTransportService{
   constructor(private http : HttpClient)
   { }
 
-  private readonly apiUri : string = `${Constants.apiUrl}/cargo-transports`;
+  private readonly apiUri : string = `${Constants.apiUrl}/cargo-transport`;
 
   add(objectToAdd: CargoTransport): Observable<CargoTransport> {
     return this.http.post<CargoTransport>(this.apiUri,

@@ -25,8 +25,8 @@
                     (change)="setDeparture(DepartureInput.value)">
 
               <option *ngFor="let port of portsToChoose"
-                      value="{{port.port_Id}}">
-                      {{port.port_Location}} ({{port.port_Name}})
+                      value="{{port.portId}}">
+                      {{port.portLocation}} ({{port.portName}})
               </option>
 
             </select>
@@ -41,8 +41,8 @@
                     (change)="setArrival(ArrivalInput.value)">
 
               <option *ngFor="let port of portsToChoose"
-                      value="{{port.port_Id}}">
-                {{port.port_Location}} ({{port.port_Name}})
+                      value="{{port.portId}}">
+                {{port.portLocation}} ({{port.portName}})
               </option>
 
             </select>

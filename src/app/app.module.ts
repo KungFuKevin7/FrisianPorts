@@ -22,13 +22,13 @@ import { AddCargoTransportPageComponent } from './pages/add-cargo-transport-page
 import { AdminPageComponent } from './pages/admin-page/admin-page.component';
 import { ContactPageComponent } from './pages/contact-page/contact-page.component';
 import { SearchInNavBarComponent } from './pages/navbar/search-in-nav-bar/search-in-nav-bar.component';
-import { PortDashboardPageComponent } from './pages/port-dashboard-page/port-dashboard-page.component';
-import { DashboardItemComponent } from './pages/port-dashboard-page/dashboard-item/dashboard-item.component';
-import { SingleDataComponent } from './pages/port-dashboard-page/dashboard-item/single-data-collection/single-data/single-data.component';
-import { TableComponent } from './pages/port-dashboard-page/dashboard-item/pie-chart/table/table.component';
-import { GraphBarComponent } from './pages/port-dashboard-page/dashboard-item/graph-bar/graph-bar.component';
-import { PieChartComponent } from './pages/port-dashboard-page/dashboard-item/pie-chart/pie-chart.component';
-import { SingleDataCollectionComponent } from './pages/port-dashboard-page/dashboard-item/single-data-collection/single-data-collection.component';
+import { PortDashboardPageComponent } from './pages/Dashboards/port-dashboard-page/port-dashboard-page.component';
+import { DashboardItemComponent } from './pages/Dashboards/port-dashboard-page/dashboard-item/dashboard-item.component';
+import { SingleDataComponent } from './pages/Dashboards/port-dashboard-page/dashboard-item/single-data-collection/single-data/single-data.component';
+import { TableComponent } from './pages/Dashboards/port-dashboard-page/dashboard-item/pie-chart/table/table.component';
+import { GraphBarComponent } from './pages/Dashboards/port-dashboard-page/dashboard-item/graph-bar/graph-bar.component';
+import { PieChartComponent } from './pages/Dashboards/port-dashboard-page/dashboard-item/pie-chart/pie-chart.component';
+import { SingleDataCollectionComponent } from './pages/Dashboards/port-dashboard-page/dashboard-item/single-data-collection/single-data-collection.component';
 import { CargotransportTableComponent } from './pages/cargotransport-table/cargotransport-table.component';
 import { TransportOverviewComponent } from './pages/transport-page/transport-overview/transport-overview.component';
 import { CargoTableComponent } from './pages/transport-page/transport-overview/cargo-table/cargo-table.component';
@@ -43,14 +43,15 @@ import { MapComponent } from './pages/mappage/map/map.component';
 import {FormsModule} from "@angular/forms";
 import { NavSearchResultListComponent } from './pages/navbar/search-in-nav-bar/nav-search-result-list/nav-search-result-list.component';
 import { SearchResultPortComponent } from './pages/search-page/search-result-list/search-result-port/search-result-port.component';
-import { DashboardFilterComponent } from './pages/port-dashboard-page/dashboard-filter/dashboard-filter.component';
-import { SmallSingleDataCollectionComponent } from './pages/port-dashboard-page/dashboard-item/graph-bar/small-single-data-collection/small-single-data-collection.component';
+import { DashboardFilterComponent } from './pages/Dashboards/port-dashboard-page/dashboard-filter/dashboard-filter.component';
+import { SmallSingleDataCollectionComponent } from './pages/Dashboards/port-dashboard-page/dashboard-item/graph-bar/small-single-data-collection/small-single-data-collection.component';
 import { NavBarInputComponent } from './pages/navbar/search-in-nav-bar/nav-bar-input/nav-bar-input.component';
 import { InternalServerErrorPageComponent } from './pages/error-pages/internal-server-error-page/internal-server-error-page.component';
 import { AddTransportComponent } from './pages/add-transport/add-transport.component';
 import { LoadingAnimationComponent } from './pages/loading-animation/loading-animation.component';
 import {LoadingInterceptor} from "./pages/loading-animation/loading.interceptor";
 import { SearchFilterComponent } from './pages/search-page/search-filter/search-filter.component';
+import { ProvinceDashboardPageComponent } from './pages/Dashboards/province-dashboard-page/province-dashboard-page.component';
 
 const routes: Routes = [
   { path: '', component: HomepageComponent },
@@ -65,6 +66,7 @@ const routes: Routes = [
   { path: 'register', component : RegisterPageComponent},
   { path: 'my-added-items', component : MyAddedItemsPageComponent},
   { path: 'port-dashboard', component: PortDashboardPageComponent},
+  { path: 'province-dashboard', component: ProvinceDashboardPageComponent},
   { path: 'transport', component : TransportPageComponent},
   { path: 'server-error', component : InternalServerErrorPageComponent },
   { path: 'add-transport', component : AddTransportComponent},
@@ -115,7 +117,8 @@ const routes: Routes = [
     InternalServerErrorPageComponent,
     AddTransportComponent,
     LoadingAnimationComponent,
-    SearchFilterComponent
+    SearchFilterComponent,
+    ProvinceDashboardPageComponent
   ],
     imports: [
         BrowserModule,
