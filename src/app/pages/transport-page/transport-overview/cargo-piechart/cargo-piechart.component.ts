@@ -1,13 +1,13 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {LegendPosition} from "@swimlane/ngx-charts";
-import {CargoDistributionService} from "../../../../services/dashboard-services/cargo-distribution.service";
+import {CargoDistributionPortService} from "../../../../services/dashboard-services/cargo-distribution-port.service";
 import {TransportedCargoDTO} from "../../../../models/DTO/TransportedCargoDTO";
 
 @Component({
   selector: 'app-cargo-piechart',
   templateUrl: './cargo-piechart.component.html',
   styleUrls: ['./cargo-piechart.component.css'],
-  providers: [CargoDistributionService]
+  providers: [CargoDistributionPortService]
 })
 export class CargoPiechartComponent implements OnInit{
 
@@ -15,7 +15,7 @@ export class CargoPiechartComponent implements OnInit{
 
   piechartData : any;
 
-  constructor(private cargoDistributionService : CargoDistributionService) {
+  constructor(private cargoDistributionService : CargoDistributionPortService) {
   }
 
   //Get the total Distribution of cargo, and map into the correct json format

@@ -7,10 +7,10 @@ import {CargoTransport} from "../../models/CargoTransport";
 @Injectable({
   providedIn: 'root'
 })
-export class TotalService {
+export class TotalPortService {
   constructor(private http : HttpClient) { }
 
-  private readonly apiUri = `${Constants.apiUrl}/total`
+  private readonly apiUri = `${Constants.apiUrl}/port/total`
 
 
   public getImport(portId : number, selectedYear : number): Observable<number>

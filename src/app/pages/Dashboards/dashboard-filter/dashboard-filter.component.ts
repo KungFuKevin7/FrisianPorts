@@ -1,5 +1,5 @@
 import {Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges} from '@angular/core';
-import {PeriodService} from "../../../../services/dashboard-services/period.service";
+import {PeriodService} from "../../../services/dashboard-services/period.service";
 
 @Component({
   selector: 'app-dashboard-filter',

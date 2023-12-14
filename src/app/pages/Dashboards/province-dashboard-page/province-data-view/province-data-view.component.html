@@ -1,0 +1,44 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-6">
+      <app-single-data
+        [Title]="'Aankomst Schepen'"
+        [Value]="ImportMovements"
+        [DataColour]="'#00FF00'"
+        [IconPath]="'assets/icons/dashboardIcons/ImportShipIcon.png'">
+      </app-single-data>
+      <app-single-data
+        [Title]="'Vertrek Schepen'"
+        [Value]="ExportMovements"
+        [DataColour]="'#FF0000'"
+        [IconPath]="'assets/icons/dashboardIcons/ExportShipIcon.png'">
+      </app-single-data>
+      <app-single-data
+        [Title]="'Total Scheepsbewegingen'"
+        [Value]="ImportMovements + ExportMovements"
+        [DataColour]="'#0155A5'">
+      </app-single-data>
+    </div>
+
+    <div class="col-sm-6">
+      <app-single-data
+      [Title]="'Import Tonnage'"
+      [Value]="ImportTonnage"
+      [DataColour]="'#00FF00'"
+      [IconPath]="'assets/icons/dashboardIcons/CargoImportIcon.png'">
+      </app-single-data>
+      <app-single-data
+        [Title]="'Export Tonnage'"
+        [Value]="ExportTonnage"
+        [DataColour]="'#FF0000'"
+        [IconPath]="'assets/icons/dashboardIcons/CargoExportIcon.png'">
+      </app-single-data>
+      <app-single-data
+        [Title]="'Totale Overslag'"
+        [Value]="ImportTonnage + ExportTonnage"
+        [DataColour]="'#0155A5'">
+      </app-single-data>
+    </div>
+
+  </div>
+</div>

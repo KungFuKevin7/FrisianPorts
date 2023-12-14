@@ -1,33 +1,33 @@
 import { Injectable } from '@angular/core';
-import {TransportedCargoDTO} from "../../models/DTO/TransportedCargoDTO";
 import {HttpClient, HttpParams} from "@angular/common/http";
 import {Constants} from "../../.constants/constants";
+import {TransportedCargoDTO} from "../../models/DTO/TransportedCargoDTO";
 
 @Injectable({
   providedIn: 'root'
 })
-export class CargoDistributionService {
+export class CargoDistributionProvinceService {
 
   constructor(private http : HttpClient) { }
 
-  private readonly apiUri = `${Constants.apiUrl}/cargo-distribution`
+  private readonly apiUri = `${Constants.apiUrl}/cargo-distribution/province`
 
-  public getImportDistributionPort(portId : number, selectedYear : number)
+  public getImportDistributionPort(provinceId : number, selectedYear : number)
   {
     return this.http.get<TransportedCargoDTO[]>
     (`${this.apiUri}/import`,
       {params : new HttpParams()
-          .set("portId", portId)
+          .set("Id", provinceId)
           .set("period", selectedYear)
       });
   }
 
-  public getExportDistributionPort(portId : number, selectedYear : number)
+  public getExportDistributionPort(provinceId : number, selectedYear : number)
   {
     return this.http.get<TransportedCargoDTO[]>
     (`${this.apiUri}/export`,
       {params : new HttpParams()
-          .set("portId", portId)
+          .set("Id", provinceId)
           .set("period", selectedYear)
       });
   }

@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {AverageService} from "../../../../../../services/dashboard-services/average.service";
+import {AverageService} from "../../../../../services/dashboard-services/average.service";
 
 @Component({
   selector: 'app-small-single-data-collection',

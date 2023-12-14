@@ -1,17 +1,17 @@
 import {Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
-import {CargoDistributionService} from "../../../../../services/dashboard-services/cargo-distribution.service";
-import {Constants} from "../../../../../.constants/constants";
+import {CargoDistributionPortService} from "../../../../services/dashboard-services/cargo-distribution-port.service";
+import {Constants} from "../../../../.constants/constants";
 
 @Component({
   selector: 'app-pie-chart',
   templateUrl: './pie-chart.component.html',
   styleUrls: ['./pie-chart.component.css'],
-  providers: [CargoDistributionService]
+  providers: [CargoDistributionPortService]
 })
 
 export class PieChartComponent implements OnInit, OnChanges{
 
-  constructor(private cargoDistributionService : CargoDistributionService) {
+  constructor(private cargoDistributionService : CargoDistributionPortService) {
   }
 
   @Input() selectedYear : number = 0;
@@ -26,7 +26,7 @@ export class PieChartComponent implements OnInit, OnChanges{
     this.getExport();
   }
 
-  //Call the same methods as OnInit, but now with added period filter
+  //Call the same methods as OnInit, but now with added period filter, if given
   ngOnChanges(changes:SimpleChanges): void {
     this.getImport();
     this.getExport();

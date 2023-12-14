@@ -1,0 +1,35 @@
+<div class="dashboard-box">
+  <div class="container">
+    <h1 class="pie-chart-title">Goederenverdeling</h1>
+
+    <div class="charts-placement">
+      <div class="col-sm-6">
+        <ngx-charts-pie-chart
+          [results]="Import"
+          [labels]="true"
+          [scheme]="colorScheme"
+        ></ngx-charts-pie-chart>
+      </div>
+      <div class="col-sm-6">
+        <ngx-charts-pie-chart
+          [results]="Export"
+          [labels]="true"
+          [scheme]="colorScheme">
+        </ngx-charts-pie-chart>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-6">
+        <app-table [Title]="'Import'"
+                   [DataDisplay]="Import"></app-table>
+      </div>
+      <div class="col-sm-6">
+
+        <app-table [Title]="'Export'"
+                   [DataDisplay]="Export"></app-table>
+      </div>
+    </div>
+  </div>
+</div>
+

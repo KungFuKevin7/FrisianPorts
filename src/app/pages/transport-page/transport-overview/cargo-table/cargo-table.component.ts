@@ -1,12 +1,12 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {CargoDistributionService} from "../../../../services/dashboard-services/cargo-distribution.service";
+import {CargoDistributionPortService} from "../../../../services/dashboard-services/cargo-distribution-port.service";
 import {TransportedCargoDTO} from "../../../../models/DTO/TransportedCargoDTO";
 
 @Component({
   selector: 'app-cargo-table',
   templateUrl: './cargo-table.component.html',
   styleUrls: ['./cargo-table.component.css'],
-  providers: [CargoDistributionService]
+  providers: [CargoDistributionPortService]
 })
 export class CargoTableComponent implements OnInit
 {
@@ -15,7 +15,7 @@ export class CargoTableComponent implements OnInit
   cargoToDisplay! : TransportedCargoDTO[];
   totalWeight : number = 0;
 
-  constructor(private cargoDistributionService :CargoDistributionService) {
+  constructor(private cargoDistributionService :CargoDistributionPortService) {
   }
 
   //OnInit: get the cargo distribution, cargo type and weights.

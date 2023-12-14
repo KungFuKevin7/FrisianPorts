@@ -1,9 +1,9 @@
 import {Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
 import {concat, map} from "rxjs";
 import {json} from "d3";
-import {YearlyTransportDTO} from "../../../../../models/DTO/YearlyTransportDTO";
-import {PeriodService} from "../../../../../services/dashboard-services/period.service";
-import {Constants} from "../../../../../.constants/constants";
+import {YearlyTransportDTO} from "../../../../models/DTO/YearlyTransportDTO";
+import {PeriodService} from "../../../../services/dashboard-services/period.service";
+import {Constants} from "../../../../.constants/constants";
 
 @Component({
   selector: 'app-graph-bar',

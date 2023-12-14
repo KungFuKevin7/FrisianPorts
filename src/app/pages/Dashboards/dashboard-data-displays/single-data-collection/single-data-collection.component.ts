@@ -1,14 +1,14 @@
 import {Component, Input, OnInit, Output, SimpleChanges} from '@angular/core';
-import {CargoTransportService} from "../../../../../services/cargo-transport.service";
+import {CargoTransportService} from "../../../../services/cargo-transport.service";
 
-import {TotalService} from "../../../../../services/dashboard-services/total.service";
+import {TotalPortService} from "../../../../services/dashboard-services/total-port.service";
 
 
 @Component({
   selector: 'app-single-data-collection',
   templateUrl: './single-data-collection.component.html',
   styleUrls: ['./single-data-collection.component.css'],
-  providers: [CargoTransportService, TotalService]
+  providers: [CargoTransportService, TotalPortService]
 })
 export class SingleDataCollectionComponent {
 
@@ -19,7 +19,7 @@ export class SingleDataCollectionComponent {
   importWeight : number = 0;
   exportWeight : number = 0;
 
-  constructor(private totalService : TotalService) {
+  constructor(private totalService : TotalPortService) {
 
   }
 

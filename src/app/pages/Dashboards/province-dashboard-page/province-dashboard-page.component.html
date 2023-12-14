@@ -1,0 +1,35 @@
+<div class="container">
+
+  <div class="small-blank"></div>
+
+  <h1 class="text-center">{{selectedProvince.provinceName}}</h1>
+
+  <div class="small-blank"></div>
+
+  <div class="row">
+    <div class="col-lg-6">
+      <!--So'in-->
+      <app-province-pie-chart
+        [provinceId]="provinceId"
+      ></app-province-pie-chart>
+    </div>
+    <div class="col-lg-6">
+      <app-province-data-view
+      [ProvinceId]="provinceId">
+      </app-province-data-view>
+    </div>
+  </div>
+
+  <div class="blank">
+    <hr>
+  </div>
+
+  <div class="row">
+    <app-province-import-inside
+      [ProvinceId]="provinceId">
+    </app-province-import-inside>
+  </div>
+
+</div>
+
+
