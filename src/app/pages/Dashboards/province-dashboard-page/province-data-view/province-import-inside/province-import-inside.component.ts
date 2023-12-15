@@ -1,15 +1,17 @@
 import {Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
-import {TotalProvinceService} from "../../../../../services/dashboard-services/total-province.service";
+import {ShipMovementService} from "../../../../../services/dashboard-services/ship-movement.service";
+import {TonnageService} from "../../../../../services/dashboard-services/tonnage.service";
 
 @Component({
   selector: 'app-province-import-inside',
   templateUrl: './province-import-inside.component.html',
-  styleUrls: ['./province-import-inside.component.css']
+  styleUrls: ['./province-import-inside.component.css'],
+  providers: [ShipMovementService, TonnageService]
 })
 export class ProvinceImportInsideComponent implements OnInit, OnChanges {
 
   @Input() ProvinceId: number = 0;
-  @Input() SelectedYear: number = 0;
+  @Input() selectedYear: number = 0;
 
   TonnageWithinProvince!: number;
   TonnageToOutsideProvince! : number;
@@ -20,7 +22,8 @@ export class ProvinceImportInsideComponent implements OnInit, OnChanges {
   TransportFromOutsideProvince! : number;
 
 
-  constructor(private totalProvinceService: TotalProvinceService) {
+  constructor(private shipMovementService : ShipMovementService,
+              private tonnageService : TonnageService) {
   }
 
   ngOnInit(){
@@ -35,17 +38,17 @@ export class ProvinceImportInsideComponent implements OnInit, OnChanges {
 
   public fetchTonnageData()
   {
-    this.totalProvinceService.getTonnageWithinProvince(this.ProvinceId, this.SelectedYear)
+    this.tonnageService.getTonnageWithinProvince(this.ProvinceId, this.selectedYear)
       .subscribe( result => {
         this.TonnageWithinProvince = result;
       });
 
-    this.totalProvinceService.getExportToOutsideProvince(this.ProvinceId, this.SelectedYear)
+    this.tonnageService.getExportToOutsideProvince(this.ProvinceId, this.selectedYear)
       .subscribe(result => {
         this.TonnageToOutsideProvince = result;
       });
 
-    this.totalProvinceService.getImportFromProvince(this.ProvinceId, this.SelectedYear)
+    this.tonnageService.getImportFromProvince(this.ProvinceId, this.selectedYear)
       .subscribe(result => {
         this.TonnageFromOutsideProvince = result;
       });
@@ -53,17 +56,17 @@ export class ProvinceImportInsideComponent implements OnInit, OnChanges {
 
   public fetchTransportsData()
   {
-    this.totalProvinceService.getTransportsWithinProvince(this.ProvinceId, this.SelectedYear)
+    this.shipMovementService.getTransportsWithinProvince(this.ProvinceId, this.selectedYear)
       .subscribe( result => {
         this.TransportWithinProvince = result;
       });
 
-    this.totalProvinceService.getTransportsToOutsideProvince(this.ProvinceId, this.SelectedYear)
+    this.shipMovementService.getTransportsToOutsideProvince(this.ProvinceId, this.selectedYear)
       .subscribe(result => {
         this.TransportToOutsideProvince = result;
       });
 
-    this.totalProvinceService.getTransportsFromOutsideProvince(this.ProvinceId, this.SelectedYear)
+    this.shipMovementService.getTransportsFromOutsideProvince(this.ProvinceId, this.selectedYear)
       .subscribe(result => {
         this.TransportFromOutsideProvince = result;
       });

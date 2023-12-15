@@ -25,3 +25,8 @@
 .dashboard-icon{
   opacity: 75%;
 }
+
+.custom-unit-text{
+  font-size: 20px;
+  font-family: "Noto Sans";
+}

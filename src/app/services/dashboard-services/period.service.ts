@@ -12,36 +12,34 @@ export class PeriodService {
 
   private readonly apiUri = `${Constants.apiUrl}/period`
 
-  public getYearlyImport(portId : number)
-  {
-    return this.http.get<YearlyTransportDTO[]>(`${this.apiUri}/yearly-import`,
-      {
-        params : new HttpParams()
-          .set("portId", portId)
-      });
-  }
 
-  public getYearlyExport(portId : number)
-  {
-    return this.http.get<YearlyTransportDTO[]>(`${this.apiUri}/yearly-export`,
-      {
-        params : new HttpParams()
-          .set("portId", portId)
-      });
-  }
-
-  public getYearlyReport(portId : number){
-    return this.http.get<YearlyTransportDTO[]>(`${this.apiUri}/yearly-report`,
+  public getPortYearlyReport(portId : number){
+    return this.http.get<YearlyTransportDTO[]>(`${this.apiUri}/yearly-report-of-port`,
       {
         params : new HttpParams()
           .set("portId", portId)
       })
   }
 
-  public getAvailibleYears(portId : number){
-    return this.http.get<number[]>(`${this.apiUri}/available-years`,
+  public getProvinceYearlyReport(portId : number){
+    return this.http.get<YearlyTransportDTO[]>(`${this.apiUri}/yearly-report-of-province`,
+      {
+        params : new HttpParams()
+          .set("portId", portId)
+      })
+  }
+
+  public getAvailableYearsOfPort(portId : number){
+    return this.http.get<number[]>(`${this.apiUri}/available-years-of-port`,
       {
         params : new HttpParams().set("portId", portId)
+      })
+  }
+
+  public getAvailableYearsOfProvince(provinceId : number){
+    return this.http.get<number[]>(`${this.apiUri}/available-years-of-province`,
+      {
+        params : new HttpParams().set("provinceId", provinceId)
       })
   }
 }

@@ -5,6 +5,7 @@ import {Observable} from "rxjs";
 import {HttpClient, HttpParams} from "@angular/common/http";
 import {Constants} from "../.constants/constants";
 import {Cargo} from "../models/Cargo";
+import {Port} from "../models/Port";
 
 @Injectable({
   providedIn: 'root'
@@ -35,5 +36,12 @@ export class ProvinceService implements IServiceTemplate<Province>{
 
   update(updatedObject: Province): Observable<number> {
     return this.http.put<number>(this.apiUri, updatedObject);
+  }
+
+  getPortsInProvince(provinceId : number) : Observable<Port[]>
+  {
+    const parameter = { params : new HttpParams().set("provinceId", provinceId)}
+
+    return this.http.get<Port[]>(`${this.apiUri}/ports`,parameter);
   }
 }

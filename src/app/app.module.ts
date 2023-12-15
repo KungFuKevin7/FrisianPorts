@@ -23,11 +23,11 @@ import { AdminPageComponent } from './pages/admin-page/admin-page.component';
 import { ContactPageComponent } from './pages/contact-page/contact-page.component';
 import { SearchInNavBarComponent } from './pages/navbar/search-in-nav-bar/search-in-nav-bar.component';
 import { PortDashboardPageComponent } from './pages/Dashboards/port-dashboard-page/port-dashboard-page.component';
-import { SingleDataComponent } from './pages/Dashboards/dashboard-data-displays/single-data-collection/single-data/single-data.component';
-import { TableComponent } from './pages/Dashboards/dashboard-data-displays/pie-chart/table/table.component';
+import { SingleDataComponent } from './pages/Dashboards/dashboard-data-displays/single-data/single-data.component';
+import { TableComponent } from './pages/Dashboards/dashboard-data-displays/table/table.component';
 import { GraphBarComponent } from './pages/Dashboards/dashboard-data-displays/graph-bar/graph-bar.component';
 import { PieChartComponent } from './pages/Dashboards/dashboard-data-displays/pie-chart/pie-chart.component';
-import { SingleDataCollectionComponent } from './pages/Dashboards/dashboard-data-displays/single-data-collection/single-data-collection.component';
+import { SingleDataCollectionComponent } from './pages/Dashboards/port-dashboard-page/single-data-collection/single-data-collection.component';
 import { CargotransportTableComponent } from './pages/cargotransport-table/cargotransport-table.component';
 import { TransportOverviewComponent } from './pages/transport-page/transport-overview/transport-overview.component';
 import { CargoTableComponent } from './pages/transport-page/transport-overview/cargo-table/cargo-table.component';
@@ -42,8 +42,8 @@ import { MapComponent } from './pages/mappage/map/map.component';
 import {FormsModule} from "@angular/forms";
 import { NavSearchResultListComponent } from './pages/navbar/search-in-nav-bar/nav-search-result-list/nav-search-result-list.component';
 import { SearchResultPortComponent } from './pages/search-page/search-result-list/search-result-port/search-result-port.component';
-import { DashboardFilterComponent } from './pages/Dashboards/dashboard-filter/dashboard-filter.component';
-import { SmallSingleDataCollectionComponent } from './pages/Dashboards/dashboard-data-displays/graph-bar/small-single-data-collection/small-single-data-collection.component';
+import { DashboardFilterComponent } from './pages/Dashboards/port-dashboard-page/dashboard-filter/dashboard-filter.component';
+import { SmallSingleDataCollectionComponent } from './pages/Dashboards/port-dashboard-page/small-single-data-collection/small-single-data-collection.component';
 import { NavBarInputComponent } from './pages/navbar/search-in-nav-bar/nav-bar-input/nav-bar-input.component';
 import { InternalServerErrorPageComponent } from './pages/error-pages/internal-server-error-page/internal-server-error-page.component';
 import { AddTransportComponent } from './pages/add-transport/add-transport.component';
@@ -54,6 +54,9 @@ import { ProvinceDashboardPageComponent } from './pages/Dashboards/province-dash
 import { ProvinceDataViewComponent } from './pages/Dashboards/province-dashboard-page/province-data-view/province-data-view.component';
 import { ProvincePieChartComponent } from './pages/Dashboards/province-dashboard-page/province-pie-chart/province-pie-chart.component';
 import { ProvinceImportInsideComponent } from './pages/Dashboards/province-dashboard-page/province-data-view/province-import-inside/province-import-inside.component';
+import { ProvinceDashboardFilterComponent } from './pages/Dashboards/province-dashboard-page/province-dashboard-filter/province-dashboard-filter.component';
+import { ProvinceBarChartComponent } from './pages/Dashboards/province-dashboard-page/province-bar-chart/province-bar-chart.component';
+import { PortsInProvinceTableComponent } from './pages/Dashboards/province-dashboard-page/ports-in-province-table/ports-in-province-table.component';
 
 const routes: Routes = [
   { path: '', component: HomepageComponent },
@@ -122,7 +125,10 @@ const routes: Routes = [
     ProvinceDashboardPageComponent,
     ProvinceDataViewComponent,
     ProvincePieChartComponent,
-    ProvinceImportInsideComponent
+    ProvinceImportInsideComponent,
+    ProvinceDashboardFilterComponent,
+    ProvinceBarChartComponent,
+    PortsInProvinceTableComponent
   ],
     imports: [
         BrowserModule,

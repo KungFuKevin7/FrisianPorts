@@ -1,0 +1,10 @@
+.table-style{
+  text-decoration: none;
+  color: black;
+  transition: all 250ms ease;
+}
+
+.table-style:hover{
+  font-size: 20px;
+  text-decoration: underline;
+}

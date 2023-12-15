@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {AverageService} from "../../../../../services/dashboard-services/average.service";
+import {AverageService} from "../../../../services/dashboard-services/average.service";
 
 @Component({
   selector: 'app-small-single-data-collection',
@@ -26,7 +26,7 @@ export class SmallSingleDataCollectionComponent implements OnInit{
   {
     this.avgService.getAverageImport(this.portId).subscribe(
       response => {
-        this.avgImport = response;
+        this.avgImport = this.round(response);
       }
     )
   }
@@ -36,8 +36,12 @@ export class SmallSingleDataCollectionComponent implements OnInit{
   {
     this.avgService.getAverageExport(this.portId).subscribe(
       response => {
-        this.avgExport =  response;
+        this.avgExport = this.round(response);
       }
     )
+  }
+
+  public round(value : any){
+    return value.toFixed(2);
   }
 }

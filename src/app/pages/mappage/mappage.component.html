@@ -1,1 +1,24 @@
+
+<div class="container">
+  <br/>
+  <button class="home-style-btn" (click)="activateLegend()">
+    Legenda openen
+  </button>
+  <div *ngIf="displayLegend" class="legend">
+    <div class="container">
+    <h3>Legenda:</h3>
+      <br>
+      <div class="d-inline-flex">
+        <img height="40" width="30"  src="assets/icons/provinceMarker.png">
+        <h6>Haven</h6>
+      </div>
+      <br>
+      <div class="d-inline-flex">
+        <img height="40" width="30"  src="assets/icons/marker.png">
+        <h6>Provincie</h6>
+      </div>
+    </div>
+    </div>
+</div>
+
 <app-map></app-map>

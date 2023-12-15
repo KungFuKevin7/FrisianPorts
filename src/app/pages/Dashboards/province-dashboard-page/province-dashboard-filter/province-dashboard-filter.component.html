@@ -1,0 +1,13 @@
+<label for="period-dropdown">Periode</label>
+<select #periodFilter (change)="periodSelected(periodFilter.value)"
+        id="period-dropdown"
+        class="form-select form-select-lg">
+
+  <option [ngValue]="0">Alles</option>
+  <option *ngFor="let year of yearsOptions"
+          [ngValue]="{year}">
+    {{year}}
+  </option>
+
+</select>
+

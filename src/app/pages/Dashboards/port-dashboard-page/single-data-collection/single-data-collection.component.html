@@ -11,7 +11,8 @@
       [Title]="'Gewicht Import'"
       [Value]="importWeight"
       [DataColour]="'#00FF00'"
-      [IconPath]="'assets/icons/dashboardIcons/CargoImportIcon.png'"></app-single-data>
+      [IconPath]="'assets/icons/dashboardIcons/CargoImportIcon.png'"
+      [Unit]="'ton'"></app-single-data>
   </div>
 </div>
 
@@ -28,7 +29,8 @@
       [Title]="'Gewicht Export'"
       [Value]="exportWeight"
       [DataColour]="'#D64933'"
-      [IconPath]="'assets/icons/dashboardIcons/CargoExportIcon.png'"></app-single-data>
+      [IconPath]="'assets/icons/dashboardIcons/CargoExportIcon.png'"
+      [Unit]="'ton'"></app-single-data>
   </div>
 </div>
 
@@ -43,6 +45,7 @@
     <app-single-data
       [Title]="'Totale Overslag'"
       [Value]="importWeight + exportWeight"
-      [DataColour]="'#0155A5'"></app-single-data>
+      [DataColour]="'#0155A5'"
+      [Unit]="'ton'"></app-single-data>
   </div>
 </div>

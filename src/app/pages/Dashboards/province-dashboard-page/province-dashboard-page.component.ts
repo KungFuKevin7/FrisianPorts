@@ -42,10 +42,9 @@ export class ProvinceDashboardPageComponent implements OnInit{
     );
   }
 
-  //Gets the year selected in the dashboard-filter component
+  //Gets the year selected in the filter
   public getYear(receivedYear : any)
   {
     this.yearFilter = receivedYear;
-    alert(this.yearFilter);
   }
 }

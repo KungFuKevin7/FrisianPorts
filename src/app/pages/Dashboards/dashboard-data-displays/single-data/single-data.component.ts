@@ -10,5 +10,6 @@ export class SingleDataComponent{
   @Input() Value: number = 0;
   @Input() DataColour : string = "";
   @Input() IconPath : string = "";
+  @Input() Unit : string = "";
 
 }

@@ -9,7 +9,13 @@
       </div>
     </div>
   </div>
-  <p class="data-big text-center">{{Value}}</p>
+
+    <p class="data-big text-center">{{Value}}
+      <span class="custom-unit-text">
+        {{Unit}}
+      </span>
+    </p>
+
   <div class="colour-in-dashboard" [style.background-color]="DataColour">
   </div>
 </div>

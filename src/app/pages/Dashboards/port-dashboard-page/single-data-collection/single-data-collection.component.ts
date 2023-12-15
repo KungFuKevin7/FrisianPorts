@@ -1,14 +1,13 @@
 import {Component, Input, OnInit, Output, SimpleChanges} from '@angular/core';
 import {CargoTransportService} from "../../../../services/cargo-transport.service";
-
-import {TotalPortService} from "../../../../services/dashboard-services/total-port.service";
-
+import {ShipMovementService} from "../../../../services/dashboard-services/ship-movement.service";
+import {TonnageService} from "../../../../services/dashboard-services/tonnage.service";
 
 @Component({
   selector: 'app-single-data-collection',
   templateUrl: './single-data-collection.component.html',
   styleUrls: ['./single-data-collection.component.css'],
-  providers: [CargoTransportService, TotalPortService]
+  providers: [ShipMovementService, TonnageService]
 })
 export class SingleDataCollectionComponent {
 
@@ -19,7 +18,8 @@ export class SingleDataCollectionComponent {
   importWeight : number = 0;
   exportWeight : number = 0;
 
-  constructor(private totalService : TotalPortService) {
+  constructor(private shipMovementService : ShipMovementService,
+              private tonnageService : TonnageService) {
 
   }
 
@@ -37,13 +37,13 @@ export class SingleDataCollectionComponent {
 
   //Gets amount of ships for import and export respectively
   public getShipments() : any{
-    this.totalService.getImport(this.portId, this.selectedYear).subscribe(
+    this.shipMovementService.getPortImport(this.portId, this.selectedYear).subscribe(
       response => {
         this.importAmount = response;
       }
     );
 
-    this.totalService.getExport(this.portId, this.selectedYear).subscribe(
+    this.shipMovementService.getPortExport(this.portId, this.selectedYear).subscribe(
       response => {
         this.exportAmount = response;
       }
@@ -53,13 +53,13 @@ export class SingleDataCollectionComponent {
   //Gets total tonnage for both import and export
   public getTonnage()
   {
-    this.totalService.getImportTonnage(this.portId, this.selectedYear).subscribe(
+    this.tonnageService.getPortImportTonnage(this.portId, this.selectedYear).subscribe(
       response => {
         this.importWeight = response;
       }
     );
 
-    this.totalService.getExportTonnage(this.portId, this.selectedYear).subscribe(
+    this.tonnageService.getPortExportTonnage(this.portId, this.selectedYear).subscribe(
     response => {
       this.exportWeight = response;
     }

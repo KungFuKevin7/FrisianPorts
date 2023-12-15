@@ -31,7 +31,7 @@ export class GraphBarComponent implements OnInit {
   //so the graph-library can visualize
   public getYearlyData()
   {
-    this.periodService.getYearlyReport(this.portId).subscribe(
+    this.periodService.getPortYearlyReport(this.portId).subscribe(
       (response : YearlyTransportDTO[]) => {
         this.YearlyData = response.map(item => ({
             name: item.year.toString(),

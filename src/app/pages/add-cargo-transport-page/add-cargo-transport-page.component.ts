@@ -5,6 +5,7 @@ import {CargoTransportService} from "../../services/cargo-transport.service";
 import {RouteService} from "../../services/route.service";
 import {Route} from "@angular/router";
 import {CargoTransport} from "../../models/CargoTransport";
+import {concatMap} from "rxjs";
 
 @Component({
   selector: 'app-add-cargo-transport-page',
@@ -59,19 +60,15 @@ export class AddCargoTransportPageComponent implements OnInit {
     }
 
     else {
-      let routeToAdd = {
+      let newAddedRoute = {
         Route_Id : 0,
         Departure_Port_Id : this.departurePortId,
-        Arrival_Port_Id : this.arrivalPortId
+        Arrival_Port_Id : this.arrivalPortId,
+        Cargo_Transport_Id : 0,
+        Frequency : this.Frequency,
+        Date_Started : this.date,
+        Added_By_Id : 1
       }
-
-      let receivedId = 0;
-
-      this.routeService.add(routeToAdd)
-        .subscribe(response => {
-          receivedId = response.Route_Id;
-        });
-
     }
   }
 

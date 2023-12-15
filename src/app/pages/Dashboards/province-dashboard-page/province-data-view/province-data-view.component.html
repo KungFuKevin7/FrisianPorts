@@ -25,18 +25,21 @@
       [Title]="'Import Tonnage'"
       [Value]="ImportTonnage"
       [DataColour]="'#00FF00'"
-      [IconPath]="'assets/icons/dashboardIcons/CargoImportIcon.png'">
+      [IconPath]="'assets/icons/dashboardIcons/CargoImportIcon.png'"
+      [Unit]="'ton'">
       </app-single-data>
       <app-single-data
         [Title]="'Export Tonnage'"
         [Value]="ExportTonnage"
         [DataColour]="'#FF0000'"
-        [IconPath]="'assets/icons/dashboardIcons/CargoExportIcon.png'">
+        [IconPath]="'assets/icons/dashboardIcons/CargoExportIcon.png'"
+        [Unit]="'ton'">
       </app-single-data>
       <app-single-data
         [Title]="'Totale Overslag'"
         [Value]="ImportTonnage + ExportTonnage"
-        [DataColour]="'#0155A5'">
+        [DataColour]="'#0155A5'"
+        [Unit]="'ton'">
       </app-single-data>
     </div>
 
