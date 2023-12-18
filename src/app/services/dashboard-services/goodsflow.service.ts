@@ -16,10 +16,10 @@ export class GoodsflowService {
               private errorService : ErrorHandlerService)
   { }
 
-  public getGoodsFlows(portId : number)
+  public getGoodsFlowsByPort(portId : number)
   {
     return this.http.get<GoodsFlowDto[]>
-    (`${this.apiUri}`,
+    (`${this.apiUri}/by-port`,
       {params : new HttpParams().set("portId", portId)});
   }
 
@@ -33,6 +33,13 @@ export class GoodsflowService {
           let error = this.errorService.handleError(err);
           return error;
         })
+    );
+  }
+
+  public getAllGoodsFlows()
+  {
+    return this.http.get<GoodsFlowDto[]>
+    (`${this.apiUri}`,
     );
   }
 }

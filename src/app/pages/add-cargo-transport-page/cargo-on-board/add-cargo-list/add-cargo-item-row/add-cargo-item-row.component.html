@@ -1,0 +1,27 @@
+<div class="row">
+  <div class="form-group col-sm-2">
+    <select [(ngModel)]="chosenCargoType" class="form-select form-select-lg"  id="goods-type" >
+      <option *ngFor="let cargoType of cargoTypes"  value="{{cargoType.cargoTypeId}}">{{cargoType.cargoTypeName}}</option>
+    </select>
+  </div>
+
+  <div class="form-group col-sm-6">
+    <textarea [(ngModel)]="cargoDescription"
+              class="input-field form-control form-control-lg"
+              id="goods-description"
+              rows="3"
+              type="text"></textarea>
+  </div>
+
+  <div class="form-group col-sm-3">
+    <input [(ngModel)]="WeightInTonnes" id="goods-weight" class="input-field form-control form-control-lg" type="number" min="0">
+  </div>
+
+  <div class="form-group col-sm-1">
+    <a class="remove-btn" (click)="removeCargo()">
+      <img src="../../../../assets/icons/trash.png" width="30" height="40">
+    </a>
+  </div>
+</div>
+
+<br>

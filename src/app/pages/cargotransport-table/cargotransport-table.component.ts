@@ -24,7 +24,7 @@ export class CargotransportTableComponent implements OnInit{
 
   //Get flow of goods to fill the table
   public getGoodsFlow(){
-    this.goodsFlowService.getGoodsFlows(this.portId)
+    this.goodsFlowService.getGoodsFlowsByPort(this.portId)
       .subscribe( response => {
         this.goodsFlow = response;
         this.shareResultsAmount(this.goodsFlow.length);

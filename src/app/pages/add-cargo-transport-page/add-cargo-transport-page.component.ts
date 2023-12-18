@@ -6,6 +6,8 @@ import {RouteService} from "../../services/route.service";
 import {Route} from "@angular/router";
 import {CargoTransport} from "../../models/CargoTransport";
 import {concatMap} from "rxjs";
+import {CargoTransportRouteDTO} from "../../models/DTO/CargoTransportRouteDTO";
+import {CargoTransportRouteService} from "../../services/cargo-transport-route.service";
 
 @Component({
   selector: 'app-add-cargo-transport-page',
@@ -15,7 +17,7 @@ import {concatMap} from "rxjs";
 })
 export class AddCargoTransportPageComponent implements OnInit {
 
-  date : any;
+  Date : any;
   Frequency! : string;
   portsToChoose! : Port[];
 
@@ -24,8 +26,7 @@ export class AddCargoTransportPageComponent implements OnInit {
 
 
   constructor(private portService : PortService,
-              private cargoTransportService : CargoTransportService,
-              private routeService : RouteService) {
+              private cargoTransportRouteService : CargoTransportRouteService){
   }
 
   ngOnInit(): void {
@@ -36,15 +37,10 @@ export class AddCargoTransportPageComponent implements OnInit {
     )
   }
 
-  public setDateToday(){
-    this.date = new Date(2002,12,4);
-  }
-
   public setDeparture(input : any)
   {
     console.log("Departure set to: " + input)
     this.departurePortId = input;
-    //this.addToDatabase()
   }
 
   public setArrival(portId : any)
@@ -66,9 +62,14 @@ export class AddCargoTransportPageComponent implements OnInit {
         Arrival_Port_Id : this.arrivalPortId,
         Cargo_Transport_Id : 0,
         Frequency : this.Frequency,
-        Date_Started : this.date,
+        Date_Started : this.Date,
         Added_By_Id : 1
       }
+      this.cargoTransportRouteService.add(newAddedRoute).subscribe(
+        result => {
+          console.log(result);
+        }
+      );
     }
   }
 

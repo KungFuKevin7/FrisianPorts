@@ -1,0 +1,3 @@
+.add-cargo-btn :hover, .remove-btn:hover{
+  cursor: pointer;
+}

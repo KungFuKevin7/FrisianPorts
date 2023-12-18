@@ -57,12 +57,15 @@ import { ProvinceImportInsideComponent } from './pages/Dashboards/province-dashb
 import { ProvinceDashboardFilterComponent } from './pages/Dashboards/province-dashboard-page/province-dashboard-filter/province-dashboard-filter.component';
 import { ProvinceBarChartComponent } from './pages/Dashboards/province-dashboard-page/province-bar-chart/province-bar-chart.component';
 import { PortsInProvinceTableComponent } from './pages/Dashboards/province-dashboard-page/ports-in-province-table/ports-in-province-table.component';
+import { AddCargoItemRowComponent } from './pages/add-cargo-transport-page/cargo-on-board/add-cargo-list/add-cargo-item-row/add-cargo-item-row.component';
+import { AddCargoListComponent } from './pages/add-cargo-transport-page/cargo-on-board/add-cargo-list/add-cargo-list.component';
 
 const routes: Routes = [
   { path: '', component: HomepageComponent },
   { path: 'map', component: MappageComponent },
   { path: 'search', component : SearchPageComponent},
   { path: 'add-cargo-transport', component : AddCargoTransportPageComponent},
+  { path: 'add-cargo-on-board', component : CargoOnBoardComponent},
   { path: 'cargo-transport-of-port', component : CargoTransportOfPortPageComponent},
   { path: 'cargo-transport', component : SearchPageComponent},
   { path: 'contact', component : ContactPageComponent},
@@ -128,7 +131,9 @@ const routes: Routes = [
     ProvinceImportInsideComponent,
     ProvinceDashboardFilterComponent,
     ProvinceBarChartComponent,
-    PortsInProvinceTableComponent
+    PortsInProvinceTableComponent,
+    AddCargoItemRowComponent,
+    AddCargoListComponent
   ],
     imports: [
         BrowserModule,

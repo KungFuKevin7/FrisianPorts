@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import {IServiceTemplate} from "./IServiceTemplate";
 import {CargoTransport} from "../models/CargoTransport";
 import {Observable, of} from "rxjs";
 import {Constants} from "../.constants/constants";

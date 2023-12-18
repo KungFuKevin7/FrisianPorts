@@ -1,0 +1,10 @@
+<!--<ng-container #container></ng-container>-->
+<app-add-cargo-item-row [emitData]="sendRequest" (dataToAdd)="addCargo($event)"></app-add-cargo-item-row>
+
+<a class="text-center add-cargo-btn" (click)="emitData()">
+  <div>
+    Goederen toevoegen
+  </div>
+</a>
+
+<a (click)="removeCargo()">Remove Cargo</a>
