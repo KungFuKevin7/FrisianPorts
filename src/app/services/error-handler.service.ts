@@ -35,8 +35,9 @@ export class ErrorHandlerService {
   }
 
   public handleBadRequest(){
-    this.router.navigate(['/not-found-page']);
-    console.log("400 Bad Request, Something is wrong with the sent request.");
+    //this.router.navigate(['/not-found-page']);
+    alert("Er ging iets mis, alle velden moet ingevuld zijn.");
+    //console.log("400 Bad Request, Something is wrong with the sent request.");
   }
 
   public handleInternalServerError(){

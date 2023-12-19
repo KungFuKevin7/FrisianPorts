@@ -31,13 +31,3 @@
   color: white;
   margin-right: 10px;
 }
-
-.clickable-port-location {
-  text-decoration: none;
-  color: black;
-}
-
-.clickable-port-location h1:hover{
-  scale: 105%;
-  transition: all ease-in-out 200ms;
-}

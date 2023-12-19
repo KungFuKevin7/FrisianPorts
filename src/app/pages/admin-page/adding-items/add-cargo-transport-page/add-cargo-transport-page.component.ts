@@ -1,13 +1,13 @@
 import {Component, OnInit} from '@angular/core';
-import {Port} from "../../models/Port";
-import {PortService} from "../../services/port.service";
-import {CargoTransportService} from "../../services/cargo-transport.service";
-import {RouteService} from "../../services/route.service";
+import {Port} from "../../../../models/Port";
+import {PortService} from "../../../../services/port.service";
+import {CargoTransportService} from "../../../../services/cargo-transport.service";
+import {RouteService} from "../../../../services/route.service";
 import {Route} from "@angular/router";
-import {CargoTransport} from "../../models/CargoTransport";
+import {CargoTransport} from "../../../../models/CargoTransport";
 import {concatMap} from "rxjs";
-import {CargoTransportRouteDTO} from "../../models/DTO/CargoTransportRouteDTO";
-import {CargoTransportRouteService} from "../../services/cargo-transport-route.service";
+import {CargoTransportRouteDTO} from "../../../../models/DTO/CargoTransportRouteDTO";
+import {CargoTransportRouteService} from "../../../../services/cargo-transport-route.service";
 
 @Component({
   selector: 'app-add-cargo-transport-page',
@@ -39,13 +39,11 @@ export class AddCargoTransportPageComponent implements OnInit {
 
   public setDeparture(input : any)
   {
-    console.log("Departure set to: " + input)
     this.departurePortId = input;
   }
 
   public setArrival(portId : any)
   {
-    console.log("Arrival set to: " +  portId)
     this.arrivalPortId = portId;
   }
 

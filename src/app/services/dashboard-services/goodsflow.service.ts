@@ -39,7 +39,6 @@ export class GoodsflowService {
   public getAllGoodsFlows()
   {
     return this.http.get<GoodsFlowDto[]>
-    (`${this.apiUri}`,
-    );
+    (`${this.apiUri}`);
   }
 }

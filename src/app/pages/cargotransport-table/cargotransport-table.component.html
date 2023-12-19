@@ -16,12 +16,12 @@
   <tbody>
     <tr *ngFor="let transport of goodsFlow" class="table-row"
         [routerLink]="['/transport']"
-        [queryParams]="{id : transport.cargo_Transport_Id}">
+        [queryParams]="{id : transport.cargoTransportId}">
 
-      <td>{{transport.departure_Location}}</td>
-      <td>{{transport.arrival_Location}}</td>
+      <td>{{transport.departureLocation}}</td>
+      <td>{{transport.arrivalLocation}}</td>
       <td>{{transport.frequency}}</td>
-      <td>{{transport.total_Weight}} Ton</td>
+      <td>{{transport.totalWeight}} Ton</td>
     </tr>
   </tbody>
 </table>

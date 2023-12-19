@@ -17,8 +17,7 @@ import { CargoTransportOfPortPageComponent } from './pages/cargo-transport-of-po
 import { MyAccountPageComponent } from './pages/my-account-page/my-account-page.component';
 import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { RegisterPageComponent } from './pages/register-page/register-page.component';
-import { MyAddedItemsPageComponent } from './pages/my-added-items-page/my-added-items-page.component';
-import { AddCargoTransportPageComponent } from './pages/add-cargo-transport-page/add-cargo-transport-page.component';
+import { AddCargoTransportPageComponent } from './pages/admin-page/adding-items/add-cargo-transport-page/add-cargo-transport-page.component';
 import { AdminPageComponent } from './pages/admin-page/admin-page.component';
 import { ContactPageComponent } from './pages/contact-page/contact-page.component';
 import { SearchInNavBarComponent } from './pages/navbar/search-in-nav-bar/search-in-nav-bar.component';
@@ -32,12 +31,10 @@ import { CargotransportTableComponent } from './pages/cargotransport-table/cargo
 import { TransportOverviewComponent } from './pages/transport-page/transport-overview/transport-overview.component';
 import { CargoTableComponent } from './pages/transport-page/transport-overview/cargo-table/cargo-table.component';
 import { CargoPiechartComponent } from './pages/transport-page/transport-overview/cargo-piechart/cargo-piechart.component';
-import { CargoOnBoardComponent } from './pages/add-cargo-transport-page/cargo-on-board/cargo-on-board.component';
+import { AddLoadedTransportComponent } from './pages/admin-page/adding-items/add-loaded-transport/add-loaded-transport.component';
 import { SearchResultListComponent } from './pages/search-page/search-result-list/search-result-list.component';
 import { SearchResultComponent } from './pages/search-page/search-result-list/search-result/search-result.component';
 import { SearchPageInputComponent } from './pages/search-page/search-page-input/search-page-input.component';
-import { AddedItemsTableComponent } from './pages/my-added-items-page/added-items-table/added-items-table.component';
-import { FilterPeriodComponent } from './pages/my-added-items-page/filter-period/filter-period.component';
 import { MapComponent } from './pages/mappage/map/map.component';
 import {FormsModule} from "@angular/forms";
 import { NavSearchResultListComponent } from './pages/navbar/search-in-nav-bar/nav-search-result-list/nav-search-result-list.component';
@@ -46,7 +43,6 @@ import { DashboardFilterComponent } from './pages/Dashboards/port-dashboard-page
 import { SmallSingleDataCollectionComponent } from './pages/Dashboards/port-dashboard-page/small-single-data-collection/small-single-data-collection.component';
 import { NavBarInputComponent } from './pages/navbar/search-in-nav-bar/nav-bar-input/nav-bar-input.component';
 import { InternalServerErrorPageComponent } from './pages/error-pages/internal-server-error-page/internal-server-error-page.component';
-import { AddTransportComponent } from './pages/add-transport/add-transport.component';
 import { LoadingAnimationComponent } from './pages/loading-animation/loading-animation.component';
 import {LoadingInterceptor} from "./pages/loading-animation/loading.interceptor";
 import { SearchFilterComponent } from './pages/search-page/search-filter/search-filter.component';
@@ -57,27 +53,28 @@ import { ProvinceImportInsideComponent } from './pages/Dashboards/province-dashb
 import { ProvinceDashboardFilterComponent } from './pages/Dashboards/province-dashboard-page/province-dashboard-filter/province-dashboard-filter.component';
 import { ProvinceBarChartComponent } from './pages/Dashboards/province-dashboard-page/province-bar-chart/province-bar-chart.component';
 import { PortsInProvinceTableComponent } from './pages/Dashboards/province-dashboard-page/ports-in-province-table/ports-in-province-table.component';
-import { AddCargoItemRowComponent } from './pages/add-cargo-transport-page/cargo-on-board/add-cargo-list/add-cargo-item-row/add-cargo-item-row.component';
-import { AddCargoListComponent } from './pages/add-cargo-transport-page/cargo-on-board/add-cargo-list/add-cargo-list.component';
+import { AddCargoItemRowComponent } from './pages/admin-page/adding-items/add-loaded-transport/add-cargo-list/add-cargo-item-row/add-cargo-item-row.component';
+import { AddCargoListComponent } from './pages/admin-page/adding-items/add-loaded-transport/add-cargo-list/add-cargo-list.component';
+import { OverviewDatabaseItemsComponent } from './pages/admin-page/overview-database-items/overview-database-items.component';
 
 const routes: Routes = [
   { path: '', component: HomepageComponent },
   { path: 'map', component: MappageComponent },
   { path: 'search', component : SearchPageComponent},
   { path: 'add-cargo-transport', component : AddCargoTransportPageComponent},
-  { path: 'add-cargo-on-board', component : CargoOnBoardComponent},
+  { path: 'add-transport', component : AddLoadedTransportComponent},
   { path: 'cargo-transport-of-port', component : CargoTransportOfPortPageComponent},
+  { path: 'admin', component: AdminPageComponent},
+  { path: 'manage-database-items', component : OverviewDatabaseItemsComponent},
   { path: 'cargo-transport', component : SearchPageComponent},
   { path: 'contact', component : ContactPageComponent},
   { path: 'login', component : LoginPageComponent},
   { path: 'my-account', component : MyAccountPageComponent},
   { path: 'register', component : RegisterPageComponent},
-  { path: 'my-added-items', component : MyAddedItemsPageComponent},
   { path: 'port-dashboard', component: PortDashboardPageComponent},
   { path: 'province-dashboard', component: ProvinceDashboardPageComponent},
   { path: 'transport', component : TransportPageComponent},
   { path: 'server-error', component : InternalServerErrorPageComponent },
-  { path: 'add-transport', component : AddTransportComponent},
   { path: '**', component : NotfoundpageComponent}
 ];
 
@@ -94,7 +91,6 @@ const routes: Routes = [
     MyAccountPageComponent,
     LoginPageComponent,
     RegisterPageComponent,
-    MyAddedItemsPageComponent,
     AddCargoTransportPageComponent,
     AdminPageComponent,
     ContactPageComponent,
@@ -109,12 +105,10 @@ const routes: Routes = [
     TransportOverviewComponent,
     CargoTableComponent,
     CargoPiechartComponent,
-    CargoOnBoardComponent,
+    AddLoadedTransportComponent,
     SearchResultListComponent,
     SearchResultComponent,
     SearchPageInputComponent,
-    AddedItemsTableComponent,
-    FilterPeriodComponent,
     MapComponent,
     NavSearchResultListComponent,
     SearchResultPortComponent,
@@ -122,7 +116,6 @@ const routes: Routes = [
     SmallSingleDataCollectionComponent,
     NavBarInputComponent,
     InternalServerErrorPageComponent,
-    AddTransportComponent,
     LoadingAnimationComponent,
     SearchFilterComponent,
     ProvinceDashboardPageComponent,
@@ -133,7 +126,8 @@ const routes: Routes = [
     ProvinceBarChartComponent,
     PortsInProvinceTableComponent,
     AddCargoItemRowComponent,
-    AddCargoListComponent
+    AddCargoListComponent,
+    OverviewDatabaseItemsComponent
   ],
     imports: [
         BrowserModule,

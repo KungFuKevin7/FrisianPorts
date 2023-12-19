@@ -1,7 +1,7 @@
 <div class="result-card">
   <div class="result-header">
     <div class="container">
-      <h5 class="float-start">{{result.departure_Location}} - {{result.arrival_Location}}</h5>
+      <h5 class="float-start">{{result.departureLocation}} - {{result.arrivalLocation}}</h5>
 
       <a class="button-to-fold float-end" (click)="foldSearchResult()">
         <img *ngIf="isFolded" src="../assets/icons/chevron-up.png" width="50" height="25">
@@ -14,16 +14,16 @@
 
   <div *ngIf="!isFolded" class="result-body">
     <p class="info-text">Goederenstroom</p>
-    <h3 class="Value">{{result.cargo_Transport_Id}}</h3>
+    <h3 class="Value">{{result.cargoTransportId}}</h3>
     <hr>
     <p class="info-text">Frequentie</p>
     <h3 class="Value">{{result.frequency}}</h3>
     <hr>
     <p class="info-text">Totaal gewicht vervoerd</p>
-    <h3 class="Value">{{result.total_Weight}} ton</h3>
+    <h3 class="Value">{{result.totalWeight}} ton</h3>
     <hr>
     <div [routerLink]="['/transport']"
-         [queryParams]="{id: result.cargo_Transport_Id}"
+         [queryParams]="{id: result.cargoTransportId}"
          class="fill-btn">
       <img class="img-fluid space-right" src="../assets/icons/cargo2.png">
       <a>Meer goederenstroom info</a>

@@ -9,27 +9,32 @@ import {
   ViewChild,
   ViewContainerRef
 } from '@angular/core';
-import {CargoTypeService} from "../../../../../services/cargo-type.service";
-import {GoodsflowService} from "../../../../../services/dashboard-services/goodsflow.service";
-import {CargoType} from "../../../../../models/CargoType";
-import {CargoOnBoardComponent} from "../../cargo-on-board.component";
-import {Cargo} from "../../../../../models/Cargo";
+import {CargoTypeService} from "../../../../../../services/cargo-type.service";
+import {GoodsflowService} from "../../../../../../services/dashboard-services/goodsflow.service";
+import {CargoType} from "../../../../../../models/CargoType";
+import {AddLoadedTransportComponent} from "../../add-loaded-transport.component";
+import {Cargo} from "../../../../../../models/Cargo";
+import {Transport} from "../../../../../../models/Transport";
 
 @Component({
   selector: 'app-add-cargo-item-row',
   templateUrl: './add-cargo-item-row.component.html',
-  styleUrls: ['./add-cargo-item-row.component.css']
+  styleUrls: ['./add-cargo-item-row.component.css'],
+  providers: [CargoTypeService]
 })
 export class AddCargoItemRowComponent implements OnInit, OnChanges
 {
-
   @Input() emitData! : boolean;
+  @Input() transportToAdd! : Transport;
   @Output() dataToAdd = new EventEmitter<Cargo>();
+
   cargoTypes! : CargoType[];
-  cargoItem! : Cargo;
   chosenCargoType! : number;
   cargoDescription! : string;
-  WeightInTonnes! : number;
+  weightInTonnes! : number;
+
+  constructor(private cargoTypeService : CargoTypeService) {
+  }
 
   ngOnInit(): void {
     this.cargoTypeService.get().subscribe(
@@ -46,21 +51,17 @@ export class AddCargoItemRowComponent implements OnInit, OnChanges
           CargoId : 0,
           CargoDescription: this.cargoDescription,
           CargoTypeId: this.chosenCargoType,
-          WeightInTonnes: this.WeightInTonnes,
-          TransportId: 11
+          WeightInTonnes: this.weightInTonnes,
+          TransportId: 0
         };
-      this.dataToAdd.emit(cargo);
+      this.dataToAdd.emit(cargo);   // Send/Emit created object to parent
     }
   }
 
-  constructor(private cargoTypeService : CargoTypeService,
-              private goodsFlowService : GoodsflowService) {
-  }
 
   public removeCargo()
   {
-    console.log(this.WeightInTonnes)
-    alert("Anybody?");
+    alert("Remove row. Functionality not added yet.");
   }
 
 }
