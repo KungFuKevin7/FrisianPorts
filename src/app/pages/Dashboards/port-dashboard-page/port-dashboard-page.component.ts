@@ -13,6 +13,7 @@ import {ErrorHandlerService} from "../../../services/error-handler.service";
 export class PortDashboardPageComponent implements OnInit{
 
   @Input() selectedYear : number = 0;
+  @Input() selectedMonth : number = 0;
   selectedPort! : Port;
   portId! : number;
 
@@ -52,6 +53,12 @@ export class PortDashboardPageComponent implements OnInit{
   public getYear(receivedYear : any)
   {
     this.selectedYear = receivedYear;
+  }
+
+  //Gets the selected month from dashboard-filter
+  public getMonth(receivedMonth : any)
+  {
+    this.selectedMonth = receivedMonth;
   }
 
 }

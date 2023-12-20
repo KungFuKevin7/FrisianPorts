@@ -1,5 +1,6 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {PeriodService} from "../../../../services/dashboard-services/period.service";
+import {Months} from "../../../../.constants/Months";
 
 @Component({
   selector: 'app-province-dashboard-filter',
@@ -9,8 +10,12 @@ import {PeriodService} from "../../../../services/dashboard-services/period.serv
 export class ProvinceDashboardFilterComponent {
 
   @Input() provinceId : number = 0;
-  @Output() YearEmitter = new EventEmitter<number>;
+  @Output() yearEmitter = new EventEmitter<number>;
+  @Output() monthEmitter = new EventEmitter<number>;
+
   yearsOptions! : number[];
+  monthOptions = Object.keys(Months)
+    .filter((value) => isNaN(Number(value)));
 
   constructor(private periodService : PeriodService) {
   }
@@ -21,15 +26,12 @@ export class ProvinceDashboardFilterComponent {
   }
 
   //Fired once another value has been selected in the dropdown filter.
-  public periodSelected(selectedValue : any){
-    if (selectedValue === 'Alles'){
-      this.YearEmitter.emit(0);
-    }
-    else{
-      this.YearEmitter.emit(Number(selectedValue));
-    }
+  public yearSelected(selectedValue : any){
+      this.yearEmitter.emit(Number(selectedValue));
+ }
 
-    console.log("New Selected Year: " + Number(selectedValue));
+  public monthSelected(selectedValue : any){
+    this.monthEmitter.emit(Number(selectedValue));
   }
 
   //Request all years of the selected port, that contains any data

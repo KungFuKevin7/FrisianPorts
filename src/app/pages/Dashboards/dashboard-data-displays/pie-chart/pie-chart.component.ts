@@ -15,6 +15,7 @@ export class PieChartComponent implements OnInit, OnChanges{
   }
 
   @Input() selectedYear : number = 0;
+  @Input() selectedMonth : number = 0;
   @Input() portId! : number;
   Import : any;
   Export : any;
@@ -35,7 +36,7 @@ export class PieChartComponent implements OnInit, OnChanges{
   //Get distribution of cargo for the import
   public getImport()
   {
-    this.cargoDistributionService.getImportDistributionPort(this.portId, this.selectedYear)
+    this.cargoDistributionService.getImportDistributionPort(this.portId, this.selectedYear, this.selectedMonth)
       .subscribe(
         response => {
           this.Import = response.map(item => (
@@ -49,7 +50,7 @@ export class PieChartComponent implements OnInit, OnChanges{
 
   //Get the distribution of cargo for the export
   public getExport() {
-    this.cargoDistributionService.getExportDistributionPort(this.portId, this.selectedYear)
+    this.cargoDistributionService.getExportDistributionPort(this.portId, this.selectedYear, this.selectedMonth)
       .subscribe(
       response => {
         this.Export = response.map(item => (

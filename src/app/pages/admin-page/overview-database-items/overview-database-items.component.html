@@ -10,6 +10,7 @@
       <th scope="col">Vertrekpunt</th>
       <th scope="col">Bestemming</th>
       <th scope="col">Frequentie</th>
+      <th scope="col">Verwijderen</th>
     </tr>
     </thead>
     <tbody>
@@ -20,12 +21,9 @@
       <td>{{flowOfGood.departureLocation}}</td>
       <td>{{flowOfGood.arrivalLocation}}</td>
       <td>{{flowOfGood.frequency}}</td>
-      <td routerLink="/add-cargo-transport">
-        <img src="../../../../assets/icons/pencil.png" width="60" height="60">
-      </td>
       <td>
-        <a (click)="removeItem(flowOfGood.cargoTransportId)">
-          <img src="../../../../assets/icons/trash.png" width="50" height="60">
+        <a (click)="removeItem(flowOfGood.cargoTransportId); $event.stopPropagation()" >
+          <img class="delete-btn" src="../../../../assets/icons/trash.png" width="50" height="60">
         </a>
       </td>
     </tr>

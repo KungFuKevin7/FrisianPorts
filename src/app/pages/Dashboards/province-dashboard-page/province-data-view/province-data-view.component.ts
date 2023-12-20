@@ -12,6 +12,7 @@ export class ProvinceDataViewComponent implements OnInit, OnChanges {
 
   @Input() ProvinceId: number = 0;
   @Input() selectedYear: number = 0;
+  @Input() selectedMonth: number = 0;
   ImportMovements!: number;
   ExportMovements!: number;
   ImportTonnage!: number;
@@ -34,13 +35,17 @@ export class ProvinceDataViewComponent implements OnInit, OnChanges {
 
   public getShipMovements()
   {
-    this.shipMovementService.getProvinceImport(this.ProvinceId,this.selectedYear).subscribe(
+    this.shipMovementService.getProvinceImport(this.ProvinceId,
+      this.selectedYear,
+      this.selectedMonth).subscribe(
       result => {
         //console.log(result);
         this.ImportMovements = result;
       });
 
-    this.shipMovementService.getProvinceExport(this.ProvinceId,this.selectedYear).subscribe(
+    this.shipMovementService.getProvinceExport(this.ProvinceId,
+      this.selectedYear,
+      this.selectedMonth).subscribe(
       result => {
         //console.log(result)
         this.ExportMovements = result;
@@ -49,13 +54,17 @@ export class ProvinceDataViewComponent implements OnInit, OnChanges {
 
   public getTonnages()
   {
-    this.tonnageService.getProvinceImportTonnage(this.ProvinceId,this.selectedYear).subscribe(
+    this.tonnageService.getProvinceImportTonnage(this.ProvinceId,
+      this.selectedYear,
+      this.selectedMonth).subscribe(
       result => {
         //console.log(result);
         this.ImportTonnage = result;
       }
     );
-    this.tonnageService.getProvinceExportTonnage(this.ProvinceId,this.selectedYear).subscribe(
+    this.tonnageService.getProvinceExportTonnage(this.ProvinceId,
+      this.selectedYear,
+      this.selectedMonth).subscribe(
       result => {
         //console.log(result);
         this.ExportTonnage = result;

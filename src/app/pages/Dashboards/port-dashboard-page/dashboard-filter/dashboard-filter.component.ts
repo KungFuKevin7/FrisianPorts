@@ -1,5 +1,6 @@
-import {Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {PeriodService} from "../../../../services/dashboard-services/period.service";
+import {Months} from "../../../../.constants/Months"
 
 @Component({
   selector: 'app-dashboard-filter',
@@ -10,8 +11,12 @@ import {PeriodService} from "../../../../services/dashboard-services/period.serv
 export class DashboardFilterComponent implements OnInit {
 
   @Input() portId : number = 0;
-  @Output() YearEmitter = new EventEmitter<number>;
+  @Output() yearEmitter = new EventEmitter<number>;
+  @Output() monthEmitter = new EventEmitter<number>;
   yearsOptions! : number[];
+
+  monthOptions = Object.keys(Months)
+    .filter((value) => isNaN(Number(value)));
 
   constructor(private periodService : PeriodService) {
   }
@@ -22,15 +27,16 @@ export class DashboardFilterComponent implements OnInit {
   }
 
   //Fired once another value has been selected in the dropdown filter.
-  public periodSelected(selectedValue : any){
-    if (selectedValue === 'Alles'){
-      this.YearEmitter.emit(0);
-    }
-    else{
-      this.YearEmitter.emit(Number(selectedValue));
-    }
+  public yearSelected(selectedValue : any){
+    this.yearEmitter.emit(Number(selectedValue));
 
     console.log("New Selected Year: " + Number(selectedValue));
+  }
+
+  public monthSelected(selectedMonth : any){
+    this.monthEmitter.emit(Number(selectedMonth));
+
+    console.log("New Selected Month: " + Number(selectedMonth));
   }
 
   //Request all years of the selected port, that contains any data
@@ -40,5 +46,4 @@ export class DashboardFilterComponent implements OnInit {
         this.yearsOptions = years
       });
   }
-
 }

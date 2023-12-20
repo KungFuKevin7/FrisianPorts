@@ -13,7 +13,8 @@
       <div class="dashboard-box">
         <app-pie-chart
           [portId]="portId"
-          [selectedYear]="selectedYear">
+          [selectedYear]="selectedYear"
+          [selectedMonth]="selectedMonth">
         </app-pie-chart>
       </div>
     </div>
@@ -21,14 +22,17 @@
     <!--Single Data Section-->
     <div class="col-lg-6">
       <app-dashboard-filter
-        (YearEmitter)="getYear($event)"
+        (yearEmitter)="getYear($event)"
+        (monthEmitter)="getMonth($event)"
         [portId]="portId">
 
       </app-dashboard-filter>
 
       <app-single-data-collection
         [portId]="portId"
-        [selectedYear]="selectedYear">
+        [selectedYear]="selectedYear"
+        [selectedMonth]="selectedMonth"
+        >
 
       </app-single-data-collection>
     </div>

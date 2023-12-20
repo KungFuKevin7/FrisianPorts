@@ -12,6 +12,7 @@ export class ProvinceImportInsideComponent implements OnInit, OnChanges {
 
   @Input() ProvinceId: number = 0;
   @Input() selectedYear: number = 0;
+  @Input() selectedMonth : number = 0;
 
   TonnageWithinProvince!: number;
   TonnageToOutsideProvince! : number;
@@ -38,17 +39,23 @@ export class ProvinceImportInsideComponent implements OnInit, OnChanges {
 
   public fetchTonnageData()
   {
-    this.tonnageService.getTonnageWithinProvince(this.ProvinceId, this.selectedYear)
+    this.tonnageService.getTonnageWithinProvince(this.ProvinceId,
+      this.selectedYear,
+      this.selectedMonth)
       .subscribe( result => {
         this.TonnageWithinProvince = result;
       });
 
-    this.tonnageService.getExportToOutsideProvince(this.ProvinceId, this.selectedYear)
+    this.tonnageService.getExportToOutsideProvince(this.ProvinceId,
+      this.selectedYear,
+      this.selectedMonth)
       .subscribe(result => {
         this.TonnageToOutsideProvince = result;
       });
 
-    this.tonnageService.getImportFromProvince(this.ProvinceId, this.selectedYear)
+    this.tonnageService.getImportFromProvince(this.ProvinceId,
+      this.selectedYear,
+      this.selectedMonth)
       .subscribe(result => {
         this.TonnageFromOutsideProvince = result;
       });
@@ -56,17 +63,23 @@ export class ProvinceImportInsideComponent implements OnInit, OnChanges {
 
   public fetchTransportsData()
   {
-    this.shipMovementService.getTransportsWithinProvince(this.ProvinceId, this.selectedYear)
+    this.shipMovementService.getTransportsWithinProvince(this.ProvinceId,
+      this.selectedYear,
+      this.selectedMonth)
       .subscribe( result => {
         this.TransportWithinProvince = result;
       });
 
-    this.shipMovementService.getTransportsToOutsideProvince(this.ProvinceId, this.selectedYear)
+    this.shipMovementService.getTransportsToOutsideProvince(this.ProvinceId,
+      this.selectedYear,
+      this.selectedMonth)
       .subscribe(result => {
         this.TransportToOutsideProvince = result;
       });
 
-    this.shipMovementService.getTransportsFromOutsideProvince(this.ProvinceId, this.selectedYear)
+    this.shipMovementService.getTransportsFromOutsideProvince(this.ProvinceId,
+      this.selectedYear,
+      this.selectedMonth)
       .subscribe(result => {
         this.TransportFromOutsideProvince = result;
       });

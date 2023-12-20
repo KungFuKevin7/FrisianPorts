@@ -8,7 +8,8 @@
     ]
   },
   "files": [
-    "src/main.ts"
+    "src/main.ts",
+    "src/app/.constants/Months.ts"
   ],
   "include": [
     "src/**/*.d.ts"

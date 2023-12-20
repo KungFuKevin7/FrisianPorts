@@ -12,72 +12,79 @@ export class ShipMovementService {
 
   private readonly apiUri = `${Constants.apiUrl}/ship-movements`
 
-  public getPortImport(portId : number, selectedYear : number): Observable<number>
+  public getPortImport(portId : number, selectedYear : number, selectedMonth : number): Observable<number>
   {
     return this.http.get<number>(`${this.apiUri}/import-of-port`,
       {
         params : new HttpParams()
           .set("portId", portId)
-          .set("period", selectedYear)
+          .set("year", selectedYear)
+          .set("month", selectedMonth)
       });
   }
 
-  public getPortExport(portId : number, selectedYear : number): Observable<number>
+  public getPortExport(portId : number, selectedYear : number, selectedMonth : number): Observable<number>
   {
     return this.http.get<number>(`${this.apiUri}/export-of-port`,
       {
         params : new HttpParams()
           .set("portId", portId)
-          .set("period", selectedYear)
+          .set("year", selectedYear)
+          .set("month", selectedMonth)
       });
   }
 
-  public getProvinceImport(provinceId : number, selectedYear : number): Observable<number>
+  public getProvinceImport(provinceId : number, selectedYear : number, selectedMonth : number): Observable<number>
   {
     return this.http.get<number>(`${this.apiUri}/import-of-province`,
       {
         params : new HttpParams()
           .set("provinceId", provinceId)
-          .set("period", selectedYear)
+          .set("year", selectedYear)
+          .set("month", selectedMonth)
       });
   }
 
-  public getProvinceExport(provinceId : number, selectedYear : number): Observable<number>
+  public getProvinceExport(provinceId : number, selectedYear : number, selectedMonth : number): Observable<number>
   {
     return this.http.get<number>(`${this.apiUri}/export-of-province`,
       {
         params : new HttpParams()
           .set("provinceId", provinceId)
-          .set("period", selectedYear)
+          .set("year", selectedYear)
+          .set("month", selectedMonth)
       });
   }
-  public getTransportsWithinProvince(provinceId : number, selectedYear : number): Observable<number>
+  public getTransportsWithinProvince(provinceId : number, selectedYear : number, selectedMonth : number): Observable<number>
   {
     return this.http.get<number>(`${this.apiUri}/within-province`,
       {
         params : new HttpParams()
           .set("provinceId", provinceId)
-          .set("period", selectedYear)
+          .set("year", selectedYear)
+          .set("month", selectedMonth)
       });
   }
 
-  public getTransportsToOutsideProvince(provinceId : number, selectedYear : number): Observable<number>
+  public getTransportsToOutsideProvince(provinceId : number, selectedYear : number, selectedMonth : number): Observable<number>
   {
     return this.http.get<number>(`${this.apiUri}/to-outside-province`,
       {
         params : new HttpParams()
           .set("provinceId", provinceId)
-          .set("period", selectedYear)
+          .set("year", selectedYear)
+          .set("month", selectedMonth)
       });
   }
 
-  public getTransportsFromOutsideProvince(provinceId : number, selectedYear : number): Observable<number>
+  public getTransportsFromOutsideProvince(provinceId : number, selectedYear : number, selectedMonth : number): Observable<number>
   {
     return this.http.get<number>(`${this.apiUri}/from-outside-province`,
       {
         params : new HttpParams()
           .set("provinceId", provinceId)
-          .set("period", selectedYear)
+          .set("year", selectedYear)
+          .set("month", selectedMonth)
       });
   }
 }

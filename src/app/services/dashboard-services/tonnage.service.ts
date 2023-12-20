@@ -12,74 +12,81 @@ export class TonnageService {
 
   private readonly apiUri = `${Constants.apiUrl}/tonnage`
 
-  public getPortImportTonnage(portId : number, selectedYear : number): Observable<number>
+  public getPortImportTonnage(portId : number, selectedYear : number, selectedMonth : number): Observable<number>
   {
     return this.http.get<number>(`${this.apiUri}/import-of-port`,
       {
         params : new HttpParams()
           .set("portId", portId)
-          .set("period", selectedYear)
+          .set("year", selectedYear)
+          .set("month", selectedMonth)
       });
   }
 
-  public getPortExportTonnage(portId : number, selectedYear : number) : Observable<number>
+  public getPortExportTonnage(portId : number, selectedYear : number, selectedMonth : number) : Observable<number>
   {
     return this.http.get<number>(`${this.apiUri}/export-of-port`,
       {
         params : new HttpParams()
           .set("portId", portId)
-          .set("period", selectedYear)
+          .set("year", selectedYear)
+          .set("month", selectedMonth)
       });
   }
 
 
-  public getProvinceImportTonnage(provinceId : number, selectedYear : number): Observable<number>
+  public getProvinceImportTonnage(provinceId : number, selectedYear : number, selectedMonth : number): Observable<number>
   {
     return this.http.get<number>(`${this.apiUri}/import-of-province`,
       {
         params : new HttpParams()
           .set("provinceId", provinceId)
-          .set("period", selectedYear)
+          .set("year", selectedYear)
+          .set("month", selectedMonth)
       });
   }
 
-  public getProvinceExportTonnage(provinceId : number, selectedYear : number) : Observable<number>
+  public getProvinceExportTonnage(provinceId : number, selectedYear : number, selectedMonth : number) : Observable<number>
   {
     return this.http.get<number>(`${this.apiUri}/export-of-province`,
       {
         params : new HttpParams()
           .set("provinceId", provinceId)
-          .set("period", selectedYear)
+          .set("year", selectedYear)
+          .set("month", selectedMonth)
       });
   }
 
-  public getTonnageWithinProvince(provinceId : number, selectedYear : number): Observable<number>
+  public getTonnageWithinProvince(provinceId : number, selectedYear : number, selectedMonth : number): Observable<number>
   {
     return this.http.get<number>(`${this.apiUri}/tonnage-within-province`,
       {
         params : new HttpParams()
           .set("provinceId", provinceId)
-          .set("period", selectedYear)
+          .set("year", selectedYear)
+          .set("month", selectedMonth)
       });
   }
 
-  public getImportFromProvince(provinceId : number, selectedYear : number): Observable<number>
+  public getImportFromProvince(provinceId : number, selectedYear : number, selectedMonth : number): Observable<number>
   {
     return this.http.get<number>(`${this.apiUri}/import-from-outside-province`,
       {
         params : new HttpParams()
           .set("provinceId", provinceId)
-          .set("period", selectedYear)
+          .set("year", selectedYear)
+          .set("month", selectedMonth)
       });
   }
 
-  public getExportToOutsideProvince(provinceId : number, selectedYear : number): Observable<number>
+  public getExportToOutsideProvince(provinceId : number, selectedYear : number, selectedMonth : number): Observable<number>
   {
     return this.http.get<number>(`${this.apiUri}/export-to-outside-province`,
       {
         params : new HttpParams()
           .set("provinceId", provinceId)
-          .set("period", selectedYear)
+          .set("year", selectedYear)
+          .set("month", selectedMonth)
       });
   }
 }

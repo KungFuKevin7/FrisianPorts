@@ -1,13 +1,41 @@
-<label for="period-dropdown">Periode</label>
-<select #periodFilter (change)="periodSelected(periodFilter.value)"
-        id="period-dropdown"
-        class="form-select form-select-lg">
+<div class="filter-box">
+  <h1 class="text-center">Periode Filter:</h1>
 
-  <option [ngValue]="0">Alles</option>
-  <option *ngFor="let year of yearsOptions"
-          [ngValue]="{year}">
-    {{year}}
-  </option>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <label for="year-dropdown">Jaar</label>
+        <select #yearFilter
+                (change)="yearSelected(yearFilter.value)"
+                id="year-dropdown"
+                class="form-select form-select-lg">
 
-</select>
+          <option value="0">Alles</option>
+          <option *ngFor="let year of yearsOptions"
+                  value="{{year}}">
+            {{year}}
+          </option>
 
+        </select>
+      </div>
+
+      <div class="col-md-6">
+        <label for="month-dropdown">Maand</label>
+        <select #monthFilter
+                (change)="monthSelected(monthFilter.value)"
+                id="month-dropdown"
+                class="form-select form-select-lg"
+                >
+          <option value="0">Alles</option>
+          <option *ngFor="let month of monthOptions; index as i"
+                  value="{{i + 1}}">
+            {{month}}
+          </option>
+        </select>
+      </div>
+    </div>
+  </div>
+
+  <br>
+
+</div>

@@ -11,6 +11,6 @@ export class Constants{
 
   public static minimumQueryLength: number = 3;
 
-
   public static apiUrl = "https://localhost:7071/api";
+
 }

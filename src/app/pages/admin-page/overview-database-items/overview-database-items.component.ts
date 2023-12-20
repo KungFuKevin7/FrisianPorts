@@ -28,6 +28,18 @@ export class OverviewDatabaseItemsComponent implements OnInit{
   }
 
   removeItem(idOfItemToRemove : number) {
-    this.cargoTransportService.delete(idOfItemToRemove);
+    let warning = confirm("Weet u het zeker?\nNa deze actie zal alle data die betrekking heeft tot deze goederenstroom verloren gaan.")
+
+    if (warning){
+      alert("fool")
+      this.cargoTransportService.delete(idOfItemToRemove).subscribe(
+      response => {
+        console.log(response)
+      }
+      );
+      window.location.reload();
+    }else{
+      alert("Good boy")
+    }
   }
 }

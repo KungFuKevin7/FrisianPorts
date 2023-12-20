@@ -13,6 +13,7 @@ import {Constants} from "../../../../.constants/constants";
 export class ProvincePieChartComponent implements OnInit, OnChanges{
 
   @Input() selectedYear : number = 0;
+  @Input() selectedMonth : number = 0;
   @Input() provinceId! : number;
   Import : any;
   Export : any;
@@ -34,7 +35,9 @@ export class ProvincePieChartComponent implements OnInit, OnChanges{
 
   public getImportDistribution()
   {
-    this.cargoDistributionService.getImportDistributionPort(this.provinceId, this.selectedYear)
+    this.cargoDistributionService.getImportDistributionPort(this.provinceId,
+      this.selectedYear,
+      this.selectedMonth)
       .subscribe(
         response => {
           this.Import = response.map(item => (
@@ -48,7 +51,9 @@ export class ProvincePieChartComponent implements OnInit, OnChanges{
 
   public getExportDistribution()
   {
-    this.cargoDistributionService.getExportDistributionPort(this.provinceId, this.selectedYear)
+    this.cargoDistributionService.getExportDistributionPort(this.provinceId,
+      this.selectedYear,
+      this.selectedMonth)
       .subscribe(
         response => {
           this.Export = response.map(item => (

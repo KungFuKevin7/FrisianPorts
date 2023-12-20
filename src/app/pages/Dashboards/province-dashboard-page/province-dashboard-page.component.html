@@ -10,18 +10,21 @@
     <div class="col-lg-6">
       <app-province-pie-chart
         [provinceId]="provinceId"
-        [selectedYear]="yearFilter"
+        [selectedYear]="selectedYear"
+        [selectedMonth]="selectedMonth"
       ></app-province-pie-chart>
     </div>
     <div class="col-lg-6">
       <app-province-dashboard-filter
-        (YearEmitter)="getYear($event)"
+        (yearEmitter)="getYear($event)"
+        (monthEmitter)="getMonth($event)"
         [provinceId]="provinceId">
       </app-province-dashboard-filter>
 
       <app-province-data-view
       [ProvinceId]="provinceId"
-      [selectedYear]="yearFilter">
+      [selectedYear]="selectedYear"
+      [selectedMonth]="selectedMonth">
       </app-province-data-view>
     </div>
   </div>
@@ -33,7 +36,8 @@
   <div class="row">
     <app-province-import-inside
       [ProvinceId]="provinceId"
-      [selectedYear]="yearFilter">
+      [selectedYear]="selectedYear"
+      [selectedMonth]="selectedMonth">
     </app-province-import-inside>
   </div>
 

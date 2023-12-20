@@ -13,7 +13,8 @@ export class ProvinceDashboardPageComponent implements OnInit{
 
   @Input() EmitProvinceId = new EventEmitter<number>;
   selectedProvince! : Province;
-  yearFilter! : number;
+  selectedYear! : number;
+  selectedMonth! : number;
   provinceId! : number;
 
   constructor(private provinceService : ProvinceService,
@@ -45,6 +46,11 @@ export class ProvinceDashboardPageComponent implements OnInit{
   //Gets the year selected in the filter
   public getYear(receivedYear : any)
   {
-    this.yearFilter = receivedYear;
+    this.selectedYear = receivedYear;
+  }
+
+  public getMonth(receivedMonth : any)
+  {
+    this.selectedMonth = receivedMonth;
   }
 }

@@ -1,0 +1,9 @@
+.delete-btn{
+  transition: ease all 400ms;
+}
+
+.delete-btn:hover{
+  scale: 110%;
+  border-radius: 10px;
+  background-color: rgba(199, 0, 0, 0.3);
+}
