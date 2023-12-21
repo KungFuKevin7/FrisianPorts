@@ -1,4 +1,5 @@
 <!--<ng-container #container></ng-container>-->
+
 <app-add-cargo-item-row [emitData]="sendRequest" (dataToAdd)="addCargo($event)"></app-add-cargo-item-row>
 
 <!--
@@ -11,7 +12,6 @@
 <a class="home-style-btn large text-center" (click)="emitData()">
   Goederenstroom toevoegen
 </a>
-
 <!--TO DO: Multiple Cargo Items at once-->
 <!--
 <a class="text-center add-cargo-btn" (click)="emitData()">

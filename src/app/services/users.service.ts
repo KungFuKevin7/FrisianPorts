@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
-import {HttpClient, HttpParams} from "@angular/common/http";
+import {HttpClient, HttpParams, HttpStatusCode} from "@angular/common/http";
 import {Constants} from "../.constants/constants";
 import {IServiceTemplate} from "./IServiceTemplate";
 import {Users} from "../models/Users";
-import {Observable} from "rxjs";
+import {catchError, Observable, throwError} from "rxjs";
+import {ErrorHandlerService} from "./error-handler.service";
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +12,8 @@ import {Observable} from "rxjs";
 
 export class UsersService implements IServiceTemplate<Users>{
 
-  constructor(private http : HttpClient)
+  constructor(private http : HttpClient,
+              private errorService : ErrorHandlerService)
   { }
 
   private readonly apiUri= `${Constants.apiUrl}/users`
@@ -37,5 +39,18 @@ export class UsersService implements IServiceTemplate<Users>{
     return this.http.put<number>(this.apiUri, updatedObject);
   }
 
+  validateUser(email : string, passwordInput : string): Observable<Users> {
+    const parameter = { params : new HttpParams()
+        .set("email", email)
+        .set("passwordInput", passwordInput)};
+
+    return this.http.get<Users>(`${this.apiUri}/exist`, parameter)
+      .pipe(
+        catchError( err => {
+            return this.errorService.userLoginError(err);
+          }
+        )
+      );
+  }
 
 }

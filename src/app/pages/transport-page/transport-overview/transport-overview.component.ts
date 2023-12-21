@@ -2,8 +2,6 @@ import {Component, Input, OnInit} from '@angular/core';
 import {GoodsflowService} from "../../../services/dashboard-services/goodsflow.service";
 import {GoodsFlowDto} from "../../../models/DTO/GoodsFlowDto";
 import {TransportService} from "../../../services/transport.service";
-import {CargoTransportService} from "../../../services/cargo-transport.service";
-import {ErrorHandlerService} from "../../../services/error-handler.service";
 
 @Component({
   selector: 'app-transport-overview',

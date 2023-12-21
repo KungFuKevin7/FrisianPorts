@@ -33,3 +33,16 @@
   background-color: #0155A5;
   color: #FFFFFF;
 }
+
+.side-by-side{
+  display: inline-flex;
+}
+
+.red-btn{
+  background-color: #FF0000;
+  border-color: #FF0000;
+}
+
+.red-btn :hover{
+  color: #FFFFFF;
+}

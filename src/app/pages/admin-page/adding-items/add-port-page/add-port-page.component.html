@@ -1,0 +1,57 @@
+<br>
+
+<div class="container">
+  <div class="blue-menu">
+    <div class="blue-menu-header">
+      <div class="side-by-side">
+        <img src="assets/icons/addPort.png" width="75" height="65">
+        <h1>Toevoegen Haven</h1>
+      </div>
+    </div>
+    <div class="blue-menu-body">
+      <h1>Haven informatie invullen</h1>
+      <p>Vul hier de gevraagde informatie over de haven in, om deze haven toe te voegen aan de database.</p>
+
+      <br>
+
+      <label for="port-location">Locatie van haven (Stad, dorp of streek)</label>
+      <input #portLocation id="port-location" class="form-control form-control-lg">
+
+      <br>
+
+      <label for="port-code">Code van haven (bijvoorbeeld: NLHRV)</label>
+      <input #portCode id="port-code" class="form-control form-control-lg">
+
+      <br>
+
+      <label for="latitude">Positie haven breedtegraad</label>
+      <input #portLatitude id="latitude" class="form-control form-control-lg">
+
+      <br>
+
+      <label for="longitude">Positie haven lengtegraad</label>
+      <input #portLongitude id="longitude" class="form-control form-control-lg">
+
+      <br>
+
+      <label for="provinces">Provincie</label>
+      <br>
+      <select #portProvince id="provinces" class="form-select-lg">
+        <option *ngFor="let province of availableProvinces" value="{{province.provinceId}}">
+          {{province.provinceName}}
+        </option>
+      </select>
+
+      <br><br>
+
+      <button class="home-style-btn fill-btn"
+              (click)="addPort(portCode.value,
+                              portLocation.value,
+                              portLatitude.value,
+                              portLongitude.value,
+                              portProvince.value)">
+        Haven toevoegen
+      </button>
+    </div>
+    </div>
+  </div>

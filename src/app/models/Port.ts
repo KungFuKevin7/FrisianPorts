@@ -4,4 +4,5 @@ export interface Port {
   portLocation : string;
   latitude : string;
   longitude : string;
+  provinceId : number;
 }

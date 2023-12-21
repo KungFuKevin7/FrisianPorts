@@ -9,45 +9,66 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-md-9">
+    <div class="col-md-12">
       <div class="user-menu">
         <div class="user-menu-header">
-          <h1>Welkom, </h1>
-          <h1>Voornaam Achternaam</h1>
+          <h1>Welkom, {{user.firstName}} {{user.surName}}</h1>
         </div>
         <div class="user-menu-body">
 
-          <div class="col-md-7">
-            <h3>Email: emailadres@email.com</h3>
+          <br>
 
-            <button routerLink="/add-cargo-transport" class="btn btn-lg home-style-btn">
+          <h3>Email: {{user.email}}</h3>
+
+          <br><br>
+
+          <button routerLink="/add-cargo-transport" class="btn home-style-btn">
+            <div class="side-by-side">
+              <img src="assets/icons/addRoute.png" width="65" height="65">
               <h1>Goederenstroom toevoegen</h1>
-            </button>
+            </div>
+          </button>
 
-            <br><br>
+          <br><br>
 
-            <button routerLink="/add-transport" class="btn btn-lg home-style-btn">
-              <h1>Scheepsbeweging op goederenstroom toevoegen</h1>
-            </button>
+          <button routerLink="/add-transport" class="btn btn-lg home-style-btn">
+            <div class="side-by-side">
+              <img src="assets/icons/addTransport.png" width="75" height="40">
+              <h1>Goederentransport toevoegen</h1>
+            </div>
+          </button>
 
-            <br><br>
+          <br><br>
 
-            <button routerLink="/my-added-items" class="btn btn-lg home-style-btn">
-              <h1>Mijn toegevoegde goederenstromen</h1>
-            </button>
+          <button routerLink="/add-transport" class="btn btn-lg home-style-btn">
+            <div class="side-by-side">
+              <img src="assets/icons/addPort.png" width="75" height="65">
+              <h1>Haven toevoegen</h1>
+            </div>
+          </button>
 
-            <br><br>
+          <br><br>
 
-            <button routerLink="/manage-database-items" class="btn btn-lg home-style-btn">
+          <button routerLink="/manage-database-items" class="btn btn-lg home-style-btn">
+            <div class="side-by-side">
+              <img src="assets/icons/pencil.png" width="65" height="65">
               <h1>Data in database beheren</h1>
-            </button>
+            </div>
+          </button>
 
-            <br><br>
+          <br><br>
 
-          </div>
-
+          <button class="btn btn-lg home-style-btn red-btn" (click)="LogOut()">
+            <div class="side-by-side">
+              <img src="assets/icons/logout.png" width="65" height="65">
+              <h1>Uitloggen</h1>
+            </div>
+          </button>
+          <br>
         </div>
       </div>
+      <br><br>
+
     </div>
   </div>
 </div>

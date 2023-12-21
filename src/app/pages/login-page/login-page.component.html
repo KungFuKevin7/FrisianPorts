@@ -5,22 +5,26 @@
 
       <div class="mx-auto col-sm-5">  <!--mx-auto is used for centering-->
         <label for="email">Emailadres</label>
-        <input id="email" class="input-field form-control form-control-lg" placeholder="Emailadres" type="email">
+        <input #email id="email" class="input-field form-control form-control-lg" placeholder="Emailadres" type="email">
       </div>
 
       <div class="blank"></div>
 
       <div class="mx-auto col-sm-5"> <!--mx-auto is used for centering-->
         <label for="password-field">Wachtwoord</label>
-        <input id="password-field" class="form-control form-control-lg" placeholder="Wachtwoord" type="password">
+        <input #password id="password-field" class="form-control form-control-lg" placeholder="Wachtwoord" type="password">
         <a class="links">Wachtwoord Vergeten?</a>
       </div>
     <br>
 
     <div class="text-center">
-      <button class="btn btn-primary">Inloggen</button>
-
+      <button class="btn btn-primary"
+              (keyup.enter)="login(email.value, password.value)"
+              (click)="login(email.value, password.value)">
+        Inloggen
+      </button>
+<!--
       <p>Nog geen account?</p>
-      <a class="links" routerLink="/register">Klik hier om te registreren</a>
+      <a class="links" routerLink="/register">Klik hier om te registreren</a>-->
     </div>
 </div>

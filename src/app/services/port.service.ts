@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {catchError, Observable} from "rxjs";
 import {Port} from "../models/Port";
-import {HttpClient} from "@angular/common/http";
+import {HttpClient, HttpParams} from "@angular/common/http";
 import {Constants} from "../.constants/constants";
 import {ErrorHandlerService} from "./error-handler.service";
 
@@ -38,4 +38,15 @@ export class PortService{
     );
   }
 
+  add(portToBeAdded: Port) : Observable<Port>
+  {
+    return this.http.post<Port>(this.apiUri, portToBeAdded);
+  }
+
+  delete(idOfPort : number){
+    const parameters =
+      { params : new HttpParams().set("Id", idOfPort)}
+
+    return this.http.delete(this.apiUri, parameters);
+  }
 }

@@ -49,10 +49,16 @@
               <app-search-in-nav-bar></app-search-in-nav-bar>
             </div>
 
-            <a [routerLink]="['/login']"
+            <a *ngIf="!CheckUserLoggedIn()" [routerLink]="['/login']"
                [routerLinkActive]="'login-btn-active'"
                class="login-btn nav-right">
               Inloggen
+            </a>
+
+            <a *ngIf="CheckUserLoggedIn()" [routerLink]="['/admin']"
+               [routerLinkActive]="'login-btn-active'"
+               class="login-btn nav-right">
+              Admin Pagina
             </a>
 
           </div>

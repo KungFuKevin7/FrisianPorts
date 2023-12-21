@@ -1,8 +1,8 @@
 export interface Users{
-  User_Id : number;
-  Email : string;
+  userId : number;
+  email : string;
   Password : string;
-  FirstName : string;
-  SurName : string;
+  firstName : string;
+  surName : string;
   Permission_Add_Cargo : boolean;
 }

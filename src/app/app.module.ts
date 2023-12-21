@@ -56,6 +56,7 @@ import { PortsInProvinceTableComponent } from './pages/Dashboards/province-dashb
 import { AddCargoItemRowComponent } from './pages/admin-page/adding-items/add-loaded-transport/add-cargo-list/add-cargo-item-row/add-cargo-item-row.component';
 import { AddCargoListComponent } from './pages/admin-page/adding-items/add-loaded-transport/add-cargo-list/add-cargo-list.component';
 import { OverviewDatabaseItemsComponent } from './pages/admin-page/overview-database-items/overview-database-items.component';
+import { AddPortPageComponent } from './pages/admin-page/adding-items/add-port-page/add-port-page.component';
 
 const routes: Routes = [
   { path: '', component: HomepageComponent },
@@ -63,6 +64,7 @@ const routes: Routes = [
   { path: 'search', component : SearchPageComponent},
   { path: 'add-cargo-transport', component : AddCargoTransportPageComponent},
   { path: 'add-transport', component : AddLoadedTransportComponent},
+  { path: 'add-port', component : AddPortPageComponent},
   { path: 'cargo-transport-of-port', component : CargoTransportOfPortPageComponent},
   { path: 'admin', component: AdminPageComponent},
   { path: 'manage-database-items', component : OverviewDatabaseItemsComponent},
@@ -127,7 +129,8 @@ const routes: Routes = [
     PortsInProvinceTableComponent,
     AddCargoItemRowComponent,
     AddCargoListComponent,
-    OverviewDatabaseItemsComponent
+    OverviewDatabaseItemsComponent,
+    AddPortPageComponent
   ],
     imports: [
         BrowserModule,

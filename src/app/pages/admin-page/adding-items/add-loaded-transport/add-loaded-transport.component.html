@@ -1,65 +1,68 @@
 <div class="small-blank"></div>
-<h1 class="text-center">Toevoegen goederenstroom</h1>
-<div class="blank"></div>
+  <div class="container">
+    <div class="blue-menu">
 
-<div class="container">
-  <div class="row">
-    <h3>Selecteren route</h3>
-    <p>Selecteer hier de route die de goederen hebben afgelegd, en geef ook aan op welke datum de aangegeven goederen zijn getransporteerd.</p>
-
-    <br><br>
-
-    <div class="col-sm-6">
-      <label for="cargo-transport">Goederenstroom route</label>
-      <select #cargoTransportId (change)="setCargoTransport(cargoTransportId.value)" class="form-select form-select-lg" id="cargo-transport">
-        <option *ngFor="let route of availableRoutes" value="{{route.cargoTransportId}}" >
-          {{route.departureLocation}} -> {{route.arrivalLocation}}
-        </option>
-      </select>
-      <a routerLink="/add-cargo-transport">Ontbreekt de gewenste goederenstroom? Klik hier om de gewenste goederenstroom toe te voegen.</a>
+    <div class="blue-menu-header">
+      <h1>Toevoegen goederenstroom</h1>
     </div>
 
-    <div class="col-sm-6">
-      <label for="departure-date">Vertrek Datum</label>
-        <input #departureDate (change)="setDate(departureDate.value)" class="form-control form-control-lg" type="date" id="departure-date">
+      <div class="blue-menu-body">
+      <div class="row">
+        <h3>Selecteren route</h3>
+        <p>Selecteer hier de route die de goederen hebben afgelegd, en geef ook aan op welke datum de aangegeven goederen zijn getransporteerd.</p>
+
+        <br><br>
+
+        <div class="col-sm-6">
+          <label for="cargo-transport">Goederenstroom route</label>
+          <select #cargoTransportId (change)="setCargoTransport(cargoTransportId.value)" class="form-select form-select-lg" id="cargo-transport">
+            <option *ngFor="let route of availableRoutes" value="{{route.cargoTransportId}}" >
+              {{route.departureLocation}} -> {{route.arrivalLocation}}
+            </option>
+          </select>
+          <a routerLink="/add-cargo-transport">Ontbreekt de gewenste goederenstroom? Klik hier om de gewenste goederenstroom toe te voegen.</a>
+        </div>
+
+        <div class="col-sm-6">
+          <label for="departure-date">Vertrek Datum</label>
+            <input #departureDate (change)="setDate(departureDate.value)" class="form-control form-control-lg" type="date" id="departure-date">
+        </div>
+
+      </div>
+
+    <div class="small-blank">
+      <hr>
     </div>
 
+        <h3>Invoeren Goederen</h3>
+        <p>Geef hier het goederentype aan dat getransporteerd is, een beschrijving van de vervoerde goederen en de tonnage van de goederen aan boord.</p>
+
+        <br/>
+
+        <div class="row">
+          <div class="form-group col-sm-2">
+            <label class="label-with-img">Goederensoort</label>
+            <img class="icon" src="../../../../../assets/icons/container.png" width="40" height="30">
+          </div>
+          <div class="form-group col-sm-6">
+            <label class="label-with-img">Beschrijving van goederen</label>
+            <img class="icon" src="../../../../../assets/icons/cargo2.png" width="30" height="30">
+          </div>
+          <div class="form-group col-sm-3">
+            <label class="label-with-img">Gewicht (in tonnen)</label>
+            <img class="icon" src="../../../../../assets/icons/weight.png" width="30" height="30">
+          </div>
+        </div>
+
+
+        <div class="new-cargo col-sm-12">
+
+          <div class="small-blank"></div>
+          <app-add-cargo-list [selectedDate]="selectedDate" [selectedCargoTransportId]="selectedCargoTransportId">
+          </app-add-cargo-list>
+        </div>
+      </div>
+
+    </div>
   </div>
-</div>
 
-<div class="small-blank">
-  <hr>
-</div>
-
-<div class="container">
-
-  <h3>Invoeren Goederen</h3>
-  <p>Geef hier het goederentype aan dat getransporteerd is, een beschrijving van de vervoerde goederen en de tonnage van de goederen aan boord.</p>
-
-  <br/>
-
-  <div class="row">
-    <div class="form-group col-sm-2">
-      <label class="label-with-img">Goederensoort</label>
-      <img class="icon" src="../../../../../assets/icons/container.png" width="40" height="30">
-    </div>
-    <div class="form-group col-sm-6">
-      <label class="label-with-img">Beschrijving van goederen</label>
-      <img class="icon" src="../../../../../assets/icons/cargo2.png" width="30" height="30">
-    </div>
-    <div class="form-group col-sm-3">
-      <label class="label-with-img">Gewicht (in tonnen)</label>
-      <img class="icon" src="../../../../../assets/icons/weight.png" width="30" height="30">
-    </div>
-  </div>
-
-
-  <div class="new-cargo col-sm-12">
-
-    <div class="small-blank"></div>
-    <app-add-cargo-list [selectedDate]="selectedDate" [selectedCargoTransportId]="selectedCargoTransportId">
-    </app-add-cargo-list>
-
-  </div>
-
-</div>

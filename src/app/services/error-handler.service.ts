@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {HttpErrorResponse} from "@angular/common/http";
+import {HttpErrorResponse, HttpStatusCode} from "@angular/common/http";
 import {Observable, of, throwError} from "rxjs";
 import {Router} from "@angular/router";
 
@@ -46,5 +46,16 @@ export class ErrorHandlerService {
 
   public errorMessage(error : HttpErrorResponse){
     console.log(`${error.status}: ${error.message}`);
+  }
+
+  public userLoginError(error : HttpErrorResponse)
+  {
+    if (error.status === HttpStatusCode.NotFound){
+      alert("Ingevoerde email en wachtwoord kloppen niet!")
+    }
+    else{
+      alert("Er ging iets mis, excuses voor het ongemak!")
+    }
+    return throwError(error);
   }
 }

@@ -1,4 +1,5 @@
-import {Component} from '@angular/core';
+import {Component, Input} from '@angular/core';
+import {SessionHandlerService} from "../../services/session-handler.service";
 
 @Component({
   selector: 'app-navbar',
@@ -6,6 +7,10 @@ import {Component} from '@angular/core';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent {
+
+  constructor(private sessionService : SessionHandlerService) {
+  }
+
   hamburgerMenu : boolean = false;
 
   //Quite simple open and close navigation system
@@ -16,6 +21,17 @@ export class NavbarComponent {
     }
     else{
       this.hamburgerMenu = true;
+    }
+  }
+
+  public CheckUserLoggedIn()
+  {
+    let currentUser = this.sessionService.getLoggedInUser()
+    if (currentUser){
+      return true;
+    }
+    else {
+      return false;
     }
   }
 }

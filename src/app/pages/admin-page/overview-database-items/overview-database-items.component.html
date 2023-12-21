@@ -22,7 +22,44 @@
       <td>{{flowOfGood.arrivalLocation}}</td>
       <td>{{flowOfGood.frequency}}</td>
       <td>
-        <a (click)="removeItem(flowOfGood.cargoTransportId); $event.stopPropagation()" >
+        <a (click)="removeCargoTransport(flowOfGood.cargoTransportId); $event.stopPropagation()" >
+          <img class="delete-btn" src="../../../../assets/icons/trash.png" width="50" height="60">
+        </a>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+
+  <div class="blank">
+    <hr>
+  </div>
+
+  <h1 class="text-center">Alle beschikbare Havens</h1>
+
+  <div class="blank"></div>
+
+
+  <table class="table table-striped table-hover">
+    <thead>
+    <tr>
+      <th scope="col">Haven Locatie</th>
+      <th scope="col">Haven Code</th>
+      <th scope="col">Breedtegraad en Lengtegraad</th>
+      <th scope="col">ProvinceId</th>
+      <th scope="col">Verwijderen</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr class="table-row"
+        *ngFor="let port of ports"
+        [routerLink]="['/transport']"
+        [queryParams]="{id : port.portId}">
+      <td>{{port.portLocation}}</td>
+      <td>{{port.portName}}</td>
+      <td>{{port.latitude}}, {{port.longitude}}</td>
+      <td>{{port.provinceId}}</td>
+      <td>
+        <a (click)="removePort(port.portId); $event.stopPropagation()" >
           <img class="delete-btn" src="../../../../assets/icons/trash.png" width="50" height="60">
         </a>
       </td>

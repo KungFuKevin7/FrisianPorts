@@ -32,7 +32,6 @@ h1, h2, h3, h4, h5, h6{
   text-decoration: none;
   border-radius: 10px;
   padding: 5px 10px 5px 10px;
-  margin-left: 40px;
   color: #FFFFFF;
   border: solid 1px rgba(1, 85, 165, 0.9);
   background-color: rgba(1, 85, 165, 0.9);
@@ -51,3 +50,27 @@ h1, h2, h3, h4, h5, h6{
   color: #0155A5;
   background-color: #FFFFFF;
 }
+
+
+.blue-menu{
+  border: #0155A5 solid 1px;
+  border-radius: 5px;
+}
+
+.blue-menu-header{
+  color: #FFFFFF;
+  background-color: #0155A5;
+  border-radius: 5px;
+  padding: 20px;
+}
+
+.blue-menu-body{
+  padding: 20px;
+}
+
+.blue-menu-btn{
+  margin-top: 20px;
+  background-color: #0155A5;
+  color: #FFFFFF;
+}
+
