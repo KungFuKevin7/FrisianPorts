@@ -9,3 +9,20 @@
   text-align: right;
 }
 
+.delete-btn{
+  background-color: #FFFFFF;
+  color: #FF0000;
+  border: 1px solid #FF0000;
+  float: right;
+}
+
+.delete-btn :hover {
+  scale: 105%;
+  font-size: 120%;
+}
+
+.add-btn{
+  background-color: #00af00;
+  color: #FFFFFF;
+  border: 1px solid #00af00;
+}

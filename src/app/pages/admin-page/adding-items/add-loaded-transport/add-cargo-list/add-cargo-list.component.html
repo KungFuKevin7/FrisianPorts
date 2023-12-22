@@ -1,24 +1,24 @@
-<!--<ng-container #container></ng-container>-->
+<app-add-cargo-item-row
+  *ngFor="let cargo of cargoList; let i = index"
+  [cargoItem]="cargoList[i]"></app-add-cargo-item-row>
 
-<app-add-cargo-item-row [emitData]="sendRequest" (dataToAdd)="addCargo($event)"></app-add-cargo-item-row>
+<button class="home-style-btn add-btn" (click)="addCargoInputField()">
+  <img src="assets/icons/addCargo.png">
+  Vracht toevoegen
+</button>
 
-<!--
+<button class="delete-btn home-style-btn " (click)="removeCargo()">
+  <img src="assets/icons/trash.png" width="40" height="53">
+  Remove Cargo
+</button>
+
 <div class="weight-sum">
   <p>Totaal Gewicht (in tonnen):</p>
   <h1>{{sumTonnage}} ton</h1>
 </div>
--->
 
-<a class="home-style-btn large text-center" (click)="emitData()">
+
+<a class="home-style-btn large text-center" (click)="addCargoList(cargoList)">
   Goederenstroom toevoegen
 </a>
-<!--TO DO: Multiple Cargo Items at once-->
-<!--
-<a class="text-center add-cargo-btn" (click)="emitData()">
-  <div>
-    Goederen toevoegen
-  </div>
-</a>
 
-<a (click)="removeCargo()">Remove Cargo</a>
--->

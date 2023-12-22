@@ -5,6 +5,8 @@ import {GoodsflowService} from "../../../../services/dashboard-services/goodsflo
 import {GoodsFlowDto} from "../../../../models/DTO/GoodsFlowDto";
 import {Cargo} from "../../../../models/Cargo";
 import {Transport} from "../../../../models/Transport";
+import {SessionHandlerService} from "../../../../services/session-handler.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-add-loaded-transport',
@@ -21,39 +23,35 @@ export class AddLoadedTransportComponent implements OnInit {
   selectedCargoTransportId! : number;
 
   constructor(private cargoTypeService : CargoTypeService,
-              private goodsFlowService : GoodsflowService) {
+              private goodsFlowService : GoodsflowService,
+              private sessionService : SessionHandlerService,
+              private router : Router) {
   }
 
   ngOnInit() : void
   {
-    //Cargotypes
-    this.cargoTypeService.get().subscribe(
-      result => {
-        this.cargoTypes = result;
-        this.cargoArray.push(this.cargoArray.length);
-      }
-    );
-    //FlowOfGoods Routes
-    this.goodsFlowService.getAllGoodsFlows().subscribe(
-      result => {
-        this.availableRoutes = result;
-      }
-    );
+    let userId = this.sessionService.getLoggedInUser();
+
+    if (Number(userId) != 0 || userId != null){
+      //Cargotypes
+      this.cargoTypeService.get().subscribe(
+        result => {
+          this.cargoTypes = result;
+          this.cargoArray.push(this.cargoArray.length);
+        });
+      //FlowOfGoods Routes
+      this.goodsFlowService.getAllGoodsFlows().subscribe(
+        result => {
+          this.availableRoutes = result;
+        });
+    } else {
+      this.router.navigate(['forbidden-error'])
+    }
   }
 
   public addCargo()
   {
     this.cargoArray.push(this.cargoArray.length);
-  }
-
-  public removeCargo()
-  {
-    if (this.cargoArray.length > 1){
-      this.cargoArray.pop();
-    }
-    else{
-      alert("Kan velden niet verwijderen, er moet minimaal één rij ingevuld zijn.");
-    }
   }
 
   public setCargoTransport(val : any)

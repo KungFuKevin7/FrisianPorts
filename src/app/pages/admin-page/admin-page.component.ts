@@ -20,11 +20,17 @@ export class AdminPageComponent implements OnInit{
 
   ngOnInit(): void {
     let userId = this.sessionService.getLoggedInUser();
-    this.userService.getById(Number(userId))
-      .subscribe(user =>
-      {
-        this.user = user;
-      })
+
+    if (Number(userId) != 0 || userId != null){
+      this.userService.getById(Number(userId))
+        .subscribe(user =>
+        {
+          this.user = user;
+        })
+    }
+    else {
+      this.router.navigate(['/forbidden-error'])
+    }
   }
 
   LogOut()

@@ -3,11 +3,12 @@ import {Port} from "../../../../models/Port";
 import {PortService} from "../../../../services/port.service";
 import {CargoTransportService} from "../../../../services/cargo-transport.service";
 import {RouteService} from "../../../../services/route.service";
-import {Route} from "@angular/router";
+import {Route, Router} from "@angular/router";
 import {CargoTransport} from "../../../../models/CargoTransport";
 import {concatMap} from "rxjs";
 import {CargoTransportRouteDTO} from "../../../../models/DTO/CargoTransportRouteDTO";
 import {CargoTransportRouteService} from "../../../../services/cargo-transport-route.service";
+import {SessionHandlerService} from "../../../../services/session-handler.service";
 
 @Component({
   selector: 'app-add-cargo-transport-page',
@@ -26,15 +27,23 @@ export class AddCargoTransportPageComponent implements OnInit {
 
 
   constructor(private portService : PortService,
-              private cargoTransportRouteService : CargoTransportRouteService){
+              private cargoTransportRouteService : CargoTransportRouteService,
+              private sessionService : SessionHandlerService,
+              private router : Router){
   }
 
   ngOnInit(): void {
-    this.portService.get().subscribe(
-      listOfPorts => {
-        this.portsToChoose = listOfPorts;
-      }
-    )
+    let userId = this.sessionService.getLoggedInUser();
+
+    if (Number(userId) != 0 || userId != null){
+      this.portService.get().subscribe(
+        listOfPorts => {
+          this.portsToChoose = listOfPorts;
+        }
+      )
+    } else {
+      this.router.navigate(['forbidden-error'])
+    }
   }
 
   public setDeparture(input : any)

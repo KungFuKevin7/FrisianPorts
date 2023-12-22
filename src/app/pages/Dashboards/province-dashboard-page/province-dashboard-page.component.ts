@@ -12,7 +12,13 @@ import {ActivatedRoute} from "@angular/router";
 export class ProvinceDashboardPageComponent implements OnInit{
 
   @Input() EmitProvinceId = new EventEmitter<number>;
-  selectedProvince! : Province;
+  selectedProvince : Province = {
+    provinceId : 0,
+    latitude: '',
+    longitude: '',
+    provinceName: ''
+  };
+
   selectedYear! : number;
   selectedMonth! : number;
   provinceId! : number;

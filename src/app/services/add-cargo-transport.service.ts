@@ -24,4 +24,14 @@ export class AddCargoTransportService {
             return error;
           }));
   }
+
+  addCargoList(cargoItems: CargoTransportDTO[]): Observable<CargoTransportDTO> {
+    return this.http.post<CargoTransportDTO>(`${this.apiUri}/transport-with-cargo/list`, cargoItems)
+      .pipe(
+        catchError(
+          err =>{
+            let error = this.errorService.handleError(err);
+            return error;
+          }));
+  }
 }

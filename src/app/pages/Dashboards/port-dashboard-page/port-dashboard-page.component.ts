@@ -14,12 +14,18 @@ export class PortDashboardPageComponent implements OnInit{
 
   @Input() selectedYear : number = 0;
   @Input() selectedMonth : number = 0;
-  selectedPort! : Port;
+  selectedPort : Port = {
+    portId : 0,
+    portName : "",
+    portLocation : "",
+    latitude: "",
+    longitude: "",
+    provinceId: 0,
+  };
   portId! : number;
 
   constructor(private portService : PortService,
-              private activeRoute : ActivatedRoute,
-              private errorService: ErrorHandlerService)
+              private activeRoute : ActivatedRoute)
   {
 
   }

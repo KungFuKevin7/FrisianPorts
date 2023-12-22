@@ -10,7 +10,7 @@ export class TableComponent implements OnChanges {
 
   @Input() Title: string = "";
   @Input() DataDisplay: any = [];
-  public total : number = 0;
+  total : number = 0;
 
   constructor() {
   }
@@ -21,13 +21,13 @@ export class TableComponent implements OnChanges {
   }
 
   //Compute the total transported Tonnage
-  public getTotal(collection : any)
+  public getTotal(collection : any[])
   {
     let sum : number = 0;
-    for(let i = 0; i < collection.length; i++)
+    collection.forEach(item =>
     {
-      sum += collection[i].value;
-    }
+      sum += item.value;
+    });
 
     return sum;
   }

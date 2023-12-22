@@ -22,16 +22,18 @@ import {Transport} from "../../../../../../models/Transport";
   styleUrls: ['./add-cargo-item-row.component.css'],
   providers: [CargoTypeService]
 })
-export class AddCargoItemRowComponent implements OnInit, OnChanges
+export class AddCargoItemRowComponent implements OnInit
 {
-  @Input() emitData! : boolean;
-  @Input() transportToAdd! : Transport;
-  @Output() dataToAdd = new EventEmitter<Cargo>();
+  @Input() cargoItem : Cargo =
+    {
+      CargoId : 0,
+      CargoDescription: "",
+      CargoTypeId: 0,
+      WeightInTonnes: 0,
+      TransportId: 0
+    };
 
   cargoTypes! : CargoType[];
-  chosenCargoType! : number;
-  cargoDescription! : string;
-  weightInTonnes! : number;
 
   constructor(private cargoTypeService : CargoTypeService) {
   }
@@ -42,26 +44,6 @@ export class AddCargoItemRowComponent implements OnInit, OnChanges
         this.cargoTypes = result;
       }
     )
-  }
-
-  ngOnChanges(changes: SimpleChanges): void {
-    if (this.emitData == true){
-      let cargo : Cargo =
-        {
-          CargoId : 0,
-          CargoDescription: this.cargoDescription,
-          CargoTypeId: this.chosenCargoType,
-          WeightInTonnes: this.weightInTonnes,
-          TransportId: 0
-        };
-      this.dataToAdd.emit(cargo);   // Send/Emit created object to parent
-    }
-  }
-
-
-  public removeCargo()
-  {
-    alert("Remove row. Functionality not added yet.");
   }
 
 }

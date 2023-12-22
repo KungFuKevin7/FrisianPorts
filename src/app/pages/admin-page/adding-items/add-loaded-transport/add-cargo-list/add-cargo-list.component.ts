@@ -4,70 +4,90 @@ import {CargoService} from "../../../../../services/cargo.service";
 import {AddCargoTransportService} from "../../../../../services/add-cargo-transport.service";
 import {CargoTransportDTO} from "../../../../../models/DTO/CargoTransportDTO";
 import {Transport} from "../../../../../models/Transport";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-add-cargo-list',
   templateUrl: './add-cargo-list.component.html',
   styleUrls: ['./add-cargo-list.component.css']
 })
-export class AddCargoListComponent implements OnInit {
+export class AddCargoListComponent implements OnInit, OnChanges {
 
   //@ViewChild('container', {read : ViewContainerRef})
   //container! : ViewContainerRef
   sumTonnage: number = 0;
   cargoList: Cargo[] = [];
-  sendRequest: boolean = false;
-
   @Input() selectedDate! : Date;
   @Input() selectedCargoTransportId! : number;
 
-
   constructor(private cargoService: CargoService,
-              private addCargoTransportService: AddCargoTransportService) {
+              private addCargoTransportService: AddCargoTransportService,
+              private router : Router) {
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+
+    this.sumTonnage = this.calculateTotalWeight();
   }
 
   ngOnInit() {
   }
 
-  addCargo(cargoItem : Cargo) {
-    let cargoTransportItem : CargoTransportDTO = {
-      CargoId : cargoItem.CargoId,
-      CargoDescription : cargoItem.CargoDescription,
-      WeightInTonnes : cargoItem.WeightInTonnes,
-      CargoTypeId : cargoItem.CargoTypeId,
-      TransportId : 0,
-      CargoTransportId : this.selectedCargoTransportId,
-      DepartureDate : this.selectedDate
-    }
+  addCargoList(cargoItems : Cargo[])
+  {
+    let cargoTransportItems : CargoTransportDTO[] = []
 
-    console.log(cargoTransportItem);
-    //this.container.createComponent(AddCargoItemRowComponent);
-    this.addCargoTransportService.add(cargoTransportItem).subscribe(
+    cargoItems.forEach( cargoItem => {
+      let cargoTransportItem: CargoTransportDTO = {
+        CargoId: cargoItem.CargoId,
+        CargoDescription: cargoItem.CargoDescription,
+        WeightInTonnes: cargoItem.WeightInTonnes,
+        CargoTypeId: cargoItem.CargoTypeId,
+        TransportId: 0,
+        CargoTransportId: this.selectedCargoTransportId,
+        DepartureDate: this.selectedDate
+      }
+      cargoTransportItems.push(cargoTransportItem)
+    });
+
+    this.addCargoTransportService.addCargoList
+    (cargoTransportItems).subscribe(
       result =>
       {
-        console.log(result);
+        if (result){
+          alert("Vracht is toegevoegd!")
+          this.router.navigate(['/admin']);
+        }
       });
 
-    //Data successfully received and added to the database
-    this.sendRequest = false;
+  }
+
+  addCargoInputField()
+  {
+    let cargo : Cargo =
+      {
+        CargoId : 0,
+        CargoDescription : "",
+        WeightInTonnes: 0,
+        CargoTypeId: 1,
+        TransportId: 0
+      }
+    this.cargoList.push(cargo);
   }
 
   removeCargo()
   {
-    //this.container.remove(4);
+    this.cargoList.pop();
   }
 
-  calculateTonnageTotal()
-  {
-    //Todo: calculateTonnageTotal
-   this.sumTonnage = 19 + 20;
-  }
 
-  emitData()
-  {
-    //Request Children to hand over the data
-    this.sendRequest = true;
-  }
+  calculateTotalWeight(){
+    let total = 0;
+    this.cargoList.forEach( cargoItem => {
+      total += cargoItem.WeightInTonnes;
+    })
 
+    return total;
+  }
 
 }

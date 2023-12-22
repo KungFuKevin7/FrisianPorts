@@ -6,6 +6,8 @@ import {GoodsFlowDto} from "../../../models/DTO/GoodsFlowDto";
 import {CargoTransportService} from "../../../services/cargo-transport.service";
 import {PortService} from "../../../services/port.service";
 import {Port} from "../../../models/Port";
+import {SessionHandlerService} from "../../../services/session-handler.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-overview-database-items',
@@ -20,22 +22,26 @@ export class OverviewDatabaseItemsComponent implements OnInit{
 
   constructor(private goodsFlowService : GoodsflowService,
               private cargoTransportService : CargoTransportService,
-              private portService :PortService) {
-
-  }
+              private portService :PortService,
+              private sessionService : SessionHandlerService,
+              private router : Router) {}
 
   ngOnInit(): void {
-    this.goodsFlowService.getAllGoodsFlows().subscribe(
-      result => {
-        this.flowOfGoods = result;
-      }
-    )
 
-    this.portService.get().subscribe(
-      results => {
-        this.ports = results
+    let loggedIn = this.sessionService.getLoggedInUser();
+      if (Number(loggedIn) != 0 || loggedIn != null){
+        this.goodsFlowService.getAllGoodsFlows().subscribe(
+          result => {
+            this.flowOfGoods = result;
+          })
+
+        this.portService.get().subscribe(
+          results => {
+            this.ports = results
+          })
+      } else {
+        this.router.navigate(['forbidden-error'])
       }
-    )
   }
 
   removeCargoTransport(idOfItemToRemove : number) {
@@ -48,8 +54,6 @@ export class OverviewDatabaseItemsComponent implements OnInit{
         window.location.reload();
       }
       );
-    }else{
-      //alert("Niets is verwijdert.")
     }
   }
 
@@ -63,8 +67,6 @@ export class OverviewDatabaseItemsComponent implements OnInit{
           window.location.reload();
         }
       );
-    }else{
-      //alert("Niets is verwijdert.")
     }
   }
 }

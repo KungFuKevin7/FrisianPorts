@@ -40,7 +40,7 @@
         <br/>
 
         <div class="row">
-          <div class="form-group col-sm-2">
+          <div class="form-group col-sm-3">
             <label class="label-with-img">Goederensoort</label>
             <img class="icon" src="../../../../../assets/icons/container.png" width="40" height="30">
           </div>
@@ -54,11 +54,12 @@
           </div>
         </div>
 
-
         <div class="new-cargo col-sm-12">
 
           <div class="small-blank"></div>
-          <app-add-cargo-list [selectedDate]="selectedDate" [selectedCargoTransportId]="selectedCargoTransportId">
+          <app-add-cargo-list
+            [selectedDate]="selectedDate"
+            [selectedCargoTransportId]="selectedCargoTransportId">
           </app-add-cargo-list>
         </div>
       </div>

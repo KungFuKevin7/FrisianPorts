@@ -1,12 +1,12 @@
 <div class="row">
-  <div class="form-group col-sm-2">
-    <select [(ngModel)]="chosenCargoType" class="form-select form-select-lg"  id="goods-type" name="cargo-type">
+  <div class="form-group col-sm-3">
+    <select [(ngModel)]="cargoItem.CargoTypeId" class="form-select form-select-lg"  id="goods-type" name="cargo-type">
       <option *ngFor="let cargoType of cargoTypes" value="{{cargoType.cargoTypeId}}">{{cargoType.cargoTypeName}}</option>
     </select>
   </div>
 
   <div class="form-group col-sm-6">
-    <textarea [(ngModel)]="cargoDescription"
+    <textarea [(ngModel)]="cargoItem.CargoDescription"
               name="cargo-description"
               class="input-field form-control form-control-lg"
               id="goods-description"
@@ -15,7 +15,7 @@
   </div>
 
   <div class="form-group col-sm-3">
-    <input [(ngModel)]="weightInTonnes"
+    <input [(ngModel)]="cargoItem.WeightInTonnes"
            name="weight-in-tonnes"
            id="goods-weight"
            class="input-field form-control form-control-lg"
@@ -23,11 +23,6 @@
            min="0">
   </div>
 
-  <div class="form-group col-sm-1">
-    <a class="remove-btn" (click)="removeCargo()">
-      <img src="../../../../assets/icons/trash.png" width="30" height="40">
-    </a>
-  </div>
 </div>
 
 <br>

@@ -4,6 +4,7 @@ import {Province} from "../../../../models/Province";
 import {PortService} from "../../../../services/port.service";
 import {Port} from "../../../../models/Port";
 import {Router} from "@angular/router";
+import {SessionHandlerService} from "../../../../services/session-handler.service";
 
 @Component({
   selector: 'app-add-port-page',
@@ -16,15 +17,22 @@ export class AddPortPageComponent implements OnInit{
 
   constructor(private provinceService : ProvinceService,
               private portService : PortService,
+              private sessionService :SessionHandlerService,
               private router : Router) {
   }
 
   ngOnInit() {
-    this.provinceService.get().subscribe(
-      result => {
-        this.availableProvinces = result
-      }
+    let userId = this.sessionService.getLoggedInUser();
+
+    if (Number(userId) != 0 || userId != null){
+      this.provinceService.get().subscribe(
+        result => {
+          this.availableProvinces = result
+        }
     )
+    } else {
+      this.router.navigate(['forbidden-error'])
+    }
   }
 
   addPort(portName : string,

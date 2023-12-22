@@ -12,7 +12,14 @@ import {TransportService} from "../../../services/transport.service";
 export class TransportOverviewComponent implements OnInit {
   @Input() cargoTransportId: number = 0;
 
-  goodsFlow!: GoodsFlowDto;
+  goodsFlow: GoodsFlowDto = {
+    cargoTransportId: 0,
+    frequency: '',
+    departureLocation: '',
+    arrivalLocation: '',
+    totalWeight: 0
+  };
+
   shipAmount!: number;
 
   constructor(private goodsFlowService: GoodsflowService,

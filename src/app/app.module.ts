@@ -57,6 +57,7 @@ import { AddCargoItemRowComponent } from './pages/admin-page/adding-items/add-lo
 import { AddCargoListComponent } from './pages/admin-page/adding-items/add-loaded-transport/add-cargo-list/add-cargo-list.component';
 import { OverviewDatabaseItemsComponent } from './pages/admin-page/overview-database-items/overview-database-items.component';
 import { AddPortPageComponent } from './pages/admin-page/adding-items/add-port-page/add-port-page.component';
+import { ForbiddenErrorPageComponent } from './pages/error-pages/forbidden-error-page/forbidden-error-page.component';
 
 const routes: Routes = [
   { path: '', component: HomepageComponent },
@@ -77,6 +78,7 @@ const routes: Routes = [
   { path: 'province-dashboard', component: ProvinceDashboardPageComponent},
   { path: 'transport', component : TransportPageComponent},
   { path: 'server-error', component : InternalServerErrorPageComponent },
+  { path: 'forbidden-error', component : ForbiddenErrorPageComponent},
   { path: '**', component : NotfoundpageComponent}
 ];
 
@@ -130,7 +132,8 @@ const routes: Routes = [
     AddCargoItemRowComponent,
     AddCargoListComponent,
     OverviewDatabaseItemsComponent,
-    AddPortPageComponent
+    AddPortPageComponent,
+    ForbiddenErrorPageComponent
   ],
     imports: [
         BrowserModule,
