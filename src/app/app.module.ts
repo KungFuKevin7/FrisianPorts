@@ -3,6 +3,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
+import {FormsModule} from "@angular/forms";
+
 
 import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -16,7 +18,6 @@ import { TransportPageComponent } from './pages/transport-page/transport-page.co
 import { CargoTransportOfPortPageComponent } from './pages/cargo-transport-of-port-page/cargo-transport-of-port-page.component';
 import { MyAccountPageComponent } from './pages/my-account-page/my-account-page.component';
 import { LoginPageComponent } from './pages/login-page/login-page.component';
-import { RegisterPageComponent } from './pages/register-page/register-page.component';
 import { AddCargoTransportPageComponent } from './pages/admin-page/adding-items/add-cargo-transport-page/add-cargo-transport-page.component';
 import { AdminPageComponent } from './pages/admin-page/admin-page.component';
 import { ContactPageComponent } from './pages/contact-page/contact-page.component';
@@ -36,7 +37,6 @@ import { SearchResultListComponent } from './pages/search-page/search-result-lis
 import { SearchResultComponent } from './pages/search-page/search-result-list/search-result/search-result.component';
 import { SearchPageInputComponent } from './pages/search-page/search-page-input/search-page-input.component';
 import { MapComponent } from './pages/mappage/map/map.component';
-import {FormsModule} from "@angular/forms";
 import { NavSearchResultListComponent } from './pages/navbar/search-in-nav-bar/nav-search-result-list/nav-search-result-list.component';
 import { SearchResultPortComponent } from './pages/search-page/search-result-list/search-result-port/search-result-port.component';
 import { DashboardFilterComponent } from './pages/Dashboards/port-dashboard-page/dashboard-filter/dashboard-filter.component';
@@ -58,6 +58,7 @@ import { AddCargoListComponent } from './pages/admin-page/adding-items/add-loade
 import { OverviewDatabaseItemsComponent } from './pages/admin-page/overview-database-items/overview-database-items.component';
 import { AddPortPageComponent } from './pages/admin-page/adding-items/add-port-page/add-port-page.component';
 import { ForbiddenErrorPageComponent } from './pages/error-pages/forbidden-error-page/forbidden-error-page.component';
+import { FaqPageComponent } from './pages/faq-page/faq-page.component';
 
 const routes: Routes = [
   { path: '', component: HomepageComponent },
@@ -73,12 +74,12 @@ const routes: Routes = [
   { path: 'contact', component : ContactPageComponent},
   { path: 'login', component : LoginPageComponent},
   { path: 'my-account', component : MyAccountPageComponent},
-  { path: 'register', component : RegisterPageComponent},
   { path: 'port-dashboard', component: PortDashboardPageComponent},
   { path: 'province-dashboard', component: ProvinceDashboardPageComponent},
   { path: 'transport', component : TransportPageComponent},
   { path: 'server-error', component : InternalServerErrorPageComponent },
   { path: 'forbidden-error', component : ForbiddenErrorPageComponent},
+  { path: 'faq', component : FaqPageComponent},
   { path: '**', component : NotfoundpageComponent}
 ];
 
@@ -94,7 +95,6 @@ const routes: Routes = [
     CargoTransportOfPortPageComponent,
     MyAccountPageComponent,
     LoginPageComponent,
-    RegisterPageComponent,
     AddCargoTransportPageComponent,
     AdminPageComponent,
     ContactPageComponent,
@@ -133,7 +133,8 @@ const routes: Routes = [
     AddCargoListComponent,
     OverviewDatabaseItemsComponent,
     AddPortPageComponent,
-    ForbiddenErrorPageComponent
+    ForbiddenErrorPageComponent,
+    FaqPageComponent
   ],
     imports: [
         BrowserModule,

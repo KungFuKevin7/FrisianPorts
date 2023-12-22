@@ -59,7 +59,7 @@ export class SearchResultListComponent implements OnChanges {
 
   public getDataWithFilter()
   {
-    console.log(this.queryReceived);
+    //console.log(this.queryReceived);
       this.searchService.SearchPortsFiltered(this.queryReceived,
         this.additionalFilter).subscribe( response => {
           this.portResults = response;
