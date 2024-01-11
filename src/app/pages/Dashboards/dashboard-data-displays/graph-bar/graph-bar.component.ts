@@ -4,6 +4,7 @@ import {json} from "d3";
 import {YearlyTransportDTO} from "../../../../models/DTO/YearlyTransportDTO";
 import {PeriodService} from "../../../../services/dashboard-services/period.service";
 import {Constants} from "../../../../.constants/constants";
+import {TransportedCargoDTO} from "../../../../models/DTO/TransportedCargoDTO";
 
 @Component({
   selector: 'app-graph-bar',
@@ -45,10 +46,22 @@ export class GraphBarComponent implements OnInit {
                 "value": item.transported[1].transported_Weight
               }
             ]
-        }));
+        } ));
+        console.log(response)
       }
     )
+  }
 
+  public sumTonnage(listOfCargo : TransportedCargoDTO[], value : string)
+  {
+    let totalTonnage = 0;
+    listOfCargo.forEach( cargoItem => {
+        if (cargoItem.cargo_Type_Name == value){
+            totalTonnage += cargoItem.transported_Weight;
+        }
+      }
+    );
+    return totalTonnage
   }
 /*
   displayData =[{"name": "2022",

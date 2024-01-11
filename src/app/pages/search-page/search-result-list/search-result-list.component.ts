@@ -66,7 +66,8 @@ export class SearchResultListComponent implements OnChanges {
           this.shareResultCount();
       })
 
-    this.searchService.SearchFlowOfGoods(this.queryReceived)
+    this.searchService.SearchFlowOfGoodsFiltered(this.queryReceived,
+      this.additionalFilter)
       .subscribe(response => {
         this.flowOfGoodsResults = response;
         this.shareResultCount();

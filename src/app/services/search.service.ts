@@ -25,14 +25,26 @@ export class SearchService {
       searchParams = searchParams.append('provinces', province);
     });
 
-    console.log(provinceFilter);
     return this.http.get(`${this.apiUri}/port/name/filtered`,
       {params : searchParams.set('query', searchQuery)});
   }
 
   public SearchFlowOfGoods(searchQuery : string) : Observable<any>{
-    return this.http.get(`${this.apiUri}/flow-of-goods/name`,
+    return this.http.get(`${this.apiUri}/flow-of-goods/search`,
       {params : new HttpParams().set("query",searchQuery)
+      });
+  }
+
+  public SearchFlowOfGoodsFiltered(searchQuery : string, provinceFilter : string[]) : Observable<any>{
+    let searchParams = new HttpParams();
+
+    provinceFilter.forEach( province => {
+      searchParams = searchParams.append('provinces', province);
+    });
+
+
+    return this.http.get(`${this.apiUri}/flow-of-goods/search/filtered`,
+      {params : searchParams.set("query",searchQuery)
       });
   }
 }
