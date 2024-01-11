@@ -38,12 +38,12 @@ export class GraphBarComponent implements OnInit {
             name: item.year.toString(),
             series : [
               {
-                "name": item.transported[0].cargo_Type_Name,
-                "value": item.transported[0].transported_Weight
+                "name": 'Export',
+                "value": this.sumTonnage(item.transported, 'Export')
               },
               {
-                "name": item.transported[1].cargo_Type_Name,
-                "value": item.transported[1].transported_Weight
+                "name": 'Import',
+                "value": this.sumTonnage(item.transported, 'Import')
               }
             ]
         } ));
@@ -58,10 +58,11 @@ export class GraphBarComponent implements OnInit {
     listOfCargo.forEach( cargoItem => {
         if (cargoItem.cargo_Type_Name == value){
             totalTonnage += cargoItem.transported_Weight;
+            console.log("Here!")
         }
       }
     );
-    return totalTonnage
+    return totalTonnage;
   }
 /*
   displayData =[{"name": "2022",

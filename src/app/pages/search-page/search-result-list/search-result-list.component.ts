@@ -34,7 +34,7 @@ export class SearchResultListComponent implements OnChanges {
       //Fetch Data using filters
       this.getDataWithFilter();
     }
-    else
+    else if (this.queryReceived.length > Constants.minimumQueryLength)
     {
       //Fetch Data without filters
       this.getDataNormal();
