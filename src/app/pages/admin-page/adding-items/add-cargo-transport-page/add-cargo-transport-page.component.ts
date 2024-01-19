@@ -48,19 +48,37 @@ export class AddCargoTransportPageComponent implements OnInit {
 
   public setDeparture(input : any)
   {
+    console.log(input)
     this.departurePortId = input;
   }
 
   public setArrival(portId : any)
   {
+    console.log(portId)
     this.arrivalPortId = portId;
+  }
+
+  public validateInput()
+  {
+    if (this.departurePortId === this.arrivalPortId){
+      alert("Kan niet met dezelfde haven verbonden zijn!");
+      return false;
+    }
+    if (this.departurePortId == 0 || this.departurePortId === undefined){
+      alert("Vertrekpunt is leeg");
+      return false;
+    }
+    if (this.arrivalPortId == 0 || this.arrivalPortId === undefined)
+    {
+      alert("Bestemming is leeg");
+      return false;
+    }
+    return true;
   }
 
   public addToDatabase()
   {
-    if (this.departurePortId == this.arrivalPortId){
-      alert("Kan niet met dezelfde haven verbonden zijn!");
-    }
+    if (!this.validateInput()) {}
 
     else {
       let newAddedRoute = {
@@ -70,11 +88,13 @@ export class AddCargoTransportPageComponent implements OnInit {
         Cargo_Transport_Id : 0,
         Frequency : this.Frequency,
         Date_Started : this.Date,
-        Added_By_Id : 1
+        Added_By_Id : Number(this.sessionService.getLoggedInUser())
       }
       this.cargoTransportRouteService.add(newAddedRoute).subscribe(
         result => {
           console.log(result);
+          alert("Goederenstroom is toegevoegd.");
+          this.router.navigate(['/admin']);
         }
       );
     }

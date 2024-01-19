@@ -55,10 +55,10 @@ export class GraphBarComponent implements OnInit {
   public sumTonnage(listOfCargo : TransportedCargoDTO[], value : string)
   {
     let totalTonnage = 0;
-    listOfCargo.forEach( cargoItem => {
-        if (cargoItem.cargo_Type_Name == value){
+      listOfCargo.forEach( cargoItem => {
+        if (cargoItem.cargo_Type_Name.toLowerCase()
+          == value.toLowerCase()){
             totalTonnage += cargoItem.transported_Weight;
-            console.log("Here!")
         }
       }
     );

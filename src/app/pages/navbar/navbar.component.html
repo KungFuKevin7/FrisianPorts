@@ -111,10 +111,17 @@
         Contact
       </a>
 
-      <a [routerLink]="['/login']"
-         [routerLinkActive]="'login-btn'"
-         class="login-btn-sm login-btn">
+
+      <a *ngIf="!CheckUserLoggedIn()" [routerLink]="['/login']"
+         [routerLinkActive]="'login-btn-active'"
+         class="login-btn nav-right">
         Inloggen
+      </a>
+
+      <a *ngIf="CheckUserLoggedIn()" [routerLink]="['/admin']"
+         [routerLinkActive]="'login-btn-active'"
+         class="login-btn nav-right">
+        Admin Pagina
       </a>
 
 

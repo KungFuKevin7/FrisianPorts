@@ -21,14 +21,6 @@ export class PeriodService {
       })
   }
 
-  public getProvinceYearlyReport(portId : number){
-    return this.http.get<YearlyTransportDTO[]>(`${this.apiUri}/yearly-report-of-province`,
-      {
-        params : new HttpParams()
-          .set("portId", portId)
-      })
-  }
-
   public getAvailableYearsOfPort(portId : number){
     return this.http.get<number[]>(`${this.apiUri}/available-years-of-port`,
       {

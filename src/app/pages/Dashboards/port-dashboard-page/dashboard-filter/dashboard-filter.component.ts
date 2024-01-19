@@ -30,13 +30,13 @@ export class DashboardFilterComponent implements OnInit {
   public yearSelected(selectedValue : any){
     this.yearEmitter.emit(Number(selectedValue));
 
-    console.log("New Selected Year: " + Number(selectedValue));
+    //console.log("New Selected Year: " + Number(selectedValue));
   }
 
   public monthSelected(selectedMonth : any){
     this.monthEmitter.emit(Number(selectedMonth));
 
-    console.log("New Selected Month: " + Number(selectedMonth));
+    //console.log("New Selected Month: " + Number(selectedMonth));
   }
 
   //Request all years of the selected port, that contains any data

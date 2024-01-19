@@ -31,7 +31,6 @@ export class CargoPiechartComponent implements OnInit{
               value: cargoSlice.transported_Weight
           })
           );
-          //console.log(response);
         }
         )
   }

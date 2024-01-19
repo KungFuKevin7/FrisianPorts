@@ -23,7 +23,7 @@
                     id="depart-input"
                     class="form-select form-select-lg"
                     (change)="setDeparture(DepartureInput.value)">
-
+              <option selected="selected" value="0">Selecteer vertrekpunt</option>
               <option *ngFor="let port of portsToChoose"
                       value="{{port.portId}}">
                       {{port.portLocation}} ({{port.portName}})
@@ -39,7 +39,7 @@
                     id="arrival-input"
                     class="form-select form-select-lg"
                     (change)="setArrival(ArrivalInput.value)">
-
+              <option selected="selected" value="0">Selecteer Bestemming</option>
               <option *ngFor="let port of portsToChoose"
                       value="{{port.portId}}">
                 {{port.portLocation}} ({{port.portName}})
