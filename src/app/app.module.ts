@@ -59,6 +59,7 @@ import { OverviewDatabaseItemsComponent } from './pages/admin-page/overview-data
 import { AddPortPageComponent } from './pages/admin-page/adding-items/add-port-page/add-port-page.component';
 import { ForbiddenErrorPageComponent } from './pages/error-pages/forbidden-error-page/forbidden-error-page.component';
 import { FaqPageComponent } from './pages/faq-page/faq-page.component';
+import { DestinationsPieChartComponent } from './pages/Dashboards/dashboard-data-displays/destinations-pie-chart/destinations-pie-chart.component';
 
 const routes: Routes = [
   { path: '', component: HomepageComponent },
@@ -134,7 +135,8 @@ const routes: Routes = [
     OverviewDatabaseItemsComponent,
     AddPortPageComponent,
     ForbiddenErrorPageComponent,
-    FaqPageComponent
+    FaqPageComponent,
+    DestinationsPieChartComponent
   ],
     imports: [
         BrowserModule,

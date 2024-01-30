@@ -1,6 +1,6 @@
-<div class="container">
+<div class="container dashboard-box">
 
-  <h1 class="pie-chart-title">Goederenverdeling</h1>
+  <h1 class="pie-chart-title">Afkomst en bestemmingen</h1>
 
   <div class="charts-placement">
     <div class="col-sm-6">
@@ -12,9 +12,9 @@
     </div>
     <div class="col-sm-6">
       <ngx-charts-pie-chart
-      [results]="Export"
-      [labels]="true"
-      [scheme]="colorScheme">
+        [results]="Export"
+        [labels]="true"
+        [scheme]="colorScheme">
       </ngx-charts-pie-chart>
     </div>
   </div>
@@ -23,15 +23,15 @@
     <div class="col-sm-6">
       <app-table [Title]="'Import'"
                  [DataDisplay]="Import"
-                 [DataPointI]="'Goederensoort'"
-                 [DataPointII]="'Tonnages'"></app-table>
+                 [DataPointI]="'Bestemming'"
+                 [DataPointII]="'Scheepsbewegingen'"></app-table>
     </div>
     <div class="col-sm-6">
 
       <app-table [Title]="'Export'"
                  [DataDisplay]="Export"
-                 [DataPointI]="'Goederensoort'"
-                 [DataPointII]="'Tonnages'"></app-table>
+                 [DataPointI]="'Afkomst'"
+                 [DataPointII]="'Scheepsbewegingen'"></app-table>
     </div>
   </div>
 </div>

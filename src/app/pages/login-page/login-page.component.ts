@@ -17,17 +17,20 @@ export class LoginPageComponent {
   }
 
   login(email : string, password : string){
-    this.userService.validateUser(email, password)
-      .subscribe(
-        success => {
-
-          if(success){
-            console.log(success)
-            this.sessionService.setLoggedInUser(success.userId.toString())
-            this.router.navigate(['/admin']);
+    if (!email.includes("@")){
+      alert("invoer is geen emailadres")
+    }else{
+      this.userService.validateUser(email, password)
+        .subscribe(
+          success => {
+            if(success){
+              console.log(success)
+              this.sessionService.setLoggedInUser(success.userId.toString())
+              this.router.navigate(['/admin']);
+            }
           }
-        }
-      )
+        )
+    }
   }
 
 }

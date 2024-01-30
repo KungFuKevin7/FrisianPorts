@@ -47,7 +47,7 @@ export class GraphBarComponent implements OnInit {
               }
             ]
         } ));
-        console.log(response)
+        //console.log(response)
       }
     )
   }

@@ -10,6 +10,8 @@ export class TableComponent implements OnChanges {
 
   @Input() Title: string = "";
   @Input() DataDisplay: any = [];
+  @Input() DataPointI : any = "";
+  @Input() DataPointII: any = "";
   total : number = 0;
 
   constructor() {

@@ -2,7 +2,7 @@
 /*Constants used over the entire project to avoid magic numbers etc.*/
 export class Constants{
   public static colourScheme : any = {
-    domain: ['#3c82ce', '#D64933', '#e7e7e7', '#00FF00', '#E38855']
+    domain: ['#3c82ce', '#D64933', '#e7e7e7', '#00FF00', '#FFFF00', '#E38855', '#FF69B4' ]
   };
 
   public static secondColourScheme : any = {
