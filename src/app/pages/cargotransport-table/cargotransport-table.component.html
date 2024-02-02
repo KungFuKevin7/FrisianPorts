@@ -21,7 +21,7 @@
       <td>{{transport.departureLocation}}</td>
       <td>{{transport.arrivalLocation}}</td>
       <td>{{transport.frequency}}</td>
-      <td>{{transport.totalWeight}} Ton</td>
+      <td>{{transport.totalWeight | number:'1.0-0'}} Ton</td>
     </tr>
   </tbody>
 </table>

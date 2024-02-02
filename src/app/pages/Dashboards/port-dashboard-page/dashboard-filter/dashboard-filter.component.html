@@ -5,18 +5,23 @@
     <div class="row">
       <div class="col-md-6">
         <label for="year-dropdown">Jaar</label>
-        <select #yearFilter
-                (change)="yearSelected(yearFilter.value)"
-                id="year-dropdown"
-                class="form-select form-select-lg">
+        <!--         <input #yearFilter
+                       class="input-group form-control-lg"
+                       id="year-dropdown"
+                       (change)="yearSelected(yearFilter.value)"
+                  type="number">-->
+                <select #yearFilter
+                        (change)="yearSelected(yearFilter.value)"
+                        id="year-dropdown"
+                        class="form-select form-select-lg">
 
-          <option value="0">Alles</option>
-          <option *ngFor="let year of yearsOptions"
-                  value="{{year}}">
-            {{year}}
-          </option>
+                  <option value="0">Alles</option>
+                  <option *ngFor="let year of yearsOptions"
+                          value="{{year}}">
+                    {{year}}
+                  </option>
 
-        </select>
+                </select>
       </div>
 
       <div class="col-md-6">
@@ -34,6 +39,10 @@
         </select>
       </div>
     </div>
+<!--
+    <button class="btn home-style-btn text-center">
+      Filters Toepassen
+    </button>-->
   </div>
 
   <br>

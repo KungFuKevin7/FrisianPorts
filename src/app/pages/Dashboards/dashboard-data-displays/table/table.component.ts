@@ -12,6 +12,7 @@ export class TableComponent implements OnChanges {
   @Input() DataDisplay: any = [];
   @Input() DataPointI : any = "";
   @Input() DataPointII: any = "";
+
   total : number = 0;
 
   constructor() {

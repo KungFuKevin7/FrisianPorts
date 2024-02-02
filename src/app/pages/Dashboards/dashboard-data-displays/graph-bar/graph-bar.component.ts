@@ -64,7 +64,7 @@ export class GraphBarComponent implements OnInit {
     );
     return totalTonnage;
   }
-/*
+/* Example data format
   displayData =[{"name": "2022",
     "series": [
       {

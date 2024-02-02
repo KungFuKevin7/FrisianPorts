@@ -10,7 +10,7 @@ import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HomepageComponent } from './pages/homepage/homepage.component';
 import { MappageComponent } from './pages/mappage/mappage.component';
-import {RouterLink, RouterModule, RouterOutlet, Routes} from "@angular/router";
+import {ExtraOptions, RouterLink, RouterModule, RouterOutlet, Routes} from "@angular/router";
 import { NotfoundpageComponent } from './pages/error-pages/notfoundpage/notfoundpage.component';
 import { NavbarComponent } from './pages/navbar/navbar.component';
 import { SearchPageComponent } from './pages/search-page/search-page.component';
@@ -60,6 +60,8 @@ import { AddPortPageComponent } from './pages/admin-page/adding-items/add-port-p
 import { ForbiddenErrorPageComponent } from './pages/error-pages/forbidden-error-page/forbidden-error-page.component';
 import { FaqPageComponent } from './pages/faq-page/faq-page.component';
 import { DestinationsPieChartComponent } from './pages/Dashboards/dashboard-data-displays/destinations-pie-chart/destinations-pie-chart.component';
+import { AddUserComponent } from './pages/admin-page/adding-items/add-user/add-user.component';
+
 
 const routes: Routes = [
   { path: '', component: HomepageComponent },
@@ -68,6 +70,7 @@ const routes: Routes = [
   { path: 'add-cargo-transport', component : AddCargoTransportPageComponent},
   { path: 'add-transport', component : AddLoadedTransportComponent},
   { path: 'add-port', component : AddPortPageComponent},
+  { path: 'add-user', component : AddUserComponent},
   { path: 'cargo-transport-of-port', component : CargoTransportOfPortPageComponent},
   { path: 'admin', component: AdminPageComponent},
   { path: 'manage-database-items', component : OverviewDatabaseItemsComponent},
@@ -136,7 +139,8 @@ const routes: Routes = [
     AddPortPageComponent,
     ForbiddenErrorPageComponent,
     FaqPageComponent,
-    DestinationsPieChartComponent
+    DestinationsPieChartComponent,
+    AddUserComponent
   ],
     imports: [
         BrowserModule,

@@ -10,12 +10,23 @@
   <tbody>
     <tr *ngFor="let transport of DataDisplay">
       <th scope="row">{{transport.name}}</th>
-      <td>{{transport.value}}</td>
+      <td>{{transport.value | number:'1.0-0'}}</td>
     </tr>
-    <tr>
-      <th class="">Totaal:</th>
-      <td>{{total}}</td>
-    </tr>
+
+    <!--A rather disgusting fix, but it was a very late edit in development-->
+      <tr  *ngIf="DataDisplay.length < 3">
+        <th scope="row">ㅤ</th>
+        <td></td>
+      </tr>
+      <tr *ngIf="DataDisplay.length < 4">
+        <th scope="row">ㅤ</th>
+        <td></td>
+      </tr>
   </tbody>
+
+  <tr>
+    <th class="">Totaal:</th>
+    <td>{{total | number:'1.0-0'}}</td>
+  </tr>
 
 </table>

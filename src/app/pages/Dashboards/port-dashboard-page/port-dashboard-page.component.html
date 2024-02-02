@@ -1,3 +1,24 @@
+
+<div class="dashboard-box side-menu-contents d-xl-block d-lg-none d-md-none d-sm-none">
+  <h1 class="text-center">
+    Inhoud
+  </h1>
+  <br>
+  <ol>
+    <a class="content-item" (click)="navigate(Goederenverdeling)">
+      <li>Goederenverdeling</li>
+    </a>
+    <br>
+    <a class="content-item" (click)="navigate(AfkomstHerkomst)">
+      <li>Afkomst en Bestemmingen</li>
+    </a>
+    <br>
+    <a class="content-item" (click)="navigate(PeriodeOverzicht)">
+      <li>Periodeoverzicht</li>
+    </a>
+  </ol>
+</div>
+
 <div class="container">
 
   <div class="small-blank"></div>
@@ -6,10 +27,9 @@
 
   <div class="small-blank"></div>
 
-  <div class="row">
-
+  <div class="row" #Goederenverdeling>
     <!--Charts and tables-->
-    <div class="col-lg-6">
+    <div class="col-lg-6" >
       <div class="dashboard-box">
         <app-pie-chart
           [portId]="portId"
@@ -36,10 +56,46 @@
 
       </app-single-data-collection>
     </div>
-    <div class="blank"></div>
+  </div>
 
-<!--Bar graph-->
-    <div class="row">
+    <div class="blank">
+      <hr>
+    </div>
+
+    <!--Cargotransport table-->
+    <div class="row" #AfkomstHerkomst id="AfkomstHerkomst">
+      <h1 class="text-center">Afkomst en Herkomst</h1>
+      <div class="col-lg-6">
+        <br>
+        <app-destinations-pie-chart
+          [portId]="portId"
+          [selectedYear]="selectedYear"
+          [selectedMonth]="selectedMonth">
+        </app-destinations-pie-chart>
+      </div>
+
+      <div class="col-lg-6">
+        <app-cargotransport-table
+          [portId]="portId">
+        </app-cargotransport-table>
+
+        <div class="blank"></div>
+
+        <a [routerLink]="['/cargo-transport-of-port']"
+           [queryParams]="{id : portId}"
+           class="btn btn-primary fill-btn">
+          Alle gekoppelde goederenstromen
+        </a>
+      </div>
+    </div>
+    <br>
+
+    <div class="blank">
+      <hr>
+    </div>
+
+    <!--Bar graph-->
+    <div class="row" #PeriodeOverzicht>
       <div class="col-lg-9">
         <app-graph-bar
           [portId]="portId">
@@ -53,34 +109,4 @@
       </div>
     </div>
 
-    <div class="blank">
-      <hr>
-    </div>
-
-
-    <!--Cargotransport table-->
-    <div class="row">
-      <div class="col-md-6">
-        <app-cargotransport-table
-        [portId]="portId">
-        </app-cargotransport-table>
-
-        <div class="blank"></div>
-
-        <a [routerLink]="['/cargo-transport-of-port']"
-           [queryParams]="{id : portId}"
-           class="btn btn-primary fill-btn">
-          Alle gekoppelde goederenstromen
-        </a>
-      </div>
-      <div class="col-md-6">
-        <app-destinations-pie-chart
-          [portId]="portId"
-          [selectedYear]="selectedYear"
-          [selectedMonth]="selectedMonth">
-        </app-destinations-pie-chart>
-      </div>
-    </div>
-
   </div>
-</div>

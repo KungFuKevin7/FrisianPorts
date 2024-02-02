@@ -1,6 +1,9 @@
 import {Component, Input, OnInit, OnChanges, SimpleChanges} from '@angular/core';
 import {Constants} from "../../../../.constants/constants";
 import {DestinationCargoService} from "../../../../services/dashboard-services/destination-cargo.service";
+import {NumberFormat} from "../../../../.constants/NumberFormat";
+import _default from "chart.js/dist/plugins/plugin.tooltip";
+import numbers = _default.defaults.animations.numbers;
 
 @Component({
   selector: 'app-destinations-pie-chart',
@@ -27,7 +30,6 @@ export class DestinationsPieChartComponent implements OnInit, OnChanges {
 
   //Call the same methods as OnInit, but now with added period filter, if given
   ngOnChanges(changes:SimpleChanges): void {
-    console.log("Changed")
     this.getImportDestinations();
     this.getExportDestinations();
   }

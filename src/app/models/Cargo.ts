@@ -5,4 +5,5 @@ export interface Cargo
   WeightInTonnes : number;
   CargoTypeId : number;
   TransportId : number;
+  Source : string;
 }

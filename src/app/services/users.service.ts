@@ -19,7 +19,14 @@ export class UsersService implements IServiceTemplate<Users>{
   private readonly apiUri= `${Constants.apiUrl}/users`
 
   add(objectToAdd: Users): Observable<Users> {
-    return this.http.post<Users>(this.apiUri, objectToAdd);
+    return this.http.post<Users>(this.apiUri, objectToAdd)
+      .pipe(
+        catchError( err => {
+            alert("Invoer klopt niet of emailadres is al in gebruik.");
+            return throwError(err);
+        }
+      )
+    );
   }
 
   delete(idOfItem: number): Observable<number> {

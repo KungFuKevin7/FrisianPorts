@@ -19,7 +19,7 @@
     <tbody>
     <tr *ngFor="let cargo of piechartData">
       <th scope="row">{{cargo.name}}</th>
-      <td>{{cargo.value}}</td>
+      <td>{{cargo.value | number:'1.0-0'}}</td>
     </tr>
     </tbody>
 

@@ -26,7 +26,7 @@ export class SmallSingleDataCollectionComponent implements OnInit{
   {
     this.avgService.getAverageImport(this.portId).subscribe(
       response => {
-        this.avgImport = this.round(response);
+        this.avgImport = response;
       }
     )
   }
@@ -36,12 +36,9 @@ export class SmallSingleDataCollectionComponent implements OnInit{
   {
     this.avgService.getAverageExport(this.portId).subscribe(
       response => {
-        this.avgExport = this.round(response);
+        this.avgExport = response;
       }
     )
   }
 
-  public round(value : any){
-    return value.toFixed(2);
-  }
 }

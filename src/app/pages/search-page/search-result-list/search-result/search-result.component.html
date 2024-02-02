@@ -20,7 +20,7 @@
     <h3 class="Value">{{result.frequency}}</h3>
     <hr>
     <p class="info-text">Totaal gewicht vervoerd</p>
-    <h3 class="Value">{{result.totalWeight}} ton</h3>
+    <h3 class="Value">{{result.totalWeight | number:'1.0-0'}} ton</h3>
     <hr>
     <div [routerLink]="['/transport']"
          [queryParams]="{id: result.cargoTransportId}"

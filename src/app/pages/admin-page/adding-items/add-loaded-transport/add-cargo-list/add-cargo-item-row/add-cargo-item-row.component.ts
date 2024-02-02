@@ -1,13 +1,7 @@
 import {
   Component,
-  EventEmitter,
   Input,
-  OnChanges,
   OnInit,
-  Output,
-  SimpleChanges,
-  ViewChild,
-  ViewContainerRef
 } from '@angular/core';
 import {CargoTypeService} from "../../../../../../services/cargo-type.service";
 import {GoodsflowService} from "../../../../../../services/dashboard-services/goodsflow.service";
@@ -30,7 +24,8 @@ export class AddCargoItemRowComponent implements OnInit
       CargoDescription: "",
       CargoTypeId: 0,
       WeightInTonnes: 0,
-      TransportId: 0
+      TransportId: 0,
+      Source: ""
     };
 
   cargoTypes! : CargoType[];

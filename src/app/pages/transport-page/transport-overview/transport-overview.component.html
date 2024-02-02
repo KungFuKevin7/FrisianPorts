@@ -29,7 +29,7 @@
         <div class="col-md-6">
           <div class="single-data">
             <p class="text-center">Tonnage getransporteerd</p>
-            <h1 class="text-center">{{goodsFlow.totalWeight}}</h1>
+            <h1 class="text-center">{{goodsFlow.totalWeight | number:'1.0-0'}}</h1>
           </div>
         </div>
         <div class="col-md-6">
@@ -42,7 +42,7 @@
       <div class="col-md-12">
         <div class="single-data">
           <p class="text-center">Aantal scheepsbewegingen</p>
-          <h1 class="text-center">{{shipAmount}}</h1>
+          <h1 class="text-center">{{shipAmount | number:'1.0-0'}}</h1>
         </div>
       </div>
 

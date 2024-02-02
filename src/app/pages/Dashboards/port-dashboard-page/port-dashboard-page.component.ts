@@ -67,4 +67,14 @@ export class PortDashboardPageComponent implements OnInit{
     this.selectedMonth = receivedMonth;
   }
 
+  public navigate(Id : any)
+  {
+    Id.scrollIntoView(
+      {
+        behavior: "smooth",
+        block: "start",
+        inline: "nearest"
+      });
+  }
+
 }

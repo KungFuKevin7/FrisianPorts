@@ -11,13 +11,13 @@
     <tr *ngFor="let cargo of cargoToDisplay">
       <th scope="row">{{cargo.cargo_Type_Name}}</th>
       <td>{{cargo.cargo_Description}}</td>
-      <td>{{cargo.transported_Weight}}</td>
+      <td>{{cargo.transported_Weight | number:'1.0-0'}}</td>
     </tr>
 
     <tr>
       <th>Totaal:</th>
       <td></td>
-      <th>{{totalWeight}}</th>
+      <th>{{totalWeight | number:'1.0-0'}}</th>
     </tr>
     </tbody>
   </table>

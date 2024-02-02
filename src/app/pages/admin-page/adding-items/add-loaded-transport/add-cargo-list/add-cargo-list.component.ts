@@ -70,7 +70,8 @@ export class AddCargoListComponent implements OnInit, OnChanges {
         CargoDescription : "",
         WeightInTonnes: 0,
         CargoTypeId: 1,
-        TransportId: 0
+        TransportId: 0,
+        Source : ""
       }
     this.cargoList.push(cargo);
   }

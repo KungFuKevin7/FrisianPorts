@@ -28,8 +28,9 @@ export class DashboardFilterComponent implements OnInit {
 
   //Fired once another value has been selected in the dropdown filter.
   public yearSelected(selectedValue : any){
-    this.yearEmitter.emit(Number(selectedValue));
-
+    //if (selectedValue.length > 3) {
+      this.yearEmitter.emit(Number(selectedValue));
+    //}
     //console.log("New Selected Year: " + Number(selectedValue));
   }
 

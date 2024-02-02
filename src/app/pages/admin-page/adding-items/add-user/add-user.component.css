@@ -1,0 +1,8 @@
+.fill-btn{
+  width: 100%;
+  font-size: 50px;
+}
+
+.side-by-side{
+  display: inline-flex;
+}
